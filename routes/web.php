@@ -16,10 +16,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.indexs');
 });
-// Route::get('');
 
 
 //rbac
 Route::prefix("rbac")->group(function(){
-	Route::get("admin/index","Admin\AdminController@index");
+	Route::get("admin/indexs","Admin\AdminController@index");
+});
+
+
+
+
+
+//课程
+Route::prefix("/course")->group(function(){
+    Route::get("/create","Course\CourseController@create");//课程添加
+    Route::get("/index","Course\CourseController@list");//课程展示
+    Route::prefix('section')->group(function(){
+        Route::get("/create","Course\SectionController@create");//章程添加
+    });
+    Route::prefix('knob')->group(function(){
+        Route::get("/create","Course\KnobController@create");//节添加
+    });
+    Route::prefix('hour')->group(function(){
+        Route::get("/create","Course\HourController@create");//课时添加
+    });
 });
