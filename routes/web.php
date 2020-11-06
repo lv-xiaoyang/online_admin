@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('admin.indexs');
 });
 // Route::get('');
+
+
+//rbac
+Route::prefix("rbac")->group(function(){
+	Route::get("admin/index","Admin\AdminController@index");
+});
