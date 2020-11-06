@@ -14,18 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('admin.indexs');
 });
 
-/**
- * 课程管理
- */
-Route::prefix('course')->group(function(){
-    /**
-     * 课程类型管理
-     */
-    Route::prefix('type')->group(function(){
-        //课程类型展示
-        //Route::get('/','');
-    });
+
+//rbac
+Route::prefix("rbac")->group(function(){
+	Route::get("admin/index","Admin\AdminController@index");
 });
