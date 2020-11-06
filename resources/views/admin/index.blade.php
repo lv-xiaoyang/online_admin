@@ -138,10 +138,43 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false">
+                                <i class="fa big-icon fa-table icon-wrap"></i>
+                                <span class="mini-click-non">课程模块</span>
+                            </a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Peity Charts" href="static-table.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Static Table</span></a></li>
-                                <li><a title="Data Table" href="data-table.html"><i class="fa fa-th sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Data Table</span></a></li>
+                                <li>
+                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false">
+                                        <i class="fa fa-th sub-icon-mg" aria-hidden="true"></i>
+                                        <span class="mini-click-non">课程类型管理</span>
+                                    </a>
+                                    <ul class="submenu-angle" aria-expanded="false">
+                                        <li>
+                                            <a title="Peity Charts" href="static-table.html">
+                                                <i class="fa fa-th sub-icon-mg" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">Static Table</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Data Table" href="data-table.html">
+                                                <i class="fa fa-th sub-icon-mg" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">Data Table</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a title="Peity Charts" href="static-table.html">
+                                        <i class="fa fa-table sub-icon-mg" aria-hidden="true"></i>
+                                        <span class="mini-sub-pro">Static Table</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Data Table" href="data-table.html">
+                                        <i class="fa fa-th sub-icon-mg" aria-hidden="true"></i>
+                                        <span class="mini-sub-pro">Data Table</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li>
