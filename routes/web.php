@@ -70,3 +70,22 @@ Route::prefix('role_power')->group(function(){
     //角色权限添加页面
     Route::get('create','Admin\RolePowerController@create');
 });
+
+
+
+
+
+//课程
+Route::prefix("/course")->group(function(){
+    Route::get("/create","Course\CourseController@create");//课程添加
+    Route::get("/index","Course\CourseController@list");//课程展示
+    Route::prefix('section')->group(function(){
+        Route::get("/create","Course\SectionController@create");//章程添加
+    });
+    Route::prefix('knob')->group(function(){
+        Route::get("/create","Course\KnobController@create");//节添加
+    });
+    Route::prefix('hour')->group(function(){
+        Route::get("/create","Course\HourController@create");//课时添加
+    });
+});
