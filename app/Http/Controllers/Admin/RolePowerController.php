@@ -5,21 +5,21 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class RolePowerController extends Controller
 {
     /**
-     * 管理员展示方法
+     * 角色权限展示方法
      */
     public function index(){
         //渲染视图
-        return view('admin/admin/index');
+        return view('admin/role_power/index');
     }
 
     /**
-     * 管理员添加方法
+     * 角色权限添加方法
      */
     public function create(){
         //渲染视图
-        return view('admin/admin/create');
+        return view('admin/role_power/create');
     }
 }
