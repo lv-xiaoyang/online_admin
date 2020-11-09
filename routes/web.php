@@ -98,7 +98,7 @@ Route::prefix("/question")->group(function(){
 	Route::get("/index","Admin\QuestionController@index");
 	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
 	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
-
+    Route::post("/jianaddo","Admin\QuestionController@jianaddo");//简答题执行添加
 	Route::get("/danindex","Admin\QuestionController@danindex");//单选题题展示
 	Route::get("/danadd","Admin\QuestionController@danadd");//单选题添加
     Route::post("/danadddo","Admin\QuestionController@danadddo");//单选题执行添加

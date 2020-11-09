@@ -20,22 +20,26 @@
   </tr>
   </thead>
   <tbody>
+    @foreach($data as $k=>$v)
     <tr>
-      <td>1</td>
-      <td>单选题</td>
-      <td>简单</td>
-      <td>一分钟等于多少秒？</td>
-      <td>A</td>
-      <td>60秒</td>
-      <td>50秒</td>
-      <td>55秒</td>
-      <td>40秒</td>
+      <td>{{$v->question_id}}</td>
+      <td>@if($v->question_type_id==1)单选题  @elseif($v->question_type_id==2)多选题  @elseif($v->question_type_id==3)简答题 @endif</td>
+      <td>@if($v->question_diff==1)简单  @elseif($v->question_diff==2)中等  @elseif($v->question_diff==3)困难 @endif</td>
+      <td>{{$v->question_name}}</td>
+      <td>@if($v->question_cor==1)A @endif @if($v->question_cor==2)B @endif @if($v->question_cor==3)C @endif @if($v->question_cor==4)D @endif</td>
+      <td>{{$v->cor_a}}</td>
+      <td>{{$v->cor_b}}</td>
+      <td>{{$v->cor_c}}</td>
+      <td>{{$v->cor_d}}</td>
       <td>
-      	删除 | 	
+      	<a href="">删除</a> | 	
       	修改
       </td>
   </tr>
-   
+  @endforeach
+   <td>
+      <td colspan="10">{{$data->links()}}</td>
+   </td>
   </tbody>
 </table>
 

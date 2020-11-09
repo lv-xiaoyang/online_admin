@@ -11,9 +11,22 @@ class QuestionController extends Controller
 {
     //题库zhanshi
     public function index(){
+        //查询表
+        $where = [
+            'is_del'=>0,
+            
+        ];
+        $data = QuestionModel::where($where)->orderBy("question_time","desc")->paginate(5);
+        $typewhere = [
+            'question_type_id'=>2,
+        ];
+        $typedata = QuestionModel::where($typewhere)->get();
+        // dd($typedata['question_cor']);
+        foreach ($typedata as $key => $value) {
+            var_dump($value->question_cor);
+        }
 
-
-        return view("question.index");
+        return view("question.index",['data'=>$data]);
     }
     // public function danindex(){
     // 	//单选题展示
@@ -162,7 +175,42 @@ class QuestionController extends Controller
     public function jianadd(){
     	return view("question.jianadd");
     }
-    public function jianadddo(Request $request){
-        echo "123";
+    public function jianaddo(Request $request){
+        // 接值
+        //接值
+        //题目类型
+        $question_name = $request->post("question_name");
+        $question_type_id = $request->post("question_type_id");
+        // 题目难度
+        $question_diff = $request->post("question_diff");
+        //答案
+        $cor_a = $request->post("cor_a");
+            if(!$question_name){
+                echo json_encode(['code'=>1,"msg"=>"题目题干不可为空"]);die;
+            }
+           if(!$question_type_id){
+                echo json_encode(['code'=>1,"msg"=>"题目类型不可为空"]);die;
+            }
+            if(!$question_diff){
+                echo json_encode(['code'=>1,"msg"=>"题目难度不可为空"]);die;
+            }
+            
+            if(!$cor_a){
+                echo json_encode(['code'=>1,"msg"=>"A内容不可为空"]);die;
+            }
+        $questionModel = new QuestionModel();
+        //
+        $questionModel->question_type_id=$question_type_id;
+        $questionModel->question_diff=$question_diff;
+        $questionModel->cor_a=$cor_a;
+        $questionModel->question_name=$question_name;
+        $questionModel->question_time=time();
+        $res = $questionModel->save();
+        if($res){
+            echo json_encode(['code'=>0,"msg"=>"添加成功"]);die;
+        }else{
+            echo json_encode(['code'=>1,"msg"=>"添加失败"]);die;
+        }
+        
     }
 }

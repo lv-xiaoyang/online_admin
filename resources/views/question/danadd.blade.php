@@ -130,7 +130,8 @@
       $.ajax({
         type:"post",
         dataType:"json",
-        url:"{{url('/question/danadddo')}}",
+        url:"{{url('/question/jianaddo')}}",
+        dataType:"json",
         headers:{'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
         data:{question_name:question_name,question_type_id:question_type_id,question_diff:question_diff,question_cor:question_cor,cor_a:cor_a,cor_b:cor_b,cor_c:cor_c,cor_d:cor_d},
         success:function(res){
