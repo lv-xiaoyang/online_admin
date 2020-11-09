@@ -1,8 +1,8 @@
-9
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
@@ -10,6 +10,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
+  <!-- jquery
+        ============================================ -->
+    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="/static/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="/static/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="/static/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="/static/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="/static/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="/static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/static/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="/static/js/metisMenu/metisMenu.min.js"></script>
+    <script src="/static/js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="/static/js/morrisjs/raphael-min.js"></script>
+    <script src="/static/js/morrisjs/morris.js"></script>
+    <script src="/static/js/morrisjs/morris-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/static/js/sparkline/jquery.charts-sparkline.js"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <script src="/static/js/calendar/moment.min.js"></script>
+    <script src="/static/js/calendar/fullcalendar.min.js"></script>
+    <script src="/static/js/calendar/fullcalendar-active.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="/static/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="/static/js/main.js"></script>
+        <!-- 表格的js开始 -->
+<!-- data table JS
+        ============================================ -->
+<script src="/static/js/data-table/bootstrap-table.js"></script>
+<script src="/static/js/data-table/tableExport.js"></script>
+<script src="/static/js/data-table/data-table-active.js"></script>
+<script src="/static/js/data-table/bootstrap-table-editable.js"></script>
+<script src="/static/js/data-table/bootstrap-editable.js"></script>
+<script src="/static/js/data-table/bootstrap-table-resizable.js"></script>
+<script src="/static/js/data-table/colResizable-1.5.source.js"></script>
+<script src="/static/js/data-table/bootstrap-table-export.js"></script>
+<!--  editable JS
+    ============================================ -->
+<script src="/static/js/editable/jquery.mockjax.js"></script>
+<script src="/static/js/editable/mock-active.js"></script>
+<script src="/static/js/editable/select2.js"></script>
+<script src="/static/js/editable/moment.min.js"></script>
+<script src="/static/js/editable/bootstrap-datetimepicker.js"></script>
+<script src="/static/js/editable/bootstrap-editable.js"></script>
+<script src="/static/js/editable/xediable-active.js"></script>
+<!-- Chart JS
+    ============================================ -->
+<script src="/static/js/chart/jquery.peity.min.js"></script>
+<script src="/static/js/peity/peity-active.js"></script>
+<!-- tab JS
+    ============================================ -->
+<script src="/static/js/tab.js"></script>
+<!-- 表格的js结束 -->
+
+<!-- 表单的js开始 -->
+<!-- icheck JS
+        ============================================ -->
+<script src="/static/js/icheck/icheck.min.js"></script>
+<script src="/static/js/icheck/icheck-active.js"></script>
+<!-- 表单的js结束 -->
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
@@ -1088,94 +1175,8 @@
         
     </div>
 
-    <!-- jquery
-		============================================ -->
-    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="/static/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="/static/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="/static/js/jquery-price-slider.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="/static/js/jquery.meanmenu.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="/static/js/owl.carousel.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="/static/js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="/static/js/jquery.scrollUp.min.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="/static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="/static/js/scrollbar/mCustomScrollbar-active.js"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="/static/js/metisMenu/metisMenu.min.js"></script>
-    <script src="/static/js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="/static/js/morrisjs/raphael-min.js"></script>
-    <script src="/static/js/morrisjs/morris.js"></script>
-    <script src="/static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="/static/js/sparkline/jquery.charts-sparkline.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="/static/js/calendar/moment.min.js"></script>
-    <script src="/static/js/calendar/fullcalendar.min.js"></script>
-    <script src="/static/js/calendar/fullcalendar-active.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="/static/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="/static/js/main.js"></script>
+  
 
 </body>
 
 </html>
-<!-- 表格的js开始 -->
-<!-- data table JS
-		============================================ -->
-<script src="/static/js/data-table/bootstrap-table.js"></script>
-<script src="/static/js/data-table/tableExport.js"></script>
-<script src="/static/js/data-table/data-table-active.js"></script>
-<script src="/static/js/data-table/bootstrap-table-editable.js"></script>
-<script src="/static/js/data-table/bootstrap-editable.js"></script>
-<script src="/static/js/data-table/bootstrap-table-resizable.js"></script>
-<script src="/static/js/data-table/colResizable-1.5.source.js"></script>
-<script src="/static/js/data-table/bootstrap-table-export.js"></script>
-<!--  editable JS
-    ============================================ -->
-<script src="/static/js/editable/jquery.mockjax.js"></script>
-<script src="/static/js/editable/mock-active.js"></script>
-<script src="/static/js/editable/select2.js"></script>
-<script src="/static/js/editable/moment.min.js"></script>
-<script src="/static/js/editable/bootstrap-datetimepicker.js"></script>
-<script src="/static/js/editable/bootstrap-editable.js"></script>
-<script src="/static/js/editable/xediable-active.js"></script>
-<!-- Chart JS
-    ============================================ -->
-<script src="/static/js/chart/jquery.peity.min.js"></script>
-<script src="/static/js/peity/peity-active.js"></script>
-<!-- tab JS
-    ============================================ -->
-<script src="/static/js/tab.js"></script>
-<!-- 表格的js结束 -->
-
-<!-- 表单的js开始 -->
-<!-- icheck JS
-		============================================ -->
-<script src="/static/js/icheck/icheck.min.js"></script>
-<script src="/static/js/icheck/icheck-active.js"></script>
-<!-- 表单的js结束 -->
