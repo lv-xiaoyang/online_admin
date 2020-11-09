@@ -30,10 +30,13 @@ class CourseController extends Controller
             return ['code'=>0003,'msg'=>'课程名称已存在'];
         }
         $file = request()->file('course_img');
+        //文件上传验证
+        if(!empty($file)){
+            return ['code'=>0002,'msg'=>'请上传文件'];
+        }
         $fileImg=$this->fileImg($file);
         $data['course_add_time']=time();
         $data['course_img']=$fileImg;
-        // dd($data);
         $res=CourseModel::insert($data);
         if($res){
             return ['code'=>0001,'msg'=>'添加成功'];
