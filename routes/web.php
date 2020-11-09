@@ -109,8 +109,12 @@ Route::prefix("/question")->group(function(){
 	Route::get("/danindex","Admin\QuestionController@danindex");//单选题题展示
 	Route::get("/danadd","Admin\QuestionController@danadd");//单选题添加
     Route::post("/danadddo","Admin\QuestionController@danadddo");//单选题执行添加
+    Route::post("danupdate/{id}","Admin\QuestionController@danupdate");
 	Route::get("/duoindex","Admin\QuestionController@duoindex");//多选题展示
 	Route::get("/duoadd","Admin\QuestionController@duoadd");//多选题添加
     Route::post("/duoadddo","Admin\QuestionController@duoadddo");//多选题执行添加
+    Route::get("/del/{id}","Admin\QuestionController@del");//删除
+    Route::get("/upd/{id}","Admin\QuestionController@upd");//修改
+    Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
 });
 

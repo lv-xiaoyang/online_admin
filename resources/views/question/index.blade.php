@@ -31,18 +31,47 @@
       <td>{{$v->cor_b}}</td>
       <td>{{$v->cor_c}}</td>
       <td>{{$v->cor_d}}</td>
-      <td>
-      	<a href="">删除</a> | 	
-      	修改
+      <td><!-- <a href="{{url('/question/del/'.$v->question_id)}}"></a> -->
+      	<button type="submit" id="del" value="{{$v->question_id}}" class="btn btn-default">删除</button>	
+        <button type="submit" id="upd" value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/upd/'.$v->question_id)}}">修改</a></button>
       </td>
   </tr>
+
   @endforeach
    <td>
       <td colspan="10">{{$data->links()}}</td>
    </td>
   </tbody>
 </table>
+<script>
+  $(document).ready(function(){
+    $("#del").click(function(){
+      var _this=$(this);
+      var id = _this.val();
 
+
+
+       bootbox.confirm("确认删除", function () {
+          window.location.href="/question/del/"+id;
+      })
+      // if(window.confirm("您确定删除吗？")){
+      //   window.location.href="/question/del/"+id;
+      // }
+    })
+    // $("#upd").click(function(){
+    //   var _this=$(this);
+    //   var id = _this.val();
+    //   $.ajax({
+    //     headers:{'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
+    //     type:"get",
+    //     url:"/question/upd/"+id,
+    //     success:function(res){
+    //       alert(res)
+    //     }
+    //   })
+    // })
+});
+</script>
 
 
 @endsection
