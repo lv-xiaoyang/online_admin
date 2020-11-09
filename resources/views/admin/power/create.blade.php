@@ -25,7 +25,7 @@
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                                             <input type="text" id="pow_name" placeholder="请输入权限名称。" class="form-control" />
-                                                            <span class="pow" id="span_pow_name">{{$errors->first('pow_name')}}</span>
+                                                            <span class="pow" id="span_pow_name"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -56,8 +56,12 @@
                                                             <div class="col-lg-3"></div>
                                                             <div class="col-lg-9">
                                                                 <div class="login-horizental cancel-wp pull-left">
-                                                                    <button class="btn btn-white" type="reset">重置</button>
+                                                                    <button class="btn btn-white " type="reset">重置</button>
                                                                     <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">提交</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -29,6 +29,18 @@ Route::prefix('admin')->group(function(){
     Route::get('/','Admin\AdminController@index');
     //管理员添加页面
     Route::get('create','Admin\AdminController@create');
+    //管理员名称验证唯一
+    Route::post('admin_name_unique','Admin\AdminController@unique');
+    //执行添加
+    Route::post('store','Admin\AdminController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\AdminController@edit');
+    //修改 管理员名称验证唯一
+    Route::post('admin_name_unique_update/{id}','Admin\AdminController@unique_update');
+    //修改
+    Route::post('update/{id}','Admin\AdminController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\RolesController@destroy');
 });
 
 /**
@@ -39,6 +51,18 @@ Route::prefix('roles')->group(function(){
     Route::get('/','Admin\RolesController@index');
     //角色添加页面
     Route::get('create','Admin\RolesController@create');
+    //角色名称验证唯一
+    Route::post('ro_name_unique','Admin\RolesController@unique');
+    //执行添加
+    Route::post('store','Admin\RolesController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\RolesController@edit');
+    //修改 角色名称验证唯一
+    Route::post('ro_name_unique_update/{id}','Admin\RolesController@unique_update');
+    //修改
+    Route::post('update/{id}','Admin\RolesController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\RolesController@destroy');
 });
 
 /**
@@ -93,14 +117,7 @@ Route::prefix('role_power')->group(function(){
 
 //课程
 Route::prefix("/course")->group(function(){
-    Route::prefix('/type')->group(function(){
-        Route::get("/create","Course\CourseTypeController@create");//课程分类添加
-        Route::post("/add","Course\CourseTypeController@add");//课程分类确认添加
-        Route::get("/index","Course\CourseTypeController@index");//课程分类展示
-    });
-    
     Route::get("/create","Course\CourseController@create");//课程添加
-    Route::post("/add","Course\CourseController@add");//课程确认添加
     Route::get("/index","Course\CourseController@list");//课程展示
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
@@ -112,21 +129,3 @@ Route::prefix("/course")->group(function(){
         Route::get("/create","Course\HourController@create");//课时添加
     });
 });
-
-
-
-
-//题库
-Route::prefix("/question")->group(function(){
-	Route::get("/index","Admin\QuestionController@index");
-	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
-	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
-    Route::post("/jianaddo","Admin\QuestionController@jianaddo");//简答题执行添加
-	Route::get("/danindex","Admin\QuestionController@danindex");//单选题题展示
-	Route::get("/danadd","Admin\QuestionController@danadd");//单选题添加
-    Route::post("/danadddo","Admin\QuestionController@danadddo");//单选题执行添加
-	Route::get("/duoindex","Admin\QuestionController@duoindex");//多选题展示
-	Route::get("/duoadd","Admin\QuestionController@duoadd");//多选题添加
-    Route::post("/duoadddo","Admin\QuestionController@duoadddo");//多选题执行添加
-});
-

@@ -1,81 +1,83 @@
 @extends('admin/index')
-@section('title','管理员添加页面')
+@section('title','管理员编辑页面')
 @section('content')
     <div class="basic-form-area mg-tb-15">
         <div class="container-fluid">
             <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="sparkline12-list">
-                <div class="sparkline12-hd">
-                    <div class="main-sparkline12-hd">
-                        <h1>管理员添加页面</h1>
-                    </div>
-                </div>
-                <div class="sparkline12-graph">
-                    <div class="basic-login-form-ad">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="all-form-element-inner">
-                                    <form action="javascript:;">
-                                        @csrf
-                                        <div class="form-group-inner">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                    <label class="login2 pull-right pull-right-pro">管理员名称：</label>
-                                                </div>
-                                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                    <input type="text" id="admin_name" placeholder="请输入管理员名称。" class="form-control" />
-                                                    <span class="admin" id="span_admin_name"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group-inner">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                    <label class="login2 pull-right pull-right-pro">管理员密码：</label>
-                                                </div>
-                                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                    <input type="password" id="admin_pwd" placeholder="请输入管理员密码。" class="form-control" />
-                                                    <span class="admin" id="span_admin_pwd"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group-inner">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                    <label class="login2 pull-right pull-right-pro">确认密码：</label>
-                                                </div>
-                                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                    <input type="password" id="admin_pwds" placeholder="请输入确认密码，两次密码保持一次。" class="form-control" />
-                                                    <span class="admin" id="span_admin_pwds"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group-inner">
-                                            <div class="row">
-                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                    <label class="login2 pull-right pull-right-pro">管理员电话：</label>
-                                                </div>
-                                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                    <input type="tel" id="admin_tel" placeholder="请输入管理员电话。" class="form-control" />
-                                                    <span class="admin" id="span_admin_tel"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group-inner">
-                                            <div class="login-btn-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-3"></div>
-                                                    <div class="col-lg-9">
-                                                        <div class="login-horizental cancel-wp pull-left">
-                                                            <button class="btn btn-white" type="reset">重置</button>
-                                                            <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">提交</button>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sparkline12-list">
+                        <div class="sparkline12-hd">
+                            <div class="main-sparkline12-hd">
+                                <h1>管理员编辑页面</h1>
+                            </div>
+                        </div>
+                        <div class="sparkline12-graph">
+                            <div class="basic-login-form-ad">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="all-form-element-inner">
+                                            <form action="javascript:;">
+                                                @csrf
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">管理员名称：</label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                            <input type="text" id="admin_name" value="{{$info->admin_name}}" placeholder="请输入管理员名称。" class="form-control" />
+                                                            <span class="admin" id="span_admin_name"></span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">管理员密码：</label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                            <input type="password" id="admin_pwd" value="{{decrypt($info->admin_pwd)}}" placeholder="请输入管理员密码。" class="form-control" />
+                                                            <span class="admin" id="span_admin_pwd"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">确认密码：</label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                            <input type="password" id="admin_pwds" value="{{decrypt($info->admin_pwd)}}" placeholder="请输入确认密码，两次密码保持一次。" class="form-control" />
+                                                            <span class="admin" id="span_admin_pwds"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <label class="login2 pull-right pull-right-pro">管理员电话：</label>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                            <input type="tel" id="admin_tel" value="{{$info->admin_desc}}" placeholder="请输入管理员电话。" class="form-control" />
+                                                            <span class="admin" id="span_admin_tel"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group-inner">
+                                                    <div class="login-btn-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3"></div>
+                                                            <div class="col-lg-9">
+                                                                <div class="login-horizental cancel-wp pull-left">
+                                                                    <button class="btn btn-white" type="reset">重置</button>
+                                                                    <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">保存</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -84,9 +86,7 @@
             </div>
         </div>
     </div>
-        </div>
-    </div>
-    
+
     <script>
         //页面加载事件
         $(function(){
@@ -110,7 +110,7 @@
                     //发送给后台验证唯一
                     $.ajax({
                         //提交地址
-                        url:'/admin/admin_name_unique',
+                        url:'/admin/admin_name_unique_update/'+"{{$info->admin_id}}",
                         //提交方式
                         type:'post',
                         //设置同步异步
@@ -221,7 +221,7 @@
                     //发送
                     $.ajax({
                         //提交地址
-                        url:'/admin/store',
+                        url:'/admin/update/'+"{{$info->admin_id}}",
                         //提交方式
                         type:'post',
                         //设置同步异步
@@ -234,7 +234,7 @@
                         success:function(res){
                             //判断
                             if(res.status=='ok'){
-                                alert('添加成功。')
+                                alert('保存成功。')
                                 location.href='/admin'
                             }else{
                                 $('.pow').html('')
