@@ -1,15 +1,24 @@
-
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- favicon
 		============================================ -->
+ 
+     
+<!-- icheck JS
+        ============================================ -->
+<script src="/static/js/icheck/icheck.min.js"></script>
+<script src="/static/js/icheck/icheck-active.js"></script>
+<!-- 表单的js结束 -->
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
@@ -100,20 +109,21 @@
                     <ul class="metismenu" id="menu1">
                         <li>
                             <a class="has-arrow" href="index.html">
-								   <i class="fa big-icon fa-home icon-wrap"></i>
-								   <span class="mini-click-non">Ecommerce</span>
+								   <i class="fa"></i>
+								   <span class="mini-click-non">题库</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Dashboard v.1" href="index.html"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.1</span></a></li>
-                                <li><a title="Dashboard v.2" href="index-1.html"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.2</span></a></li>
-                                <li><a title="Dashboard v.3" href="index-2.html"><i class="fa fa-cube sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.3</span></a></li>
-                                <li><a title="Product List" href="product-list.html"><i class="fa fa-female sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.html"><i class="fa fa-bolt sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Edit</span></a></li>
-                                <li><a title="Product Detail" href="product-detail.html"><i class="fa fa-heart-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Detail</span></a></li>
-                                <li><a title="Product Cart" href="product-cart.html"><i class="fa fa-level-down sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Cart</span></a></li>
-                                <li><a title="Product Payment" href="product-payment.html"><i class="fa fa-location-arrow sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Payment</span></a></li>
-                                <li><a title="Analytics" href="analytics.html"><i class="fa fa-line-chart sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Analytics</span></a></li>
-                                <li><a title="Widgets" href="widgets.html"><i class="fa fa-magnet sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Widgets</span></a></li>
+                                <li><a title="Dashboard v.1" href="{{url('/question/danadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加单选题</span></a></li>
+                                <li><a title="Dashboard v.2" href="{{url('/question/duoadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加多选题</span></a></li>
+                                <li><a title="Dashboard v.3" href="{{url('/question/jianadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加简答题</span></a></li>
+                                <li><a title="Dashboard v.3" href="{{url('/question/index')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">展示页面</span></a></li>
+                                <li><a title="Product List" href="product-list.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product List</span></a></li>
+                                <li><a title="Product Edit" href="product-edit.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Edit</span></a></li>
+                                <li><a title="Product Detail" href="product-detail.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Detail</span></a></li>
+                                <li><a title="Product Cart" href="product-cart.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Cart</span></a></li>
+                                <li><a title="Product Payment" href="product-payment.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Payment</span></a></li>
+                                <li><a title="Analytics" href="analytics.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Analytics</span></a></li>
+                                <li><a title="Widgets" href="widgets.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Widgets</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -127,8 +137,9 @@
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">课程</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Google Map" href="/course/type/create"><i class="fa fa-map-marker sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课程分类添加</span></a></li>
                                 <li><a title="Google Map" href="/course/create"><i class="fa fa-map-marker sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课程添加</span></a></li>
-                                <li><a title="Data Maps" href="/course/list"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课程展示</span></a></li>
+                                <li><a title="Data Maps" href="/course/index"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课程展示</span></a></li>
                                 <li><a title="Data Maps" href="/course/section/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">章程添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/knob/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">节添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/hour/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课时添加</span></a></li>
@@ -1091,65 +1102,67 @@
         
     </div>
 
-    <!-- jquery
-		============================================ -->
-    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="/static/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="/static/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="/static/js/jquery-price-slider.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="/static/js/jquery.meanmenu.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="/static/js/owl.carousel.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="/static/js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="/static/js/jquery.scrollUp.min.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="/static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="/static/js/scrollbar/mCustomScrollbar-active.js"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="/static/js/metisMenu/metisMenu.min.js"></script>
-    <script src="/static/js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="/static/js/morrisjs/raphael-min.js"></script>
-    <script src="/static/js/morrisjs/morris.js"></script>
-    <script src="/static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="/static/js/sparkline/jquery.charts-sparkline.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="/static/js/calendar/moment.min.js"></script>
-    <script src="/static/js/calendar/fullcalendar.min.js"></script>
-    <script src="/static/js/calendar/fullcalendar-active.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="/static/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="/static/js/main.js"></script>
+  
 
 </body>
 
 </html>
-<!-- 表格的js开始 -->
+ <!-- jquery
+        ============================================ -->
+    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="/static/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="/static/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="/static/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="/static/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="/static/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="/static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/static/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="/static/js/metisMenu/metisMenu.min.js"></script>
+    <script src="/static/js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="/static/js/morrisjs/raphael-min.js"></script>
+    <script src="/static/js/morrisjs/morris.js"></script>
+    <script src="/static/js/morrisjs/morris-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/static/js/sparkline/jquery.charts-sparkline.js"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <script src="/static/js/calendar/moment.min.js"></script>
+    <script src="/static/js/calendar/fullcalendar.min.js"></script>
+    <script src="/static/js/calendar/fullcalendar-active.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="/static/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="/static/js/main.js"></script>
+
+       <!-- 表格的js开始 -->
 <!-- data table JS
-		============================================ -->
+        ============================================ -->
 <script src="/static/js/data-table/bootstrap-table.js"></script>
 <script src="/static/js/data-table/tableExport.js"></script>
 <script src="/static/js/data-table/data-table-active.js"></script>
@@ -1177,8 +1190,3 @@
 <!-- 表格的js结束 -->
 
 <!-- 表单的js开始 -->
-<!-- icheck JS
-		============================================ -->
-<script src="/static/js/icheck/icheck.min.js"></script>
-<script src="/static/js/icheck/icheck-active.js"></script>
-<!-- 表单的js结束 -->
