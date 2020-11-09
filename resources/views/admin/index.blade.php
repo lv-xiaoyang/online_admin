@@ -1,8 +1,8 @@
-
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
@@ -12,6 +12,93 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- favicon
 		============================================ -->
+  <!-- jquery
+        ============================================ -->
+    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="/static/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="/static/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="/static/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="/static/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="/static/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="/static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/static/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="/static/js/metisMenu/metisMenu.min.js"></script>
+    <script src="/static/js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="/static/js/morrisjs/raphael-min.js"></script>
+    <script src="/static/js/morrisjs/morris.js"></script>
+    <script src="/static/js/morrisjs/morris-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="/static/js/sparkline/jquery.charts-sparkline.js"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <script src="/static/js/calendar/moment.min.js"></script>
+    <script src="/static/js/calendar/fullcalendar.min.js"></script>
+    <script src="/static/js/calendar/fullcalendar-active.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="/static/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="/static/js/main.js"></script>
+        <!-- 表格的js开始 -->
+<!-- data table JS
+        ============================================ -->
+<script src="/static/js/data-table/bootstrap-table.js"></script>
+<script src="/static/js/data-table/tableExport.js"></script>
+<script src="/static/js/data-table/data-table-active.js"></script>
+<script src="/static/js/data-table/bootstrap-table-editable.js"></script>
+<script src="/static/js/data-table/bootstrap-editable.js"></script>
+<script src="/static/js/data-table/bootstrap-table-resizable.js"></script>
+<script src="/static/js/data-table/colResizable-1.5.source.js"></script>
+<script src="/static/js/data-table/bootstrap-table-export.js"></script>
+<!--  editable JS
+    ============================================ -->
+<script src="/static/js/editable/jquery.mockjax.js"></script>
+<script src="/static/js/editable/mock-active.js"></script>
+<script src="/static/js/editable/select2.js"></script>
+<script src="/static/js/editable/moment.min.js"></script>
+<script src="/static/js/editable/bootstrap-datetimepicker.js"></script>
+<script src="/static/js/editable/bootstrap-editable.js"></script>
+<script src="/static/js/editable/xediable-active.js"></script>
+<!-- Chart JS
+    ============================================ -->
+<script src="/static/js/chart/jquery.peity.min.js"></script>
+<script src="/static/js/peity/peity-active.js"></script>
+<!-- tab JS
+    ============================================ -->
+<script src="/static/js/tab.js"></script>
+<!-- 表格的js结束 -->
+
+<!-- 表单的js开始 -->
+<!-- icheck JS
+        ============================================ -->
+<script src="/static/js/icheck/icheck.min.js"></script>
+<script src="/static/js/icheck/icheck-active.js"></script>
+<!-- 表单的js结束 -->
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
     <!-- Google Fonts
 		============================================ -->
@@ -53,12 +140,30 @@
 		============================================ -->
     <link rel="stylesheet" href="/static/css/calendar/fullcalendar.min.css">
     <link rel="stylesheet" href="/static/css/calendar/fullcalendar.print.min.css">
+    <!-- x-editor CSS
+		============================================ -->
+    <link rel="stylesheet" href="/static/css/editor/select2.css">
+    <link rel="stylesheet" href="/static/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="/static/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="/static/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="/static/css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="/static/css/data-table/bootstrap-editable.css">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="/static/style.css">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="/static/css/responsive.css">
+
+    <!-- modals CSS
+		============================================ -->
+    <link rel="stylesheet" href="/static/css/modals.css">
+    <!-- forms CSS
+		============================================ -->
+    <link rel="stylesheet" href="/static/css/form/all-type-forms.css">
+
     <!-- modernizr JS
 		============================================ -->
     <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -73,27 +178,28 @@
         <nav id="sidebar" class="">
             <div class="sidebar-header">
                 <a href="index.html"><img class="main-logo" src="/static/img/logo/logo.png" alt="" /></a>
-                <strong><img src="/static/img/logo/logosn.png" alt="" /></strong>
+                <strong><img src="static/img/logo/logosn.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li>
                             <a class="has-arrow" href="index.html">
-								   <i class="fa big-icon fa-home icon-wrap"></i>
-								   <span class="mini-click-non">Ecommerce</span>
+								   <i class="fa"></i>
+								   <span class="mini-click-non">题库</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Dashboard v.1" href="index.html"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.1</span></a></li>
-                                <li><a title="Dashboard v.2" href="index-1.html"><i class="fa fa-circle-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.2</span></a></li>
-                                <li><a title="Dashboard v.3" href="index-2.html"><i class="fa fa-cube sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dashboard v.3</span></a></li>
-                                <li><a title="Product List" href="product-list.html"><i class="fa fa-female sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.html"><i class="fa fa-bolt sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Edit</span></a></li>
-                                <li><a title="Product Detail" href="product-detail.html"><i class="fa fa-heart-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Detail</span></a></li>
-                                <li><a title="Product Cart" href="product-cart.html"><i class="fa fa-level-down sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Cart</span></a></li>
-                                <li><a title="Product Payment" href="product-payment.html"><i class="fa fa-location-arrow sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Product Payment</span></a></li>
-                                <li><a title="Analytics" href="analytics.html"><i class="fa fa-line-chart sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Analytics</span></a></li>
-                                <li><a title="Widgets" href="widgets.html"><i class="fa fa-magnet sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Widgets</span></a></li>
+                                <li><a title="Dashboard v.1" href="{{url('/question/danadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加单选题</span></a></li>
+                                <li><a title="Dashboard v.2" href="{{url('/question/duoadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加多选题</span></a></li>
+                                <li><a title="Dashboard v.3" href="{{url('/question/jianadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加简答题</span></a></li>
+                                <li><a title="Dashboard v.3" href="{{url('/question/index')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">展示页面</span></a></li>
+                                <li><a title="Product List" href="product-list.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product List</span></a></li>
+                                <li><a title="Product Edit" href="product-edit.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Edit</span></a></li>
+                                <li><a title="Product Detail" href="product-detail.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Detail</span></a></li>
+                                <li><a title="Product Cart" href="product-cart.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Cart</span></a></li>
+                                <li><a title="Product Payment" href="product-payment.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Payment</span></a></li>
+                                <li><a title="Analytics" href="analytics.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Analytics</span></a></li>
+                                <li><a title="Widgets" href="widgets.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Widgets</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -155,18 +261,111 @@
                                 <li><a title="Dual List Box" href="dual-list-box.html"><i class="fa fa-hand-paper-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dual List Box</span></a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-desktop icon-wrap"></i> <span class="mini-click-non"><b style="color:red">RBAC</b></span></a>
+                        <li class="active">
+                            <a class="has-arrow" href="javascript:;" aria-expanded="false">
+                                <i class="fa big-icon fa-desktop icon-wrap"></i>
+                                <span class="mini-click-non">管理员模块</span>
+                            </a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Notifications" href="{{url('/rbac/admin/index')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro"><b style="color:green">管理员</b></span></a></li>
-                                <li><a title="Buttons" href="buttons.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro"><b style="color:green">管理员展示</b></span></a></li>
-                                <li><a title="Alerts" href="alerts.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro"><b style="color:yellow">角色</b></span></a></li>
-                                <li><a title="Alerts" href="alerts.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro"><b style="color:yellow">角色展示</b></span></a></li>
-                                <li><a title="Modals" href="modals.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro"><b style="color:blue">权限</b></span></a></li>
-                                <li><a title="Modals" href="modals.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro"><b style="color:blue">权限展示</b></span></a></li>
-
-                                <li><a title="Tabs" href="tabs.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Tabs</span></a></li>
-                                <li><a title="Accordion" href="accordion.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Accordion</span></a></li>
+                                <li>
+                                    <a class="has-arrow" href="javascript:;" aria-expanded="false">
+                                        <i class="fa fa-television sub-icon-mg"></i>
+                                        <span class="mini-click-non">管理员管理</span>
+                                    </a>
+                                    <ul class="submenu-angle" aria-expanded="false">
+                                        <li>
+                                            <a title="Basic Form Elements" href="{{url('admin/create')}}">
+                                                <i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">管理员添加</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Advance Form Elements" href="{{url('admin')}}">
+                                                <i class="fa big-icon fa-table icon-wrap" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">管理员展示</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="has-arrow" href="javascript:;" aria-expanded="false">
+                                        <i class="fa fa-heart-o sub-icon-mg"></i>
+                                        <span class="mini-click-non">角色管理</span>
+                                    </a>
+                                    <ul class="submenu-angle" aria-expanded="false">
+                                        <li>
+                                            <a title="Basic Form Elements" href="{{url('roles/create')}}">
+                                                <i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">角色添加</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Advance Form Elements" href="{{url('roles')}}">
+                                                <i class="fa big-icon fa-table icon-wrap" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">角色展示</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                <li>
+                                    <a class="has-arrow" href="javascript:;" aria-expanded="false">
+                                        <i class="fa fa-circle sub-icon-mg"></i>
+                                        <span class="mini-click-non">权限管理</span>
+                                    </a>
+                                    <ul class="submenu-angle" aria-expanded="false">
+                                        <li>
+                                            <a title="Basic Form Elements" href="{{url('power/create')}}">
+                                                <i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">权限添加</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Advance Form Elements" href="{{url('power')}}">
+                                                <i class="fa big-icon fa-table icon-wrap" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">权限展示</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="has-arrow" href="javascript:;" aria-expanded="false">
+                                        <i class="fa fa-object-ungroup sub-icon-mg"></i>
+                                        <span class="mini-click-non">管理员角色管理</span>
+                                    </a>
+                                    <ul class="submenu-angle" aria-expanded="false">
+                                        <li>
+                                            <a title="Basic Form Elements" href="{{url('admin_role/create')}}">
+                                                <i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">管理员赋值角色</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Advance Form Elements" href="{{url('admin_role')}}">
+                                                <i class="fa big-icon fa-table icon-wrap" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">管理员角色展示</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false">
+                                        <i class="fa fa-pie-chart sub-icon-mg"></i>
+                                        <span class="mini-click-non">角色权限管理</span>
+                                    </a>
+                                    <ul class="submenu-angle" aria-expanded="false">
+                                        <li>
+                                            <a title="Basic Form Elements" href="{{url('role_power/create')}}">
+                                                <i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">角色赋值权限</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Advance Form Elements" href="{{url('role_power')}}">
+                                                <i class="fa big-icon fa-table icon-wrap" aria-hidden="true"></i>
+                                                <span class="mini-sub-pro">角色权限展示</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li id="removable">
@@ -205,8 +404,8 @@
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="fa fa-bars"></i>
-												</button>
+                                                <i class="fa fa-bars"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
@@ -349,10 +548,10 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
-															<span class="admin-name">Advanda Cro</span>
-															<i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
-														</a>
+                                                        <i class="fa fa-user adminpro-user-rounded header-riht-inf" aria-hidden="true"></i>
+                                                        <span class="admin-name">Advanda Cro</span>
+                                                        <i class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+                                                    </a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <li><a href="register.html"><span class="fa fa-home author-log-ic"></span>Register</a>
                                                         </li>
@@ -636,9 +835,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
                                                                                             <label class="onoffswitch-label" for="example">
-																									<span class="onoffswitch-inner"></span>
-																									<span class="onoffswitch-switch"></span>
-																								</label>
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -652,9 +851,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
                                                                                             <label class="onoffswitch-label" for="example3">
-																									<span class="onoffswitch-inner"></span>
-																									<span class="onoffswitch-switch"></span>
-																								</label>
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -668,9 +867,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
                                                                                             <label class="onoffswitch-label" for="example4">
-																									<span class="onoffswitch-inner"></span>
-																									<span class="onoffswitch-switch"></span>
-																								</label>
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -684,9 +883,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
                                                                                             <label class="onoffswitch-label" for="example7">
-																									<span class="onoffswitch-inner"></span>
-																									<span class="onoffswitch-switch"></span>
-																								</label>
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -700,9 +899,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example2">
                                                                                             <label class="onoffswitch-label" for="example2">
-																									<span class="onoffswitch-inner"></span>
-																									<span class="onoffswitch-switch"></span>
-																								</label>
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -716,9 +915,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example6">
                                                                                             <label class="onoffswitch-label" for="example6">
-																									<span class="onoffswitch-inner"></span>
-																									<span class="onoffswitch-switch"></span>
-																								</label>
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -732,9 +931,9 @@
                                                                                         <div class="onoffswitch">
                                                                                             <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
                                                                                             <label class="onoffswitch-label" for="example5">
-																									<span class="onoffswitch-inner"></span>
-																									<span class="onoffswitch-switch"></span>
-																								</label>
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -898,64 +1097,89 @@
                 </div>
             </div>
             <!-- Mobile Menu end -->
+            @php
+                $url_name=request()->route()->getName();
+            @endphp
+            @if($url_name=='indexs')
+                <div class="breadcome-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="breadcome-list">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="breadcome-heading">
+                                                <form role="search" class="">
+                                                    <input type="text" placeholder="Search..." class="form-control">
+                                                    <a href=""><i class="fa fa-search"></i></a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <ul class="breadcome-menu">
+                                                <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                                </li>
+                                                <li><span class="bread-blod">Dashboard V.1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="breadcome-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="breadcome-list single-page-breadcome">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="breadcome-heading">
+                                                <form role="search" class="">
+                                                    <input type="text" placeholder="Search..." class="form-control">
+                                                    <a href=""><i class="fa fa-search"></i></a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <ul class="breadcome-menu">
+                                                <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                                </li>
+                                                <li><span class="bread-blod">Data Table</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
 
 
             @yield("content")
+
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright &copy; 2020.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </div>
 
-    <!-- jquery
-		============================================ -->
-    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="/static/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="/static/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="/static/js/jquery-price-slider.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="/static/js/jquery.meanmenu.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="/static/js/owl.carousel.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="/static/js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="/static/js/jquery.scrollUp.min.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="/static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="/static/js/scrollbar/mCustomScrollbar-active.js"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="/static/js/metisMenu/metisMenu.min.js"></script>
-    <script src="/static/js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="/static/js/morrisjs/raphael-min.js"></script>
-    <script src="/static/js/morrisjs/morris.js"></script>
-    <script src="/static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="/static/js/sparkline/jquery.charts-sparkline.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="/static/js/calendar/moment.min.js"></script>
-    <script src="/static/js/calendar/fullcalendar.min.js"></script>
-    <script src="/static/js/calendar/fullcalendar-active.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="/static/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="/static/js/main.js"></script>
+  
+
 </body>
 
 </html>
