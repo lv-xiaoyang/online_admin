@@ -82,15 +82,17 @@ Route::prefix("/course")->group(function(){
         Route::post("/add","Course\CourseTypeController@add");//课程分类确认添加
         Route::get("/index","Course\CourseTypeController@index");//课程分类展示
     });
-    
     Route::get("/create","Course\CourseController@create");//课程添加
     Route::post("/add","Course\CourseController@add");//课程确认添加
     Route::get("/index","Course\CourseController@list");//课程展示
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
+        Route::post("/add","Course\SectionController@add");//章程确认添加
     });
     Route::prefix('knob')->group(function(){
         Route::get("/create","Course\KnobController@create");//节添加
+        Route::post("/add","Course\KnobController@add");//节确认添加
+        Route::post("/chapter","Course\KnobController@chapter");//获取章程数据
     });
     Route::prefix('hour')->group(function(){
         Route::get("/create","Course\HourController@create");//课时添加

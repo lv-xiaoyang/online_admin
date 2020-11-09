@@ -27,12 +27,12 @@ class CourseController extends Controller
         //唯一验证
         $name_data=CourseModel::where('course_name',$data['course_name'])->first();
         if(!empty($name_data)){
-            return ['code'=>0003,'msg'=>'课程名称已存在'];
+            return ['code'=>0003,'msg'=>'课程名称已存在'];die;
         }
         $file = request()->file('course_img');
         //文件上传验证
-        if(!empty($file)){
-            return ['code'=>0002,'msg'=>'请上传文件'];
+        if(empty($file)){
+            return ['code'=>0002,'msg'=>'请上传文件'];die;
         }
         $fileImg=$this->fileImg($file);
         $data['course_add_time']=time();
@@ -48,8 +48,11 @@ class CourseController extends Controller
      * 课程列表页面
      */
     public function list(){
-        
-        return view('course.list');
+        $course_where=[
+            ['course_del','=',0]
+        ];
+        $course_data=CourseModel::leftjoin('course_type','course.course_type','=','course_type.type_id')->leftjoin('lect','course.lect_id','=','lect.lect_id')->where($course_where)->get();
+        return view('course.list',compact('course_data'));
     }
     //图片上传处理
     public function fileImg($file){

@@ -62,9 +62,9 @@
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     $(document).on('click','#submit',function(a){
+        $(function () { $("[data-toggle='popover']").popover(); });
         a.preventDefault();
         var formData = new FormData(document.getElementById('banner-upload'));
-        $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
         $.ajax({
             url:'/course/add',
             type:'post',
@@ -77,7 +77,7 @@
                         location.href="/course/index";
                     }
                 }else{
-                    alert(res.msg);
+                    window.alert(res.msg,{backdrop:'static'});
                 }
             }
         });
