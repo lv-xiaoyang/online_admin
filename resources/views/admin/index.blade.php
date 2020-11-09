@@ -78,6 +78,10 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- jquery
+        ============================================ -->
+    <script src="/static/js/jquery.min.js"></script>
 </head>
 
 <body>

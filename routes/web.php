@@ -49,6 +49,22 @@ Route::prefix('power')->group(function(){
     Route::get('/','Admin\PowerController@index');
     //权限添加页面
     Route::get('create','Admin\PowerController@create');
+    //权限名称验证唯一
+    Route::post('pow_name_unique','Admin\PowerController@unique');
+    //权限验证唯一
+    Route::post('pow_url_unique','Admin\PowerController@url_unique');
+    //执行添加
+    Route::post('store','Admin\PowerController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\PowerController@edit');
+    //修改 权限名称验证唯一
+    Route::post('pow_name_unique_update/{id}','Admin\PowerController@unique_update');
+    //修改 权限验证唯一
+    Route::post('pow_url_unique_update/{id}','Admin\PowerController@url_unique_update');
+    //修改
+    Route::post('update/{id}','Admin\PowerController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\PowerController@destroy');
 });
 
 /**
