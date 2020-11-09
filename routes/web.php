@@ -29,7 +29,14 @@ Route::prefix("rbac")->group(function(){
 
 //课程
 Route::prefix("/course")->group(function(){
+    Route::prefix('/type')->group(function(){
+        Route::get("/create","Course\CourseTypeController@create");//课程分类添加
+        Route::post("/add","Course\CourseTypeController@add");//课程分类确认添加
+        Route::get("/index","Course\CourseTypeController@index");//课程分类展示
+    });
+    
     Route::get("/create","Course\CourseController@create");//课程添加
+    Route::post("/add","Course\CourseController@add");//课程确认添加
     Route::get("/index","Course\CourseController@list");//课程展示
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
