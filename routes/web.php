@@ -165,6 +165,9 @@ Route::prefix("/question")->group(function(){
     Route::get("/del/{id}","Admin\QuestionController@del");//删除
     Route::get("/upd/{id}","Admin\QuestionController@upd");//修改
     Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
+    Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
+    Route::get("/huifudel/{id}","Admin\QuestionController@huifudel");//执行恢复
+    Route::get("/course/{id}","Admin\QuestionController@course");
 });
 
 

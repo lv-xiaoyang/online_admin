@@ -235,7 +235,28 @@ class QuestionController extends Controller
         if($question_type_id==1){
             return view("question.danupdate",['data'=>$data]);
         }else if($question_type_id==2){
-            return view("question.duoupdate",['data'=>$data]);
+            $question_cor = $data['question_cor'];
+
+            $question_cor = str_split($question_cor);
+            foreach ($question_cor as $key => $value) {
+                if($value==','){
+                    unset($question_cor[$key]);
+                }
+            }
+            // $question_cor = implode("",$question_cor);
+            $a = $question_cor[0];
+            $b = $question_cor[2];
+
+            // foreach ($question_cor as $key => $value) {
+                // $a .=$value;
+                // $b=$value[1];
+
+            // }
+            // dd($a);
+
+            // dd($question_cor);
+
+            return view("question.duoupdate",['data'=>$data,'question_cor'=>$question_cor,'a'=>$a,'b'=>$b]);
         }else if($question_type_id==3){
             return view("question.jianupd",['data'=>$data]);
         }
@@ -312,4 +333,35 @@ class QuestionController extends Controller
         }
 
     }
+    // 恢复删除页面
+    public function huifuindex(){
+        $where = [
+        'is_del'=>1
+        ];
+        $data = QuestionModel::where($where)->get();
+        return view("question.huifudel",['data'=>$data]);
+    }
+    //执行恢复
+    public function huifudel($id){
+        $where = [
+            'is_del'=>0,
+        ];
+        $wheres = [
+            'question_id'=>$id
+        ];
+        $res = QuestionModel::where($wheres)->update($where);
+        if($res){
+            return redirect("/question/index");
+        }else{
+            return redirect("/question/index");
+        }
+    }
+
+    public function course($id){
+        
+        return view("question.course");
+    }
+
+
+
 }
