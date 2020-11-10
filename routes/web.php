@@ -129,16 +129,32 @@ Route::prefix('role_power')->group(function(){
 
 //课程
 Route::prefix("/course")->group(function(){
+    Route::prefix('/type')->group(function(){
+        Route::get("/create","Course\CourseTypeController@create");//课程分类添加
+        Route::post("/add","Course\CourseTypeController@add");//课程分类确认添加
+        Route::get("/index","Course\CourseTypeController@index");//课程分类展示
+    });
     Route::get("/create","Course\CourseController@create");//课程添加
+    Route::post("/add","Course\CourseController@add");//课程确认添加
+    Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
+    Route::post("/section","Course\CourseController@section");//获取节数据
+    Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
     Route::get("/index","Course\CourseController@list");//课程展示
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
+        Route::post("/add","Course\SectionController@add");//章程确认添加
     });
     Route::prefix('knob')->group(function(){
         Route::get("/create","Course\KnobController@create");//节添加
+        Route::post("/add","Course\KnobController@add");//节确认添加
+        Route::post("/chapter","Course\KnobController@chapter");//获取章程数据
     });
     Route::prefix('hour')->group(function(){
         Route::get("/create","Course\HourController@create");//课时添加
+        Route::post("/add","Course\HourController@add");//课时确认添加
+        Route::post("/chapter","Course\HourController@chapter");//获取章程数据
+        Route::post("/section","Course\HourController@section");//获取节数据
+        
     });
 });
 
@@ -161,4 +177,21 @@ Route::prefix("/question")->group(function(){
     Route::get("/del/{id}","Admin\QuestionController@del");//删除
     Route::get("/upd/{id}","Admin\QuestionController@upd");//修改
     Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
+    Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
+    Route::get("/huifudel/{id}","Admin\QuestionController@huifudel");//执行恢复
+    Route::get("/course/{id}","Admin\QuestionController@course");
+    Route::get("/courses","Admin\QuestionController@courses");
+    Route::get("/sectionn","Admin\QuestionController@sectionn");
+    Route::get("/coursec","Admin\QuestionController@coursec");
+    Route::get("/coursecreate","Admin\QuestionController@coursecreate");
 });
+
+
+//讲师模块
+Route::prefix("/teacher")->group(function(){
+    Route::get("/","Admin\TeacherController@index");
+    Route::get("/del/{id}","Admin\TeacherController@del");
+    Route::get("/upd/{id}","Admin\TeacherController@upd");
+    Route::post("/update/{id}","Admin\TeacherController@update");
+});
+

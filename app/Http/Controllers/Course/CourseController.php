@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\CourseTypeModel;
 use App\Model\CourseModel;
+use App\Model\CourseClassModel;
+use App\Model\CourseChapterModel;
+use App\Model\CourseSectionModel;
+
 
 class CourseController extends Controller
 {
@@ -27,12 +31,12 @@ class CourseController extends Controller
         //唯一验证
         $name_data=CourseModel::where('course_name',$data['course_name'])->first();
         if(!empty($name_data)){
-            return ['code'=>0003,'msg'=>'课程名称已存在'];
+            return ['code'=>0003,'msg'=>'课程名称已存在'];die;
         }
         $file = request()->file('course_img');
         //文件上传验证
-        if(!empty($file)){
-            return ['code'=>0002,'msg'=>'请上传文件'];
+        if(empty($file)){
+            return ['code'=>0002,'msg'=>'请上传文件'];die;
         }
         $fileImg=$this->fileImg($file);
         $data['course_add_time']=time();
@@ -48,8 +52,11 @@ class CourseController extends Controller
      * 课程列表页面
      */
     public function list(){
-        
-        return view('course.list');
+        $course_where=[
+            ['course_del','=',0]
+        ];
+        $course_data=CourseModel::leftjoin('course_type','course.course_type','=','course_type.type_id')->leftjoin('lect','course.lect_id','=','lect.lect_id')->where($course_where)->get();
+        return view('course.list',compact('course_data'));
     }
     //图片上传处理
     public function fileImg($file){
@@ -58,7 +65,54 @@ class CourseController extends Controller
         }
         return $path;
     }
-
+    /**
+     * 获取章程数据
+     */
+    public function chapter(){
+        $course_id=request()->course_id;
+        if(empty($course_id)){
+            return ['code'=>0002,'msg'=>'请先选择课程'];
+        }
+        //获取章程数据
+        $chapter_where=[
+            ['chapter_del','=',0],
+            ['course_id','=',$course_id]
+        ];
+        $chapter_data=CourseChapterModel::where($chapter_where)->get()->toArray();
+        return json_encode($chapter_data);
+    }
+     /**
+      * 获取节数据
+      */
+    public function section(){
+        $chapter_id=request()->chapter_id;
+        if(empty($chapter_id)){
+            return ['code'=>0002,'msg'=>'请先选择章程'];die;
+        }
+        //获取章程数据
+        $section_where=[
+            ['section_del','=',0],
+            ['chapter_id','=',$chapter_id]
+        ];
+        $section_data=CourseSectionModel::where($section_where)->get()->toArray();
+        return json_encode($section_data);
+    }
+      /**
+       * 获取课时数据
+       */
+    public function courseclass(){
+        $section_id=request()->section_id;
+        if(empty($section_id)){
+            return ['code'=>0002,'msg'=>'请先选择节'];die;
+        }
+        //获取章程数据
+        $class_where=[
+            ['class_del','=',0],
+            ['section_id','=',$section_id]
+        ];
+        $class_data=CourseClassModel::where($class_where)->get()->toArray();
+        return json_encode($class_data);
+    }
 
 
 
