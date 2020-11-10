@@ -18,6 +18,10 @@
       <th>选项B内容</th>
       <th>选项C内容</th>
       <th>选项D内容</th>
+      <th>关联课程</th>
+      <th>关联章</th>
+      <th>关联节</th>
+      <th>关联课时</th>
       <th>操作</th>
   </tr>
   </thead>
@@ -46,14 +50,20 @@
               C,D
             @endif
         </td>
+      @elseif($v->question_type_id==3)
+        <td></td>
       @endif
       <td>{{$v->cor_a}}</td>
       <td>{{$v->cor_b}}</td>
       <td>{{$v->cor_c}}</td>
       <td>{{$v->cor_d}}</td>
-      <td><!-- <a href="{{url('/question/del/'.$v->question_id)}}"></a> -->
-        <button type="submit" id="del" value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/course/'.$v->question_id)}}">关联课程</a></button>  
-      	<button type="submit" id="del" value="{{$v->question_id}}" class="btn btn-default">删除</button>	
+      <td>{{$v->course_name}}</td>
+      <td>{{$v->chapter_name}}</td>
+      <td>{{$v->section_name}}</td>
+      <td>{{$v->class_name}}</td>
+      <td><!-- <a href="{{url('/question/del/ '.$v->question_id)}}"></a> -->
+        <button type="submit"  value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/course/'.$v->question_id)}}">关联课程</a></button>  
+      	<button type="submit" id="" value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/del/'.$v->question_id)}}">删除</a></button>	
         <button type="submit" id="upd" value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/upd/'.$v->question_id)}}">修改</a></button>
       </td>
   </tr>
@@ -70,7 +80,7 @@
       var _this=$(this);
       var id = _this.val();
 
-
+      
 
        bootbox.confirm("确认删除", function () {
           window.location.href="/question/del/"+id;

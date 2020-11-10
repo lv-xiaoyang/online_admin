@@ -168,6 +168,10 @@ Route::prefix("/question")->group(function(){
     Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
     Route::get("/huifudel/{id}","Admin\QuestionController@huifudel");//执行恢复
     Route::get("/course/{id}","Admin\QuestionController@course");
+    Route::get("/courses","Admin\QuestionController@courses");
+    Route::get("/sectionn","Admin\QuestionController@sectionn");
+    Route::get("/coursec","Admin\QuestionController@coursec");
+    Route::get("/coursecreate","Admin\QuestionController@coursecreate");
 });
 
 

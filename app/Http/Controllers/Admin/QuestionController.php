@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\QuestionModel;
-
+use App\Model\CourseModel;//课程
+use App\Model\CourseClassModel;//课时表
+use App\Model\CourseChapterModel;//课程章
+use App\Model\CourseSectionModel;//课程节
 
 class QuestionController extends Controller
 {
@@ -16,11 +19,22 @@ class QuestionController extends Controller
             'is_del'=>0,
             
         ];
-        $data = QuestionModel::where($where)->orderBy("question_time","desc")->paginate(5);
-        $typewhere = [
-            'question_type_id'=>2,
-        ];
-        $typedata = QuestionModel::where($typewhere)->get();
+        $data = QuestionModel::leftjoin("course","question.course_id","=","course.course_id")
+                            ->leftjoin("course_section","question.section_id","=","course_section.section_id")
+                            ->leftjoin("course_class","question.class_id","=","course_class.class_id")
+                            ->leftjoin("course_chapter","question.chapter_id","=","course_chapter.chapter_id")
+                            ->where($where)
+                            ->orderBy("question_time","desc")
+                            ->paginate(5);
+        
+
+        // dd($data);
+
+
+        // $typewhere = [
+            // 'question_type_id'=>2,
+        // ];
+        // $typedata = QuestionModel::where($typewhere)->get();
         // dd($typedata['question_cor']);
         
         // foreach ($typedata as $key => $value){
@@ -358,10 +372,65 @@ class QuestionController extends Controller
     }
 
     public function course($id){
+        //课程
+        $course = CourseModel::select('course_id',"course_name")->get();
+        // 章
+        $course_chapter = CourseChapterModel::select("chapter_id","chapter_name")->get();
+        // 节
+        $course_section = CourseSectionModel::select("section_id","section_name")->get();
+        // 课时
+        $course_class = CourseClassModel::select("class_id","class_name")->get();
         
-        return view("question.course");
+        return view("question.course",['question_id'=>$id,'course'=>$course,'chapter'=>$course_chapter,'section'=>$course_section,'class'=>$course_class]);
     }
-
-
+    public function courses(){
+        $course_id = request()->get("course_id");
+        // 根据课程id查询课程章
+        $where = [
+            'course_id'=>$course_id
+        ]; 
+        $course_chapter = CourseChapterModel::where($where)->get();
+        // echo json_encode(['data'=>$course_chapter]);
+        return response()->json($course_chapter);
+    }
+    public function sectionn(){
+        $chapter_id = request()->get("chapter_id");
+        $where = [
+            'chapter_id'=>$chapter_id
+        ];
+        $section = CourseSectionModel::where($where)->get();
+        return response()->json($section);
+    }
+    public function coursec(){
+        $section_id = request()->get("section_id");
+        $where = [
+            'section_id'=>$section_id
+        ];
+        $class = CourseClassModel::where($where)->get();
+        return response()->json($class);
+    }
+    public function coursecreate(Request $request){
+        $course_id = $request->get("course_id");
+        $chapter_id = $request->get("chapter_id");
+        $section_id = $request->get("section_id");
+        $class_id = $request->get("class_id");
+        $question_id = $request->get("question_id");
+        $question = new QuestionModel();
+        $data = [
+            'course_id'=>$course_id,
+            'chapter_id'=>$chapter_id,
+            'section_id'=>$section_id,
+            'class_id'=>$class_id
+        ];
+        $where = [
+            'question_id'=>$question_id
+        ];
+        $res = QuestionModel::where($where)->update($data);
+        if($res){
+            echo json_encode(['code'=>0,'msg'=>"ok"]);
+        }else{
+            echo json_encode(['code'=>1,'msg'=>"no"]);
+        }
+    }
 
 }
