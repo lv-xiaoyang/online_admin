@@ -1,5 +1,5 @@
 @extends('admin/index')
-@section('title','管理员角色添加页面')
+@section('title','管理员角色编辑页面')
 @section('content')
     <div class="basic-form-area mg-tb-15">
         <div class="container-fluid">
@@ -8,7 +8,7 @@
                     <div class="sparkline12-list">
                         <div class="sparkline12-hd">
                             <div class="main-sparkline12-hd">
-                                <h1>管理员角色添加页面</h1>
+                                <h1>管理员角色编辑页面</h1>
                             </div>
                         </div>
                         <div class="sparkline12-graph">
@@ -29,7 +29,7 @@
                                                                     <option value="">请选择管理员...</option>
                                                                     @if(!empty($admin_data))
                                                                         @foreach($admin_data as $k=>$v)
-                                                                        <option value="{{$v->admin_id}}">{{$v->admin_name}}</option>
+                                                                            <option value="{{$v->admin_id}}" @if($info->admin_id==$v->admin_id) selected @endif>{{$v->admin_name}}</option>
                                                                         @endforeach
                                                                     @endif
                                                                 </select>
@@ -50,9 +50,9 @@
                                                                         <div class="i-checks pull-left">
                                                                             @if(!empty($roles_data))
                                                                                 @foreach($roles_data as $k=>$v)
-                                                                                <label>
-                                                                                    <input type="checkbox" name="ro_id" value="{{$v->ro_id}}"> <i></i>{{$v->ro_name}}
-                                                                                </label>
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="ro_id" value="{{$v->ro_id}}" @if(in_array($v->ro_id,$info->ro_id)) checked @endif> <i></i>{{$v->ro_name}}
+                                                                                    </label>
                                                                                 @endforeach
                                                                             @endif
                                                                         </div>
@@ -70,7 +70,7 @@
                                                             <div class="col-lg-9">
                                                                 <div class="login-horizental cancel-wp pull-left">
                                                                     <button class="btn btn-white" type="reset">重置</button>
-                                                                    <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">提交</button>
+                                                                    <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">保存</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -105,7 +105,7 @@
                 }else{
                     $.ajax({
                         //提交地址
-                        url:'/admin_role/admin_unique',
+                        url:'/admin_role/admin_unique_update/'+"{{$info->ar_id}}",
                         //提交方式
                         type:'post',
                         //设置同步异步
@@ -156,7 +156,7 @@
                     //发送请求
                     $.ajax({
                         //提交地址
-                        url:'/admin_role/store',
+                        url:'/admin_role/update/'+"{{$info->ar_id}}",
                         //提交方式
                         type:'post',
                         //设置同步异步
@@ -172,11 +172,11 @@
                                 $('#span_'+res.field).html(res.msg)
                             }else if(res.status=='ok'){
                                 //添加成功
-                                alert('添加成功')
+                                alert('保存成功')
                                 location.href='/admin_role'
                             }else{
                                 //添加失败
-                                alert('添加失败')
+                                alert('保存失败')
                             }
                         }
                     })

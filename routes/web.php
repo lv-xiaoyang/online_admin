@@ -99,6 +99,18 @@ Route::prefix('admin_role')->group(function(){
     Route::get('/','Admin\AdminRolesController@index');
     //管理员角色添加页面
     Route::get('create','Admin\AdminRolesController@create');
+    //管理员角色 验证管理员唯一
+    Route::post('admin_unique','Admin\AdminRolesController@admin_unique');
+    //执行添加
+    Route::post('store','Admin\AdminRolesController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\AdminRolesController@edit');
+    //修改 验证管理员唯一
+    Route::post('admin_unique_update/{id}','Admin\AdminRolesController@admin_unique_update');
+    //修改
+    Route::post('update/{id}','Admin\AdminRolesController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\AdminRolesController@destroy');
 });
 
 /**

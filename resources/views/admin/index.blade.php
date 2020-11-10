@@ -1103,6 +1103,55 @@
         
     </div>
 
+    {{--隐藏 点击触发 开始--}}
+    <div class="modal-bootstrap modal-login-form" style="display: none">
+        <a id="success" class="zoomInDown mg-t" href="#" data-toggle="modal" data-target="#zoomInDown1">Modal Login Form</a>
+    </div>
+    {{--隐藏 点击触发 结束--}}
+    <div id="zoomInDown1" class="modal modal-adminpro-general modal-zoomInDown fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-close-area modal-close-df">
+                    <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-login-form-inner">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="basic-login-inner modal-basic-inner">
+                                    <h3>在线教育-后台系统提示语：</h3>
+                                    <p>Online Education-Background System Prompt:</p>
+                                    <form action="javascript:;">
+                                        <div class="login-btn-inner">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                    <label id="prompt"></label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                    <div class="login-horizental">
+                                                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit" id="jump">跳转到展示</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   
 
 </body>
@@ -1191,3 +1240,8 @@
 <!-- 表格的js结束 -->
 
 <!-- 表单的js开始 -->
+<!-- icheck JS
+		============================================ -->
+<script src="/static/js/icheck/icheck.min.js"></script>
+<script src="/static/js/icheck/icheck-active.js"></script>
+<!-- 表单的js结束 -->

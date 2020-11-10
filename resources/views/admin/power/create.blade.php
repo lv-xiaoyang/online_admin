@@ -58,10 +58,6 @@
                                                                 <div class="login-horizental cancel-wp pull-left">
                                                                     <button class="btn btn-white " type="reset">重置</button>
                                                                     <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">提交</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -196,8 +192,10 @@
                     success:function(res){
                         //判断
                         if(res.status=='ok'){
-                            alert('添加成功。')
-                            location.href='/power'
+                            //触发提示框
+                            $('#success').trigger('click')
+                            //提示语
+                            $('#prompt').html('<h1>添加成功。</h1>')
                         }else{
                             $('.pow').html('')
                             $('#span_'+res.field).html(res.msg)
@@ -205,6 +203,14 @@
                     }
                 })
             }
+        })
+
+        /**
+         * 跳转
+         */
+        $(document).on('click','#jump',function(){
+            //跳转地址
+            location.href='/power'
         })
     })
 </script>
