@@ -4,6 +4,11 @@
 
 
 <table class="table table-condensed">
+  <form action="">
+      <input type="text" name="lereg_name">
+      <input type="submit" value="昵称搜索">
+  </form>
+
   <caption>讲师展示</caption>
   <thead>
     <tr>
@@ -31,6 +36,7 @@
       <td>{{$v->lereg_magor}}</td>
       <td>{{$v->lereg_time}}</td>
       <td>
+        
         @if($v->lereg_is==0)审核中 @endif
         @if($v->lereg_id==1)是 @endif
         @if($v->lereg_id==2)审核未通过 @endif
@@ -41,6 +47,9 @@
       </td>
   </tr>
    @endforeach
+   <td>
+      <td colspan="10">{{$data->links()}}</td>
+   </td>
   </tbody>
 </table>
 

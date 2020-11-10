@@ -19,12 +19,12 @@
     <div>
     <p class="formrow"><label class="control-label" for="register_email">学历</label>
     <select name="lereg_edu" id="lereg_edu">
-        <!-- <option value="">--请选择--</option> -->
-        <option value="1">博士研究生</option>
-        <option value="2">硕士研究生</option>
-        <option value="3">本科</option>
-        <option value="4">专科</option>
-        <option value="5">中专/高中</option>
+        <option value="">--请选择--</option>
+        <option value="1" @if($data->lereg_edu==1) selected @endif>博士研究生</option>
+        <option value="2" @if($data->lereg_edu==2)selected @endif >硕士研究生</option>
+        <option value="3" @if($data->lereg_edu==3)selected @endif>本科</option>
+        <option value="4" @if($data->lereg_edu==4)selected @endif>专科</option>
+        <option value="5" @if($data->lereg_edu==5)selected @endif>中专/高中</option>
     </select>
     </div>
     <div>
@@ -47,11 +47,11 @@
     <div>
     <p class="formrow"><label class="control-label" for="register_email">从业时长</label>
     <select name="lereg_time" id="lereg_time">
-        <!-- <option value="">--请选择--</option> -->
-        <option value="1">10年以上</option>
-        <option value="2">5-10年</option>
-        <option value="3">2-5年</option>
-        <option value="4">1-2年</option>
+        <option value="">--请选择--</option>
+        <option value="1" @if($data->lereg_time==1) selected @endif>10年以上</option>
+        <option value="2" @if($data->lereg_time==2) selected @endif>5-10年</option>
+        <option value="3" @if($data->lereg_time==3) selected @endif>2-5年</option>
+        <option value="4" @if($data->lereg_time==4) selected @endif>1-2年</option>
     </select>
     </div>
     <div class="loginbtn reg">

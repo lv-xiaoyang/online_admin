@@ -102,7 +102,7 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="/static/img/logo/logo.png" alt="" /></a>
+                <a href="/"><img class="main-logo" src="/static/img/logo/logo.png" alt="" /></a>
                 <strong><img src="static/img/logo/logosn.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -118,20 +118,13 @@
                                 <li><a title="Dashboard v.2" href="{{url('/question/duoadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加多选题</span></a></li>
                                 <li><a title="Dashboard v.3" href="{{url('/question/jianadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加简答题</span></a></li>
                                 <li><a title="Dashboard v.3" href="{{url('/question/index')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">展示页面</span></a></li>
-                                <li><a title="Product List" href="product-list.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Edit</span></a></li>
-                                <li><a title="Product Detail" href="product-detail.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Detail</span></a></li>
-                                <li><a title="Product Cart" href="product-cart.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Cart</span></a></li>
-                                <li><a title="Product Payment" href="product-payment.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Payment</span></a></li>
-                                <li><a title="Analytics" href="analytics.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Analytics</span></a></li>
-                                <li><a title="Widgets" href="widgets.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Widgets</span></a></li>
                             </ul>
                         </li>
                         <li>
                             <a class="has-arrow" href="/teacher" aria-expanded="false"><i class="fa big-icon fa-envelope icon-wrap"></i> <span class="mini-click-non">讲师审核模块</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
+                               
                                 <li><a title="Inbox" href="/teacher"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师展示</span></a></li>
-                                <li><a title="View Mail" href="mailbox-view.html"><i class="fa fa-television sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师修改</span></a></li>
                             </ul>
                         </li>
                         <li>
