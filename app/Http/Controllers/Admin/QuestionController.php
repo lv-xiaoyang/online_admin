@@ -22,10 +22,15 @@ class QuestionController extends Controller
         ];
         $typedata = QuestionModel::where($typewhere)->get();
         // dd($typedata['question_cor']);
-        foreach ($typedata as $key => $value) {
-            var_dump($value->question_cor);
-        }
+        
+        // foreach ($typedata as $key => $value){
+        //     $len = strlen($value->question_cor);
+        //     for($i=1;$i<$len;$i++){
+        //         $str = str_split($value->question_cor);
+        //     }
+        // }
 
+        
         return view("question.index",['data'=>$data]);
     }
     // public function danindex(){
@@ -212,5 +217,99 @@ class QuestionController extends Controller
             echo json_encode(['code'=>1,"msg"=>"添加失败"]);die;
         }
         
+    }
+    //删除
+    public function del($id){
+        $res = QuestionModel::where("question_id",$id)->update(['is_del'=>1]);
+        if($res){
+            return redirect("/question/index");
+        }else{
+            return redirect("/question/index");
+        }   
+    }
+    // 修改
+    public function upd($id){
+        //根据id获取数据
+        $data = QuestionModel::where("question_id",$id)->first();
+        $question_type_id = $data->question_type_id;
+        if($question_type_id==1){
+            return view("question.danupdate",['data'=>$data]);
+        }else if($question_type_id==2){
+            return view("question.duoupdate",['data'=>$data]);
+        }else if($question_type_id==3){
+            return view("question.jianupd",['data'=>$data]);
+        }
+
+    }
+    //执行修改
+    public function update(Request $request){
+        $question_id = $request->post("question_id");
+
+        //题目类型
+        $question_name = $request->post("question_name");
+        $question_type_id = $request->post("question_type_id");
+        // 题目难度
+        $question_diff = $request->post("question_diff");
+        //答案
+        $cor_a = $request->post("cor_a");
+        $where = [
+            'question_id'=>$question_id,
+        ];
+        $data = [
+            'question_name'=>$question_name,
+            'question_type_id'=>$question_type_id,
+            'question_time'=>time(),
+            'question_diff'=>$question_diff,
+            'cor_a'=>$cor_a,
+        ];
+        $res = QuestionModel::where($where)->update($data);
+        if($res!==false){
+            echo json_encode(['code'=>0,"msg"=>"修改成功"]);
+        }else{
+            echo json_encode(['code'=>1,'msg'=>"修改失败"]);
+        }
+
+    }
+    public function danupdate(Request $request,$id){
+         //接值
+        // echo $id;
+        //题目类型
+        $question_name = $request->post("question_name");
+        $question_type_id = $request->post("question_type_id");
+        // 题目难度
+        $question_diff = $request->post("question_diff");
+        //答案
+        $question_cor = $request->post("question_cor");
+        // dd($question_cor);
+        //选项A内容
+        $cor_a = $request->post("cor_a");
+        // 选项B内容
+        $cor_b = $request->post("cor_b");
+         // 选项C内容
+        $cor_c = $request->post("cor_c");
+        // 选项D内容
+        $cor_d = $request->post("cor_d");
+    
+        $where = [
+            'question_id'=>$id,
+        ];
+        $data = [
+            'question_name'=>$question_name,
+            'question_type_id'=>$question_type_id,
+            'question_time'=>time(),
+            'question_diff'=>$question_diff,
+            'question_cor'=>$question_cor,
+            'cor_a'=>$cor_a,
+            'cor_d'=>$cor_d,
+            'cor_c'=>$cor_c,
+            'cor_b'=>$cor_b
+        ];
+        $res = QuestionModel::where($where)->update($data);
+        if($res!==false){
+            echo json_encode(['code'=>0,"msg"=>"修改成功"]);
+        }else{
+            echo json_encode(['code'=>1,'msg'=>"修改失败"]);
+        }
+
     }
 }

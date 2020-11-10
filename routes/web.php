@@ -29,6 +29,18 @@ Route::prefix('admin')->group(function(){
     Route::get('/','Admin\AdminController@index');
     //管理员添加页面
     Route::get('create','Admin\AdminController@create');
+    //管理员名称验证唯一
+    Route::post('admin_name_unique','Admin\AdminController@unique');
+    //执行添加
+    Route::post('store','Admin\AdminController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\AdminController@edit');
+    //修改 管理员名称验证唯一
+    Route::post('admin_name_unique_update/{id}','Admin\AdminController@unique_update');
+    //修改
+    Route::post('update/{id}','Admin\AdminController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\RolesController@destroy');
 });
 
 /**
@@ -39,6 +51,18 @@ Route::prefix('roles')->group(function(){
     Route::get('/','Admin\RolesController@index');
     //角色添加页面
     Route::get('create','Admin\RolesController@create');
+    //角色名称验证唯一
+    Route::post('ro_name_unique','Admin\RolesController@unique');
+    //执行添加
+    Route::post('store','Admin\RolesController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\RolesController@edit');
+    //修改 角色名称验证唯一
+    Route::post('ro_name_unique_update/{id}','Admin\RolesController@unique_update');
+    //修改
+    Route::post('update/{id}','Admin\RolesController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\RolesController@destroy');
 });
 
 /**
@@ -49,6 +73,22 @@ Route::prefix('power')->group(function(){
     Route::get('/','Admin\PowerController@index');
     //权限添加页面
     Route::get('create','Admin\PowerController@create');
+    //权限名称验证唯一
+    Route::post('pow_name_unique','Admin\PowerController@unique');
+    //权限验证唯一
+    Route::post('pow_url_unique','Admin\PowerController@url_unique');
+    //执行添加
+    Route::post('store','Admin\PowerController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\PowerController@edit');
+    //修改 权限名称验证唯一
+    Route::post('pow_name_unique_update/{id}','Admin\PowerController@unique_update');
+    //修改 权限验证唯一
+    Route::post('pow_url_unique_update/{id}','Admin\PowerController@url_unique_update');
+    //修改
+    Route::post('update/{id}','Admin\PowerController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\PowerController@destroy');
 });
 
 /**
@@ -118,8 +158,21 @@ Route::prefix("/question")->group(function(){
 	Route::get("/danindex","Admin\QuestionController@danindex");//单选题题展示
 	Route::get("/danadd","Admin\QuestionController@danadd");//单选题添加
     Route::post("/danadddo","Admin\QuestionController@danadddo");//单选题执行添加
+    Route::post("danupdate/{id}","Admin\QuestionController@danupdate");
 	Route::get("/duoindex","Admin\QuestionController@duoindex");//多选题展示
 	Route::get("/duoadd","Admin\QuestionController@duoadd");//多选题添加
     Route::post("/duoadddo","Admin\QuestionController@duoadddo");//多选题执行添加
+    Route::get("/del/{id}","Admin\QuestionController@del");//删除
+    Route::get("/upd/{id}","Admin\QuestionController@upd");//修改
+    Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
+});
+
+
+//讲师模块
+Route::prefix("/teacher")->group(function(){
+    Route::get("/","Admin\TeacherController@index");
+    Route::get("/del/{id}","Admin\TeacherController@del");
+    Route::get("/upd/{id}","Admin\TeacherController@upd");
+    Route::post("/update/{id}","Admin\TeacherController@update");
 });
 

@@ -24,9 +24,9 @@
         <div class="col-sm-10">
           <div>
               <label>
-                  <input type="radio" class="question_diff" name="question_diff" value="1" checked>简单
-                  <input type="radio" class="question_diff" name="question_diff" value="2">中等
-                  <input type="radio" class="question_diff" name="question_diff" value="3">困难
+                  <input type="radio" class="question_diff" name="question_diff" value="1" @if($data->question_diff==1)checked @endif>简单
+                  <input type="radio" class="question_diff" name="question_diff" value="2" @if($data->question_diff==2)checked @endif>中等
+                  <input type="radio" class="question_diff" name="question_diff" value="3" @if($data->question_diff==3)checked @endif>困难
               </label>
           </div>
         </div>
@@ -35,31 +35,18 @@
    <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label">题干</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="question_name" rows="3"></textarea>
+          <textarea class="form-control" id="question_name" rows="3">{{$data->question_name}}</textarea>
       </div>
     </div>
-
-  <!--   <div class="form-group">
-      <label for="firstname" class="col-sm-2 control-label">选项个数</label>
-        <div class="col-sm-10">
-          <select style="width:180px;center" class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-      </div>
-    </div> -->
-
 
     <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label">正确答案</label>
         <div class="col-sm-10">
           <div>
-                  <label><input type="radio" class="question_cor" name="question_cor" value="1" checked>A</label>
-                  <label><input type="radio" class="question_cor" name="question_cor" value="2">B</label>
-                  <label><input type="radio" class="question_cor" name="question_cor" value="3">C</label>
-                  <label><input type="radio" class="question_cor" name="question_cor" value="4">D</label>
+                  <label><input type="radio" class="question_cor" name="question_cor" value="1" @if($data->question_cor==1)checked @endif>A</label>
+                  <label><input type="radio" class="question_cor" name="question_cor" value="2" @if($data->question_cor==2)checked @endif>B</label>
+                  <label><input type="radio" class="question_cor" name="question_cor" value="3" @if($data->question_cor==3)checked @endif>C</label>
+                  <label><input type="radio" class="question_cor" name="question_cor" value="4" @if($data->question_cor==4)checked @endif>D</label>
           </div>
         </div>
     </div>
@@ -68,7 +55,7 @@
       <label for="firstname" class="col-sm-2 control-label">选项内容</label>
         <div class="col-sm-10">
           A
-          <textarea class="form-control" id="cor_a"  rows="3"></textarea>
+          <textarea class="form-control" id="cor_a"  rows="3">{{$data->cor_a}}</textarea>
       </div>
     </div>
 
@@ -76,7 +63,7 @@
       <label for="firstname" class="col-sm-2 control-label">选项内容</label>
         <div class="col-sm-10">
           B
-          <textarea class="form-control" id="cor_b" rows="3"></textarea>
+          <textarea class="form-control" id="cor_b" rows="3">{{$data->cor_b}}</textarea>
       </div>
     </div>
 
@@ -84,7 +71,7 @@
       <label for="firstname" class="col-sm-2 control-label">选项内容</label>
         <div class="col-sm-10">
           C
-          <textarea class="form-control" id="cor_c"  rows="3"></textarea>
+          <textarea class="form-control" id="cor_c"  rows="3">{{$data->cor_c}}</textarea>
       </div>
     </div>    
 
@@ -92,7 +79,7 @@
       <label for="firstname" class="col-sm-2 control-label">选项内容</label>
         <div class="col-sm-10">
           D
-          <textarea class="form-control"  id="cor_d" rows="3"></textarea>
+          <textarea class="form-control"  id="cor_d" rows="3">{{$data->cor_d}}</textarea>
       </div>
     </div>
     
@@ -106,7 +93,7 @@
   </div>
 </form>
 <script>
-  $(document).ready(function(){
+$(document).ready(function(){
     $("#button").click(function(){
       // 题干
       var question_name = $("#question_name").val();
@@ -127,13 +114,15 @@
       var cor_c = $("#cor_c").val();
       // 选项D内容
       var cor_d = $("#cor_d").val();
+      var question_id = {{$data->question_id}};
+
       $.ajax({
         type:"post",
         dataType:"json",
-        url:"{{url('/question/danadddo')}}",
+        url:"/question/danupdate/"+question_id,
         dataType:"json",
         headers:{'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
-        data:{question_name:question_name,question_type_id:question_type_id,question_diff:question_diff,question_cor:question_cor,cor_a:cor_a,cor_b:cor_b,cor_c:cor_c,cor_d:cor_d},
+        data:{question_id:question_id,question_name:question_name,question_type_id:question_type_id,question_diff:question_diff,question_cor:question_cor,cor_a:cor_a,cor_b:cor_b,cor_c:cor_c,cor_d:cor_d},
         success:function(res){
          if(res.code==1){
             alert(res.msg);
@@ -147,5 +136,7 @@
      
     })
   })
+  
+
 </script>
 @endsection
