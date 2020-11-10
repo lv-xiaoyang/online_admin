@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bd00037-c39e-4934-8033-5d1d680be80c" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/admin_roles/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminRolesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminRolesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PowerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PowerController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/admin/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/admin/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/admin/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/admin/edit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/admin_roles/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/admin_roles/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/admin_roles/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/admin_roles/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/admin_roles/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/admin_roles/edit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/power/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/power/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/power/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/power/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/roles/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/roles/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" />
     </list>
     <ignored path="online_admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,17 +43,17 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="46.16129">
-              <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+            <state vertical-scroll-proportion="-75.90323">
+              <caret line="175" column="17" selection-start-line="175" selection-start-column="17" selection-end-line="175" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminRolesController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminRolesController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminRolesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.774193">
+            <state vertical-scroll-proportion="0.7453704">
               <caret line="199" column="30" selection-start-line="199" selection-start-column="30" selection-end-line="199" selection-end-column="30" />
               <folding>
                 <element signature="e#46#82#0#PHP" expanded="true" />
@@ -61,34 +63,6 @@
                 <marker date="1604993115102" expanded="true" signature="4132:4142" placeholder="..." />
                 <marker date="1604993115102" expanded="true" signature="4582:4592" placeholder="..." />
                 <marker date="1604993115102" expanded="true" signature="4776:4786" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.48">
-              <caret line="1109" column="22" selection-start-line="1109" selection-start-column="22" selection-end-line="1109" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/power/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.683237">
-              <caret line="194" column="56" selection-start-line="194" selection-start-column="46" selection-end-line="194" selection-end-column="46" />
-              <folding>
-                <marker date="1604905278826" expanded="true" signature="5925:5935" placeholder="..." />
-                <marker date="1604905278826" expanded="true" signature="6696:6706" placeholder="..." />
-                <marker date="1604905278826" expanded="true" signature="7272:7282" placeholder="..." />
-                <marker date="1604905278826" expanded="true" signature="8036:8046" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -113,26 +87,26 @@
         <option value="$PROJECT_DIR$/resources/views/admin/power/index.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Model/RolesModel.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/roles/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/roles/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RolesController.php" />
         <option value="$PROJECT_DIR$/app/Model/AdminModel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PowerController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/admin/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/admin/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/admin/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/app/Model/AdminRolesModel.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/admin_roles/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/admin_roles/exit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/admin_roles/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/admin_roles/edit.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminRolesController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/power/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PowerController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/power/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/roles/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/admin/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/admin/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/admin_roles/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/admin_roles/create.blade.php" />
       </list>
     </option>
   </component>
@@ -278,7 +252,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="power" />
+              <option name="myItemId" value="roles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -429,14 +403,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18443497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15298508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -512,6 +486,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+          <folding>
+            <marker date="1605009590922" expanded="true" signature="4846:4856" placeholder="..." />
+            <marker date="1605009590922" expanded="true" signature="5584:5594" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -551,14 +529,14 @@
           <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding>
             <element signature="e#46#82#0#PHP" expanded="true" />
-            <marker date="1604905851799" expanded="true" signature="755:765" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="1019:1029" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="1202:1212" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="1462:1472" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="3771:3781" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="4157:4167" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="4340:4350" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="4600:4610" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="755:765" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="1019:1029" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="1202:1212" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="1462:1472" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="3771:3781" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="4157:4167" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="4340:4350" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="4721:4731" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -568,10 +546,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="112" selection-start-line="35" selection-start-column="112" selection-end-line="35" selection-end-column="112" />
           <folding>
-            <marker date="1605007587333" expanded="true" signature="5743:5753" placeholder="..." />
-            <marker date="1605007587333" expanded="true" signature="6414:6424" placeholder="..." />
-            <marker date="1605007587333" expanded="true" signature="6922:6932" placeholder="..." />
-            <marker date="1605007587333" expanded="true" signature="7586:7596" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="5743:5753" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="6414:6424" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="6922:6932" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="7586:7596" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -624,6 +602,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding>
+            <marker date="1605009590922" expanded="true" signature="4846:4856" placeholder="..." />
+            <marker date="1605009590922" expanded="true" signature="5584:5594" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -721,24 +703,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/roles/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47761193">
-          <caret line="130" column="36" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/roles/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.548388">
           <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="18.766666">
-          <caret line="89" column="75" selection-start-line="89" selection-start-column="75" selection-end-line="89" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -758,33 +726,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40344828">
-          <caret line="220" column="40" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/power/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6701389">
           <caret line="51" column="45" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66934556">
-          <caret line="236" column="41" selection-start-line="236" selection-start-column="41" selection-end-line="236" selection-end-column="41" />
-          <folding>
-            <marker date="1604925753139" expanded="true" signature="7097:7107" placeholder="..." />
-            <marker date="1604925753139" expanded="true" signature="7881:7891" placeholder="..." />
-            <marker date="1604925753139" expanded="true" signature="8472:8482" placeholder="..." />
-            <marker date="1604925753139" expanded="true" signature="8765:8775" placeholder="..." />
-            <marker date="1604925753139" expanded="true" signature="9385:9395" placeholder="..." />
-            <marker date="1604925753139" expanded="true" signature="9682:9692" placeholder="..." />
-            <marker date="1604925753139" expanded="true" signature="9992:10002" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -842,36 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin_roles/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4666667">
-          <caret line="158" column="42" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="42" />
-          <folding>
-            <marker date="1604991690213" expanded="true" signature="6959:6969" placeholder="..." />
-            <marker date="1604991690213" expanded="true" signature="7746:7756" placeholder="..." />
-            <marker date="1604991690213" expanded="true" signature="8406:8416" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PowerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85287356">
-          <caret line="204" column="5" selection-start-line="204" selection-start-column="5" selection-end-line="204" selection-end-column="5" />
-          <folding>
-            <element signature="e#46#82#0#PHP" expanded="true" />
-            <marker date="1604905851799" expanded="true" signature="755:765" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="1019:1029" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="1202:1212" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="1462:1472" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="3771:3781" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="4157:4167" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="4340:4350" placeholder="..." />
-            <marker date="1604905851799" expanded="true" signature="4600:4610" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/admin_roles/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.46875">
@@ -880,62 +795,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin_roles/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54022986">
-          <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.15747127">
+          <caret line="1120" column="79" selection-start-line="1120" selection-start-column="30" selection-end-line="1120" selection-end-column="30" />
           <folding>
-            <marker date="1604991734633" expanded="true" signature="6683:10194" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="6694:10193" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="6823:8038" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="6852:8037" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="7029:7156" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="7079:7089" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="7162:8004" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="7692:7982" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="7742:7825" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="7831:7956" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="7893:7903" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8087:10183" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8113:10182" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8375:8449" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8386:8448" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8502:8629" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8553:8563" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8635:8695" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="8875:10149" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="9598:10127" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="9683:9780" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="9807:9981" placeholder="..." />
-            <marker date="1604991734633" expanded="true" signature="9987:10101" placeholder="..." />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PowerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22312139">
+          <caret line="176" column="45" selection-start-line="176" selection-start-column="45" selection-end-line="176" selection-end-column="45" />
+          <folding>
+            <element signature="e#46#82#0#PHP" expanded="true" />
+            <marker date="1605008265991" expanded="true" signature="755:765" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="1019:1029" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="1202:1212" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="1462:1472" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="3771:3781" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="4157:4167" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="4340:4350" placeholder="..." />
+            <marker date="1605008265991" expanded="true" signature="4721:4731" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="46.16129">
-          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+        <state vertical-scroll-proportion="-75.90323">
+          <caret line="175" column="17" selection-start-line="175" selection-start-column="17" selection-end-line="175" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6057471">
+          <caret line="239" column="57" selection-start-line="239" selection-start-column="57" selection-end-line="239" selection-end-column="57" />
+          <folding>
+            <marker date="1605009590949" expanded="true" signature="7097:7107" placeholder="..." />
+            <marker date="1605009590949" expanded="true" signature="7881:7891" placeholder="..." />
+            <marker date="1605009590949" expanded="true" signature="8472:8482" placeholder="..." />
+            <marker date="1605009590949" expanded="true" signature="8765:8775" placeholder="..." />
+            <marker date="1605009590949" expanded="true" signature="9385:9395" placeholder="..." />
+            <marker date="1605009590949" expanded="true" signature="9682:9692" placeholder="..." />
+            <marker date="1605009590949" expanded="true" signature="9992:10002" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5942529">
+          <caret line="241" column="56" selection-start-line="241" selection-start-column="56" selection-end-line="241" selection-end-column="56" />
+          <folding>
+            <marker date="1605009590931" expanded="true" signature="6325:6335" placeholder="..." />
+            <marker date="1605009590931" expanded="true" signature="7079:7089" placeholder="..." />
+            <marker date="1605009590931" expanded="true" signature="7670:7680" placeholder="..." />
+            <marker date="1605009590931" expanded="true" signature="7963:7973" placeholder="..." />
+            <marker date="1605009590931" expanded="true" signature="8583:8593" placeholder="..." />
+            <marker date="1605009590931" expanded="true" signature="8880:8890" placeholder="..." />
+            <marker date="1605009590931" expanded="true" signature="9190:9200" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin_roles/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8137931">
+          <caret line="184" column="59" selection-start-line="184" selection-start-column="59" selection-end-line="184" selection-end-column="59" />
+          <folding>
+            <marker date="1605009678569" expanded="true" signature="6959:6969" placeholder="..." />
+            <marker date="1605009678569" expanded="true" signature="7746:7756" placeholder="..." />
+            <marker date="1605009678569" expanded="true" signature="8406:8416" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/admin_roles/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5137931">
+          <caret line="180" column="36" selection-start-line="180" selection-start-column="36" selection-end-line="180" selection-end-column="36" />
+          <folding>
+            <marker date="1605009678586" expanded="true" signature="6683:10801" placeholder="..." />
+            <marker date="1605009678586" expanded="true" signature="6694:10800" placeholder="..." />
+            <marker date="1605009678586" expanded="true" signature="6823:8038" placeholder="..." />
+            <marker date="1605009678586" expanded="true" signature="6852:8037" placeholder="..." />
+            <marker date="1605009678586" expanded="true" signature="7029:7156" placeholder="..." />
+            <marker date="1605009678586" expanded="true" signature="7079:7089" placeholder="..." />
+            <marker date="1605009678586" expanded="true" signature="7893:7903" placeholder="..." />
+            <marker date="1605009678586" expanded="true" signature="8553:8563" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/power/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.337931">
-          <caret line="81" column="50" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+        <state vertical-scroll-proportion="-30.04">
+          <caret line="215" column="10" selection-start-line="215" selection-start-column="10" selection-end-line="215" selection-end-column="10" />
           <folding>
-            <marker date="1605007587333" expanded="true" signature="5743:5753" placeholder="..." />
-            <marker date="1605007587333" expanded="true" signature="6414:6424" placeholder="..." />
-            <marker date="1605007587333" expanded="true" signature="6922:6932" placeholder="..." />
-            <marker date="1605007587333" expanded="true" signature="7586:7596" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="5743:5753" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="6414:6424" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="6922:6932" placeholder="..." />
+            <marker date="1605008156833" expanded="true" signature="7586:7596" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/power/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62413794">
+          <caret line="199" column="56" selection-start-line="199" selection-start-column="56" selection-end-line="199" selection-end-column="56" />
+          <folding>
+            <marker date="1605009232547" expanded="true" signature="5923:5933" placeholder="..." />
+            <marker date="1605009232547" expanded="true" signature="6694:6704" placeholder="..." />
+            <marker date="1605009232547" expanded="true" signature="7270:7280" placeholder="..." />
+            <marker date="1605009232547" expanded="true" signature="8034:8044" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/roles/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.8">
+          <caret line="147" column="56" selection-start-line="147" selection-start-column="56" selection-end-line="147" selection-end-column="56" />
+          <folding>
+            <marker date="1605009590922" expanded="true" signature="4846:4856" placeholder="..." />
+            <marker date="1605009590922" expanded="true" signature="5584:5594" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86321837">
+          <caret line="163" column="14" selection-start-line="163" selection-start-column="14" selection-end-line="163" selection-end-column="14" />
+          <folding>
+            <marker date="1605009590938" expanded="true" signature="4900:4910" placeholder="..." />
+            <marker date="1605009590938" expanded="true" signature="5665:5675" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminRolesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.774193">
+        <state vertical-scroll-proportion="0.7453704">
           <caret line="199" column="30" selection-start-line="199" selection-start-column="30" selection-end-line="199" selection-end-column="30" />
           <folding>
             <element signature="e#46#82#0#PHP" expanded="true" />
@@ -945,30 +952,6 @@
             <marker date="1604993115102" expanded="true" signature="4132:4142" placeholder="..." />
             <marker date="1604993115102" expanded="true" signature="4582:4592" placeholder="..." />
             <marker date="1604993115102" expanded="true" signature="4776:4786" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.48">
-          <caret line="1109" column="22" selection-start-line="1109" selection-start-column="22" selection-end-line="1109" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/power/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.683237">
-          <caret line="194" column="56" selection-start-line="194" selection-start-column="46" selection-end-line="194" selection-end-column="46" />
-          <folding>
-            <marker date="1604905278826" expanded="true" signature="5925:5935" placeholder="..." />
-            <marker date="1604905278826" expanded="true" signature="6696:6706" placeholder="..." />
-            <marker date="1604905278826" expanded="true" signature="7272:7282" placeholder="..." />
-            <marker date="1604905278826" expanded="true" signature="8036:8046" placeholder="..." />
           </folding>
         </state>
       </provider>

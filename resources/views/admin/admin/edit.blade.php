@@ -234,8 +234,12 @@
                         success:function(res){
                             //判断
                             if(res.status=='ok'){
-                                alert('保存成功。')
-                                location.href='/admin'
+                                //触发提示框
+                                $('#success').trigger('click')
+                                //提示语
+                                $('#prompt').html('<h1>保存成功。</h1>')
+                                //按钮的字
+                                $('#jump').text('跳转到展示')
                             }else{
                                 $('.pow').html('')
                                 $('#span_'+res.field).html(res.msg)
@@ -243,6 +247,14 @@
                         }
                     })
                 }
+            })
+
+            /**
+             * 跳转
+             */
+            $(document).on('click','#jump',function(){
+                //跳转地址
+                location.href='/admin'
             })
         })
     </script>

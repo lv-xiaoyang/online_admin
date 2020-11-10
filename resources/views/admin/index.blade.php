@@ -1136,7 +1136,7 @@
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                                     <div class="login-horizental">
-                                                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit" id="jump">跳转到展示</button>
+                                                        <button class="btn btn-sm btn-primary login-submit-cs" type="submit" id="jump"></button>
                                                     </div>
                                                 </div>
                                             </div>
