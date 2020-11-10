@@ -1,5 +1,5 @@
 @extends('admin/index')
-@section('title','角色添加页面')
+@section('title','角色编辑页面')
 @section('content')
     <div class="basic-form-area mg-tb-15">
         <div class="container-fluid">
@@ -8,7 +8,7 @@
                     <div class="sparkline12-list">
                         <div class="sparkline12-hd">
                             <div class="main-sparkline12-hd">
-                                <h1>角色添加页面</h1>
+                                <h1>角色编辑页面</h1>
                             </div>
                         </div>
                         <div class="sparkline12-graph">
@@ -24,7 +24,7 @@
                                                             <label class="login2 pull-right pull-right-pro">角色名称：</label>
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                            <input type="text" id="ro_name" placeholder="请输入角色名称。" class="form-control" />
+                                                            <input type="text" id="ro_name" value="{{$info->ro_name}}" placeholder="请输入角色名称。" class="form-control" />
                                                             <span class="ro" id="span_ro_name"></span>
                                                         </div>
                                                     </div>
@@ -35,7 +35,7 @@
                                                             <label class="login2 pull-right pull-right-pro">角色描述：</label>
                                                         </div>
                                                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                                            <input type="text" id="ro_desc" placeholder="请输入角色描述。" class="form-control" />
+                                                            <input type="text" id="ro_desc" value="{{$info->ro_desc}}" placeholder="请输入角色描述。" class="form-control" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -46,7 +46,7 @@
                                                             <div class="col-lg-9">
                                                                 <div class="login-horizental cancel-wp pull-left">
                                                                     <button class="btn btn-white" type="reset">重置</button>
-                                                                    <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">提交</button>
+                                                                    <button class="btn btn-sm btn-primary login-submit-cs" id="sub" type="button">保存</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -87,7 +87,7 @@
                     //发送给后台验证唯一
                     $.ajax({
                         //提交地址
-                        url:'/roles/ro_name_unique',
+                        url:'/roles/ro_name_unique_update/'+"{{$info->ro_id}}",
                         //提交方式
                         type:'post',
                         //设置同步异步
@@ -127,7 +127,7 @@
                     //发送
                     $.ajax({
                         //提交地址
-                        url:'/roles/store',
+                        url:'/roles/update/'+"{{$info->ro_id}}",
                         //提交方式
                         type:'post',
                         //设置同步异步
@@ -140,7 +140,7 @@
                         success:function(res){
                             //判断
                             if(res.status=='ok'){
-                                alert('添加成功。')
+                                alert('保存成功。')
                                 location.href='/roles'
                             }else{
                                 $('.ro').html('')
