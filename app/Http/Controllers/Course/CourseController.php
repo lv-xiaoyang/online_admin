@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\CourseTypeModel;
 use App\Model\CourseModel;
+use App\Model\CourseClassModel;
+use App\Model\CourseChapterModel;
+use App\Model\CourseSectionModel;
+
 
 class CourseController extends Controller
 {
@@ -61,7 +65,54 @@ class CourseController extends Controller
         }
         return $path;
     }
-
+    /**
+     * 获取章程数据
+     */
+    public function chapter(){
+        $course_id=request()->course_id;
+        if(empty($course_id)){
+            return ['code'=>0002,'msg'=>'请先选择课程'];
+        }
+        //获取章程数据
+        $chapter_where=[
+            ['chapter_del','=',0],
+            ['course_id','=',$course_id]
+        ];
+        $chapter_data=CourseChapterModel::where($chapter_where)->get()->toArray();
+        return json_encode($chapter_data);
+    }
+     /**
+      * 获取节数据
+      */
+    public function section(){
+        $chapter_id=request()->chapter_id;
+        if(empty($chapter_id)){
+            return ['code'=>0002,'msg'=>'请先选择章程'];die;
+        }
+        //获取章程数据
+        $section_where=[
+            ['section_del','=',0],
+            ['chapter_id','=',$chapter_id]
+        ];
+        $section_data=CourseSectionModel::where($section_where)->get()->toArray();
+        return json_encode($section_data);
+    }
+      /**
+       * 获取课时数据
+       */
+    public function courseclass(){
+        $section_id=request()->section_id;
+        if(empty($section_id)){
+            return ['code'=>0002,'msg'=>'请先选择节'];die;
+        }
+        //获取章程数据
+        $class_where=[
+            ['class_del','=',0],
+            ['section_id','=',$section_id]
+        ];
+        $class_data=CourseClassModel::where($class_where)->get()->toArray();
+        return json_encode($class_data);
+    }
 
 
 

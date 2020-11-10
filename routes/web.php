@@ -84,6 +84,9 @@ Route::prefix("/course")->group(function(){
     });
     Route::get("/create","Course\CourseController@create");//课程添加
     Route::post("/add","Course\CourseController@add");//课程确认添加
+    Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
+    Route::post("/section","Course\CourseController@section");//获取节数据
+    Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
     Route::get("/index","Course\CourseController@list");//课程展示
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
@@ -96,6 +99,10 @@ Route::prefix("/course")->group(function(){
     });
     Route::prefix('hour')->group(function(){
         Route::get("/create","Course\HourController@create");//课时添加
+        Route::post("/add","Course\HourController@add");//课时确认添加
+        Route::post("/chapter","Course\HourController@chapter");//获取章程数据
+        Route::post("/section","Course\HourController@section");//获取节数据
+        
     });
 });
 
