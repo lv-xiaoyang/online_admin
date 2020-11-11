@@ -166,8 +166,10 @@
                 //提示语
                 $('#prompt').html("<h1>"+res.msg+"</h1>")
                 // //按钮的字
-                // $('#jump').text('去展示')
-                _this.parents('tr').hide();
+                if(res.code==0001){
+                    _this.parents('tr').hide();
+                }
+                
             }
         })
         

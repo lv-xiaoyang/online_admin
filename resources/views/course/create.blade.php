@@ -25,8 +25,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputfile">课程图片：</label>
-                                    <input type="file"  id="course_img">
-                                    <input type="hidden" name="course_img">
+                                    <input type="file"  name="course_img" id="course_img">
+                                    <!-- <input type="hidden"> -->
                                     
                                 </div>
                                 <div class="form-group">
@@ -52,20 +52,20 @@
             </div>
         </div>
  <script>
-    $(document).ready(function(){
-		$("#course_img").uploadify({
+    // $(document).ready(function(){
+	// 	$("#course_img").uploadify({
             
-            //后台处理的页面
-			uploader: "/course/addimg",
-			swf: "/static/js/uploadify.swf",
-			onUploadSuccess:function(res,data,msg){
-                // console.log(res,data,msg);
-				var imgPath  = data;
-				var imgstr = "<img src='"+imgPath+"'>";
-				$("input[name='course_img']").val(imgPath);
-			}
-		});
-	});
+    //         //后台处理的页面
+	// 		uploader: "/course/addimg",
+	// 		swf: "/static/js/uploadify.swf",
+	// 		onUploadSuccess:function(res,data,msg){
+    //             // console.log(res,data,msg);
+	// 			var imgPath  = data;
+	// 			var imgstr = "<img src='"+imgPath+"'>";
+	// 			$("input[name='course_img']").val(imgPath);
+	// 		}
+	// 	});
+	// });
 
 
     $(document).on('click','#submit',function(a){
