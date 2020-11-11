@@ -126,10 +126,29 @@ $(document).ready(function(){
         success:function(res){
          if(res.code==1){
             alert(res.msg);
+            //触发提示框
+                $('#success').trigger('click')
+                //提示语
+                $('#prompt').html('<h1>修改失败</h1>')
+                //按钮的字
+
           }
           if(res.code==0){
-            alert(res.msg);
-            window.location.href="/question/index";
+            //触发提示框
+                $('#success').trigger('click')
+                //提示语
+                $('#prompt').html('<h1>修改成功</h1>')
+                //按钮的字
+                $('#jump').text('去展示')
+
+                //跳转
+                $(document).on('click','#jump',function(){
+                    //跳转地址
+                    location.href="/question/index"
+                })
+
+
+            
           }
         }
       })

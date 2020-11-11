@@ -2,6 +2,26 @@
 @section('title','题库展示')
 @section('content')
 
+                <div class="breadcome-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="breadcome-list single-page-breadcome">
+                                    <div class="row">
+                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcome-heading">
+                                          <form role="search" class="">
+                                            <input type="text" placeholder="Search..." value="{{$question_name}}" style="height:37px" name="question_name"  class="form-control">
+                                            <a href=""><button class="btn btn-default"><i class="fa fa-search"></i></button></a>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 <table class="table table-condensed">
 
@@ -62,32 +82,35 @@
       <td>{{$v->section_name}}</td>
       <td>{{$v->class_name}}</td>
       <td><!-- <a href="{{url('/question/del/ '.$v->question_id)}}"></a> -->
-        <button type="submit"  value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/course/'.$v->question_id)}}">关联课程</a></button>  
-      	<button type="submit" id="" value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/del/'.$v->question_id)}}">删除</a></button>	
+        <!-- <button type="submit"  value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/course/'.$v->question_id)}}">关联课程</a></button>   -->
+      	<button type="submit" class="del" value="{{$v->question_id}}" class="btn btn-default">删除</button>	
         <button type="submit" id="upd" value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/upd/'.$v->question_id)}}">修改</a></button>
       </td>
   </tr>
 
   @endforeach
    <td>
-      <td colspan="10">{{$data->links()}}</td>
+      <td colspan="10">{{$data->appends(['question_name'=>$question_name])->links()}}</td>
    </td>
   </tbody>
 </table>
 <script>
   $(document).ready(function(){
-    $("#del").click(function(){
+    $(".del").click(function(){
       var _this=$(this);
       var id = _this.val();
 
-      
+       $('#success').trigger('click')
+                //提示语
+          $('#prompt').html('<h1>确认删除吗？</h1>')
+                //按钮的字
+          $('#jump').text('确认')
 
-       bootbox.confirm("确认删除", function () {
-          window.location.href="/question/del/"+id;
-      })
-      // if(window.confirm("您确定删除吗？")){
-      //   window.location.href="/question/del/"+id;
-      // }
+                //跳转
+          $(document).on('click','#jump',function(){
+                    //跳转地址
+            location.href="/question/del/"+id;
+          })
     })
     // $("#upd").click(function(){
     //   var _this=$(this);
@@ -101,7 +124,10 @@
     //     }
     //   })
     // })
+    
+
 });
+
 </script>
 
 

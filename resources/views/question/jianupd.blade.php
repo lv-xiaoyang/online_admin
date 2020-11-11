@@ -79,11 +79,27 @@
           data:{question_id:question_id,question_name:question_name,question_type_id:question_type_id,question_diff:question_diff,cor_a:cor_a},
           success:function(res){
             if(res.code==0){
-                alert(res.msg);
-                window.location.href="/question/index";
+              //触发提示框
+                $('#success').trigger('click')
+                //提示语
+                $('#prompt').html('<h1>修改成功</h1>')
+                //按钮的字
+                $('#jump').text('去展示')
+
+                //跳转
+                $(document).on('click','#jump',function(){
+                    //跳转地址
+                    location.href="/question/index"
+                })
+
+                
             }
             if(res.code){
-              alert(res.msg)
+              //触发提示框
+                $('#success').trigger('click')
+                //提示语
+                $('#prompt').html('<h1>修改失败</h1>')
+               
             }
           }
         })

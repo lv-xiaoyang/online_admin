@@ -1053,6 +1053,8 @@
                         </div>
                     </div>
                 </div>
+            @elseif($url_name=="question")
+           
             @else
                 <div class="breadcome-area">
                     <div class="container-fluid">
@@ -1070,7 +1072,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <ul class="breadcome-menu">
-                                                <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                                <li><a href="">Home</a> <span class="bread-slash">/</span>
                                                 </li>
                                                 <li><span class="bread-blod">Data Table</span>
                                                 </li>
@@ -1082,7 +1084,7 @@
                         </div>
                     </div>
                 </div>
-            @endif
+                @endif
         </div>
 
 

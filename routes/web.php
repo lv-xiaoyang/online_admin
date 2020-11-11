@@ -163,7 +163,7 @@ Route::prefix("/course")->group(function(){
 
 //题库
 Route::prefix("/question")->group(function(){
-	Route::get("/index","Admin\QuestionController@index");
+	Route::get("/index","Admin\QuestionController@index")->name("question");
 	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
 	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
     Route::post("/jianaddo","Admin\QuestionController@jianaddo");//简答题执行添加
@@ -184,6 +184,8 @@ Route::prefix("/question")->group(function(){
     Route::get("/sectionn","Admin\QuestionController@sectionn");
     Route::get("/coursec","Admin\QuestionController@coursec");
     Route::get("/coursecreate","Admin\QuestionController@coursecreate");
+    Route::post("/duoupdate","Admin\QuestionController@duoupdate");
+    Route::get("/search","Admin\QuestionController@search");
 });
 
 
