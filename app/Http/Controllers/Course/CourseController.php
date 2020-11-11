@@ -9,6 +9,7 @@ use App\Model\CourseModel;
 use App\Model\CourseClassModel;
 use App\Model\CourseChapterModel;
 use App\Model\CourseSectionModel;
+use App\Model\LectModel;
 
 
 class CourseController extends Controller
@@ -20,7 +21,8 @@ class CourseController extends Controller
         //查询课程分类信息
         $type_data=CourseTypeModel::select('type_id','type_name')->get();
         //查询讲师信息
-        return view('course.create',compact('type_data'));
+        $lect_data=LectModel::select('lect_id','lect_name')->get();
+        return view('course.create',compact('type_data','lect_data'));
     }
     /**
      * 课程确认添加
@@ -138,6 +140,17 @@ class CourseController extends Controller
         }else{
             return ['code'=>0002,'msg'=>'删除失败'];
         }
+    }
+
+    public function addimg(){
+        $arr = $_FILES["Filedata"];
+    	$tmpName = $arr['tmp_name'];
+    	$ext  = explode(".",$arr['name'])[1];
+    	$newFileName = md5(time()).".".$ext;
+    	$newFilePath = "./uploads/".$newFileName;
+    	move_uploaded_file($tmpName, $newFilePath);
+    	$newFilePath = trim($newFilePath,".");
+    	echo $newFilePath;
     }
 
 

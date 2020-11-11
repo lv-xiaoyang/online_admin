@@ -27,268 +27,32 @@
                                 <tr>
                                     <th data-field="state" data-checkbox="true"></th>
                                     <th data-field="id">ID</th>
-                                    <th data-field="name" data-editable="true">Product Title</th>
-                                    <th data-field="company" data-editable="true">Stock</th>
-                                    <th data-field="price" data-editable="true">Price</th>
-                                    <th data-field="date" data-editable="true">Date</th>
-                                    <th data-field="task" data-editable="true">Status</th>
-                                    <th data-field="email" data-editable="true">Total Sales</th>
-                                    <th data-field="action">Action</th>
+                                    <th data-field="name" data-editable="true">角色</th>
+                                    <th data-field="company" data-editable="true">权限</th>
+                                    <th data-field="price" data-editable="true">赋值时间</th>
+                                    <th data-field="action">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @if(!empty($data))
+                                    @foreach($data as $k=>$v)
                                 <tr>
                                     <td></td>
-                                    <td>1</td>
-                                    <td>Product Title</td>
-                                    <td>Out Of Stock</td>
-                                    <td>$54</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
+                                    <td>{{$v->rp_id}}</td>
+                                    <td>{{$v->ro_name}}</td>
+                                    <td>{{$v->pow_name}}</td>
+                                    <td>{{date("Y-m-d H:i:s",$v->rp_time)}}</td>
+                                    <td class="datatable-ct">
+                                        <a href="/role_power/edit/{{$v->rp_id}}">
+                                            <span class="glyphicon glyphicon-pencil" id="update"></span>
+                                        </a>
+                                        <a href="/role_power/destroy/{{$v->rp_id}}">
+                                            <span class="glyphicon glyphicon-remove" id="destroy"></span>
+                                        </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>2</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>3</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>4</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>5</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>6</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>7</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>8</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>9</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>10</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>11</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>12</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>13</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>14</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>15</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>16</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>17</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>18</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>19</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>20</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>21</td>
-                                    <td>Product Title</td>
-                                    <td>In Of Stock</td>
-                                    <td>$5</td>
-                                    <td>Jul 14, 2017</td>
-                                    <td>Active</td>
-                                    <td>$700</td>
-                                    <td class="datatable-ct"><i class="fa fa-check"></i>
-                                    </td>
-                                </tr>
+                                @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>

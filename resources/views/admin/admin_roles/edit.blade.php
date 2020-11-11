@@ -23,7 +23,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <label class="login2 pull-right pull-right-pro">管理员：</label>
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="col-lg-2 col-md-9 col-sm-9 col-xs-12">
                                                             <div class="form-select-list">
                                                                 <select class="form-control custom-select-value" id="admin" name="admin_id">
                                                                     <option value="">请选择管理员...</option>

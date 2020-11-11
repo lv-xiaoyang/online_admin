@@ -21,6 +21,7 @@
 <script src="/static/js/icheck/icheck-active.js"></script>
 <!-- 表单的js结束 -->
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+    
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
@@ -88,10 +89,11 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
-
+    
     <!-- jquery
         ============================================ -->
-    <script src="/static/js/jquery.min.js"></script>
+    <!-- <script src="/static/js/jquery.min.js"></script> -->
+    
 </head>
 
 <body>

@@ -5,26 +5,23 @@
 <center>
     <h2>章程添加</h2>
 </center>
-
-    <table>
-        <tr>
-            <td>章程名称</td>
-            <td><input type="text" name="chapter_name" id="chapter_name"></td>
-        </tr>
-        <tr>
-            <td>所属课程</td>
-            <td><select name="course_id" id="course_id">
+        <div class="form-group">
+            <label for="name">章程名称</label>
+            <input type="text" class="form-control" name="chapter_name" id="chapter_name" 
+                placeholder="请输入章程名称">
+        </div>
+        <div class="form-group">
+            <label for="name">所属课程</label>
+            <select name="course_id" id="course_id">
                 <option value="">--请选择--</option>
                 @foreach($course_data as $v)
                 <option value="{{$v->course_id}}">{{$v->course_name}}</option>
                 @endforeach
-            </select></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="button" style="width:1200px;" id="button" class="btn btn-primary" value="添加章程"></td>
-        </tr>
-    </table>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="button" style="width:1200px;" id="button" class="btn btn-primary" value="添加章程">
+        </div>
 
 
 @endsection
@@ -44,13 +41,26 @@
             data:{chapter_name:chapter_name,course_id:course_id},
             success:function(res){
                 if(res.code==0001){
-                    if(window.confirm('添加成功，您要跳转到章程展示页面吗？')){
-                        location.href='/course/index';
-                    }else{
-                        alert(res.msg);
-                    }
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
+                    //按钮的字
+                    $('#jump').text('去展示')
+                }else{
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
                 }
             }
         })
+    });
+    /**
+    * 跳转
+    */
+    $(document).on('click','#jump',function(){
+        //跳转地址
+        location.href='/course/index';
     })
 </script>
