@@ -21,6 +21,7 @@
 <script src="/static/js/icheck/icheck-active.js"></script>
 <!-- 表单的js结束 -->
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+    
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
@@ -88,10 +89,11 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
-
+    
     <!-- jquery
         ============================================ -->
-    <script src="/static/js/jquery.min.js"></script>
+    <!-- <script src="/static/js/jquery.min.js"></script> -->
+    
 </head>
 
 <body>
@@ -102,7 +104,7 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="/static/img/logo/logo.png" alt="" /></a>
+                <a href="/"><img class="main-logo" src="/static/img/logo/logo.png" alt="" /></a>
                 <strong><img src="static/img/logo/logosn.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -118,20 +120,13 @@
                                 <li><a title="Dashboard v.2" href="{{url('/question/duoadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加多选题</span></a></li>
                                 <li><a title="Dashboard v.3" href="{{url('/question/jianadd')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">添加简答题</span></a></li>
                                 <li><a title="Dashboard v.3" href="{{url('/question/index')}}"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">展示页面</span></a></li>
-                                <li><a title="Product List" href="product-list.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Edit</span></a></li>
-                                <li><a title="Product Detail" href="product-detail.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Detail</span></a></li>
-                                <li><a title="Product Cart" href="product-cart.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Cart</span></a></li>
-                                <li><a title="Product Payment" href="product-payment.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Product Payment</span></a></li>
-                                <li><a title="Analytics" href="analytics.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Analytics</span></a></li>
-                                <li><a title="Widgets" href="widgets.html"><i class="fa" aria-hidden="true"></i> <span class="mini-sub-pro">Widgets</span></a></li>
                             </ul>
                         </li>
                         <li>
                             <a class="has-arrow" href="/teacher" aria-expanded="false"><i class="fa big-icon fa-envelope icon-wrap"></i> <span class="mini-click-non">讲师审核模块</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Inbox" href="/teacher"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师展示</span></a></li>
-                                <li><a title="View Mail" href="mailbox-view.html"><i class="fa fa-television sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师修改</span></a></li>
+                                <li><a title="Inbox" href="/teacher"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师注册展示</span></a></li>
+                                <li><a title="Inbox" href="#"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师审核展示</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -177,8 +172,8 @@
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">讲师模块</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Basic Form Elements" href="basic-form-element.html"><i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Bc Form Elements</span></a></li>
-                                <li><a title="Advance Form Elements" href="advance-form-element.html"><i class="fa fa-lightbulb-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Ad Form Elements</span></a></li>
+                                <li><a title="Basic Form Elements" href="basic-form-element.html"><i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师添加</span></a></li>
+                                <li><a title="Advance Form Elements" href="advance-form-element.html"><i class="fa fa-lightbulb-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师展示</span></a></li>
                                 <li><a title="Password Meter" href="password-meter.html"><i class="fa fa-hourglass sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Password Meter</span></a></li>
                                 <li><a title="Multi Upload" href="multi-upload.html"><i class="fa fa-hdd-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Multi Upload</span></a></li>
                                 <li><a title="Text Editor" href="tinymc.html"><i class="fa fa-globe sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Text Editor</span></a></li>
@@ -1053,6 +1048,8 @@
                         </div>
                     </div>
                 </div>
+            @elseif($url_name=="question")
+           
             @else
                 <div class="breadcome-area">
                     <div class="container-fluid">
@@ -1070,7 +1067,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <ul class="breadcome-menu">
-                                                <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                                <li><a href="">Home</a> <span class="bread-slash">/</span>
                                                 </li>
                                                 <li><span class="bread-blod">Data Table</span>
                                                 </li>
@@ -1082,7 +1079,7 @@
                         </div>
                     </div>
                 </div>
-            @endif
+                @endif
         </div>
 
 

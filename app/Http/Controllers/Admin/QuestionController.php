@@ -12,8 +12,26 @@ use App\Model\CourseSectionModel;//课程节
 
 class QuestionController extends Controller
 {
+
+    //查询
+    // public function search(){
+    //     $question_name = request()->get("question_name");
+    //     $where = [
+    //         'question_name'=>$question_name
+    //     ];
+
+    // }
     //题库zhanshi
     public function index(){
+
+        // 搜索
+        $question_name = request()->get('question_name');
+        // dd($question_name);
+        $wheres = [];
+        if($question_name){
+            $wheres[] = ['question_name',"like","%$question_name%"];
+        }
+
         //查询表
         $where = [
             'is_del'=>0,
@@ -24,6 +42,7 @@ class QuestionController extends Controller
                             ->leftjoin("course_class","question.class_id","=","course_class.class_id")
                             ->leftjoin("course_chapter","question.chapter_id","=","course_chapter.chapter_id")
                             ->where($where)
+                            ->where($wheres)
                             ->orderBy("question_time","desc")
                             ->paginate(5);
         
@@ -45,7 +64,7 @@ class QuestionController extends Controller
         // }
 
         
-        return view("question.index",['data'=>$data]);
+        return view("question.index",['data'=>$data,'question_name'=>$question_name]);
     }
     // public function danindex(){
     // 	//单选题展示
@@ -432,5 +451,44 @@ class QuestionController extends Controller
             echo json_encode(['code'=>1,'msg'=>"no"]);
         }
     }
+    public function duoupdate(Request $request){
+        $question_id = $request->post("question_id");
+        $question_name = $request->post("question_name");
+        $question_type_id = $request->post("question_type_id");
+        // 题目难度
+        $question_diff = $request->post("question_diff");
+        //答案
+        $question_cor = $request->post("question_cor");
+        $question_cor = implode(",",$question_cor);
+        // dd($question_cor);
+        //选项A内容
+        $cor_a = $request->post("cor_a");
+        // 选项B内容
+        $cor_b = $request->post("cor_b");
+         // 选项C内容
+        $cor_c = $request->post("cor_c");
+        // 选项D内容
+        $cor_d = $request->post("cor_d");
 
+        $where = [
+            'question_id'=>$question_id
+        ];
+        $data = [
+            'question_name'=>$question_name,
+            'question_type_id'=>$question_type_id,
+            'question_diff'=>$question_diff,
+            'question_cor'=>$question_cor,
+            'cor_a'=>$cor_a,
+            'cor_b'=>$cor_b,
+            'cor_c'=>$cor_c,
+            'cor_d'=>$cor_d
+        ];
+        $res = QuestionModel::where($where)->update($data);
+        if($res!==false){
+            echo json_encode(['code'=>0,"msg"=>"修改成功"]);
+        }else{
+            echo json_encode(['code'=>1,'msg'=>"修改失败"]);
+        }
+
+    }
 }

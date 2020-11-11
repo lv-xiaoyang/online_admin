@@ -147,11 +147,16 @@ Route::prefix("/course")->group(function(){
         Route::get("/index","Course\CourseTypeController@index");//课程分类展示
     });
     Route::get("/create","Course\CourseController@create");//课程添加
+    Route::get("/addimg","Course\CourseController@addimg");//图片上传处理
     Route::post("/add","Course\CourseController@add");//课程确认添加
     Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
     Route::post("/section","Course\CourseController@section");//获取节数据
     Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
     Route::get("/index","Course\CourseController@list");//课程展示
+    Route::get("/del","Course\CourseController@del");//课程添加
+
+
+
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
         Route::post("/add","Course\SectionController@add");//章程确认添加
@@ -175,7 +180,7 @@ Route::prefix("/course")->group(function(){
 
 //题库
 Route::prefix("/question")->group(function(){
-	Route::get("/index","Admin\QuestionController@index");
+	Route::get("/index","Admin\QuestionController@index")->name("question");
 	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
 	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
     Route::post("/jianaddo","Admin\QuestionController@jianaddo");//简答题执行添加
@@ -190,14 +195,16 @@ Route::prefix("/question")->group(function(){
     Route::get("/upd/{id}","Admin\QuestionController@upd");//修改
     Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
     Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
-    Route::get("/huifudel/{id}","Admin\QuestionController@huifudel");//执行恢复
+    Route::get("/huifudel/{id}","Admin\QuestionCont roller@huifudel");//执行恢复
     Route::get("/course/{id}","Admin\QuestionController@course");
     Route::get("/courses","Admin\QuestionController@courses");
     Route::get("/sectionn","Admin\QuestionController@sectionn");
     Route::get("/coursec","Admin\QuestionController@coursec");
     Route::get("/coursecreate","Admin\QuestionController@coursecreate");
+    Route::post("/duoupdate","Admin\QuestionController@duoupdate");
+    Route::get("/search","Admin\QuestionController@search");
 });
-
+ 
 
 //讲师模块
 Route::prefix("/teacher")->group(function(){

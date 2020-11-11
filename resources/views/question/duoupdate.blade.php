@@ -80,7 +80,6 @@
     
 
     </div>
-    <!-- <button type="submit" class="form-control " style="backgroundcolor:red">添加</button> -->
     <center><button type="button" id="button" class="btn btn-primary form-control">修改</button></center>
    <div class="col-sm-offset-2 col-sm-10">
       
@@ -89,6 +88,64 @@
 </form> 
 <script>
   $(document).ready(function(){
+      $("#button").click(function(){
+        // alert(123)
+          // 题干
+          var question_name = $("#question_name").val();
+          var question_id = {{$data->question_id}}
+          // alert(question_id)
+          // return false;
+          //题目类型
+          var  question_type_id = $("input[name='question_type_id']:checked").val();
+          // 题目难度
+          var question_diff = $("input[name='question_diff']:checked").val();
+          //答案
+          var question_cor =[];
+          $('input[name="question_cor"]:checked').each(function(){
+            question_cor.push($(this).val());
+          });
+          //选项A内容
+          var cor_a = $("#cor_a").val();
+          // 选项B内容
+          var cor_b = $("#cor_b").val();
+          // 选项C内容
+          var cor_c = $("#cor_c").val();
+          // 选项D内容
+          var cor_d = $("#cor_d").val();
+          $.ajax({
+          type:"post",
+          headers:{'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
+          url:"{{url('/question/duoupdate')}}",
+          dataType:"json",
+          data:{question_id:question_id,question_name:question_name,question_type_id:question_type_id,question_diff:question_diff,question_cor:question_cor,cor_a:cor_a,cor_b:cor_b,cor_c:cor_c,cor_d:cor_d},
+          success:function(res){
+            if(res.code==1){
+              //触发提示框
+                  $('#success').trigger('click')
+                  //提示语
+                  $('#prompt').html('<h1>修改失败</h1>')
+            }
+            if(res.code==0){
+              //触发提示框
+                  $('#success').trigger('click')
+                  //提示语
+                  $('#prompt').html('<h1>修改成功</h1>')
+                  //按钮的字
+                  $('#jump').text('去展示')
+
+                  //跳转
+                  $(document).on('click','#jump',function(){
+                      //跳转地址
+                      location.href="/question/index"
+                  })
+
+            }
+            // alert(res)
+          }
+        })
+
+      })
+
       //复选框默认选中
       var A = $(".A").val();
       var B = $(".B").val();
@@ -108,7 +165,10 @@
       if(D==aa || D==bb){
         $(".D").attr("checked",true)
       }
+     
     
+      
+
   })
 </script>
 
