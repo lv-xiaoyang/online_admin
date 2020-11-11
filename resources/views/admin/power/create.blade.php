@@ -196,6 +196,8 @@
                             $('#success').trigger('click')
                             //提示语
                             $('#prompt').html('<h1>添加成功。</h1>')
+                            //按钮的字
+                            $('#jump').text('跳转到展示')
                         }else{
                             $('.pow').html('')
                             $('#span_'+res.field).html(res.msg)

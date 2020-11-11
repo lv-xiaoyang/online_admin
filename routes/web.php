@@ -140,6 +140,10 @@ Route::prefix("/course")->group(function(){
     Route::post("/section","Course\CourseController@section");//获取节数据
     Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
     Route::get("/index","Course\CourseController@list");//课程展示
+    Route::get("/del","Course\CourseController@del");//课程添加
+
+
+
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
         Route::post("/add","Course\SectionController@add");//章程确认添加
