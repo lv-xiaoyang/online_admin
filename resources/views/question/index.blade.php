@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('title','题库展示')
 @section('content')
-
+  <!-- 搜索 -->
                 <div class="breadcome-area">
                     <div class="container-fluid">
                         <div class="row">
@@ -12,7 +12,11 @@
                                         <div class="breadcome-heading">
                                           <form role="search" class="">
                                             <input type="text" placeholder="Search..." value="{{$question_name}}" style="height:37px" name="question_name"  class="form-control">
-                                            <a href=""><button class="btn btn-default"><i class="fa fa-search"></i></button></a>
+                                              <a href="">
+                                                <button class="btn btn-default">
+                                                  <i class="fa fa-search"></i>
+                                              </button>
+                                            </a>
                                           </form>
                                         </div>
                                       </div>
@@ -82,7 +86,7 @@
       <td>{{$v->section_name}}</td>
       <td>{{$v->class_name}}</td>
       <td><!-- <a href="{{url('/question/del/ '.$v->question_id)}}"></a> -->
-        <!-- <button type="submit"  value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/course/'.$v->question_id)}}">关联课程</a></button>   -->
+        <button type="submit"  value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/course/'.$v->question_id)}}">关联课程</a></button>  
       	<button type="submit" class="del" value="{{$v->question_id}}" class="btn btn-default">删除</button>	
         <button type="submit" id="upd" value="{{$v->question_id}}" class="btn btn-default"><a href="{{url('/question/upd/'.$v->question_id)}}">修改</a></button>
       </td>

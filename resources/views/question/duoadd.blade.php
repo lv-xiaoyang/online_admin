@@ -172,6 +172,25 @@
 
 <script>
   $(document).ready(function(){
+
+    $("#question_name").blur(function(){
+      var question_name=$("#question_name").val();
+      $.get("{{url('/question/dancount')}}",{question_name:question_name},function(res){
+        if(res==1){
+                 //触发提示框
+                $('#success').trigger('click')
+                //提示语
+                $('#prompt').html('<h1>该名称已存在</h1>')
+                //按钮的字
+                $('#jump').text('确定')
+        }else{
+          
+        }
+
+      })
+    })
+
+    
     $("#button").click(function(){
       // 题干
       var question_name = $("#question_name").val();
