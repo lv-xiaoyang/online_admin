@@ -82,7 +82,7 @@
             var _token=$('input[name="_token"]').val()
 
             //权限名称失焦事件
-            /*$(document).on('blur','#pow_name',function(){
+            $(document).on('blur','#pow_name',function(){
                 //获取点击对象
                 var _this=$('#pow_name')
                 //获取权限名称的span标签
@@ -151,7 +151,7 @@
                         }
                     })
                 }
-            })*/
+            })
 
             //提交事件
             $(document).on('click','#sub',function(){
@@ -159,15 +159,15 @@
                 $('#pow_name').trigger('blur');
                 $('#pow_url').trigger('blur');
                 //获取权限名称的span标签
-//                var span_pow_name=$('#span_pow_name').html()
-//                //获取权限的span标签
-//                var span_pow_url=$('#span_pow_url').html()
-//                //判断
-//                if(span_pow_name=='' && span_pow_url==''){
-//                    var status=true
-//                }else{
-//                    var status=false
-//                }
+                var span_pow_name=$('#span_pow_name').html()
+                //获取权限的span标签
+                var span_pow_url=$('#span_pow_url').html()
+                //判断
+                if(span_pow_name=='' && span_pow_url==''){
+                    var status=true
+                }else{
+                    var status=false
+                }
                 //判断
                 if(true){
                     //获取权限名称
@@ -192,8 +192,12 @@
                         success:function(res){
                             //判断
                             if(res.status=='ok'){
-                                alert('保存成功。')
-                                location.href='/power'
+                                //触发提示框
+                                $('#success').trigger('click')
+                                //提示语
+                                $('#prompt').html('<h1>保存成功。</h1>')
+                                //按钮的字
+                                $('#jump').text('跳转到展示')
                             }else{
                                 $('.pow').html('')
                                 $('#span_'+res.field).html(res.msg)
@@ -201,6 +205,12 @@
                         }
                     })
                 }
+            })
+
+            //跳转
+            $(document).on('click','#jump',function(){
+                //跳转地址
+                location.href='/power'
             })
         })
     </script>

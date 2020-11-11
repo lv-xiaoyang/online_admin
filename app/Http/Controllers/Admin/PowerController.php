@@ -172,8 +172,13 @@ class PowerController extends Controller
         if(empty($data['pow_url'])){
             return json_encode(['status'=>'no','field'=>'pow_url','msg'=>"<b style='color: red'>× 权限不可为空，请填写。</b>"]);
         }else{
+            //where 条件
+            $where=[
+                ['pow_url','=',$data['pow_url']],
+                ['pow_id','!=',$id]
+            ];
             //查询
-            $count=PowerModel::where(['pow_name'=>$data['pow_url']])->count();
+            $count=PowerModel::where($where)->count();
             if($count!=0){
                 return json_encode(['status'=>'no','field'=>'pow_url','msg'=>"<b style='color: red'>× 此权限已存在，请重新填写。</b>"]);
             }
