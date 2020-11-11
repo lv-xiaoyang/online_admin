@@ -191,7 +191,7 @@ Route::prefix("/question")->group(function(){
     Route::post("/duoupdate","Admin\QuestionController@duoupdate");
     Route::get("/search","Admin\QuestionController@search");
 });
-
+ 
 
 //讲师模块
 Route::prefix("/teacher")->group(function(){
