@@ -28,20 +28,14 @@ class CourseController extends Controller
      */
     public function add(){
         $data=request()->except('_token');
-        dd($data);
+        // dd($data);
         //唯一验证
         $name_data=CourseModel::where('course_name',$data['course_name'])->first();
         if(!empty($name_data)){
             return ['code'=>0003,'msg'=>'课程名称已存在'];die;
         }
         $file = request()->file('course_img');
-        //文件上传验证
-        // if(empty($file)){
-        //     return ['code'=>0002,'msg'=>'请上传文件'];die;
-        // }
-        // $fileImg=$this->fileImg($file);
         $data['course_add_time']=time();
-        $data['course_img']=$fileImg;
         $res=CourseModel::insert($data);
         if($res){
             return ['code'=>0001,'msg'=>'添加成功'];
@@ -138,9 +132,10 @@ class CourseController extends Controller
     	$tmpName = $arr['tmp_name'];
     	$ext  = explode(".",$arr['name'])[1];
     	$newFileName = md5(time()).".".$ext;
-    	$newFilePath = env('IMG_URL')."app/images/".$newFileName;
-    	move_uploaded_file($tmpName, $newFilePath);
-    	$newFilePath = trim($newFilePath,".");
+        $newFilePath = storage_path("app/images/".$newFileName);
+        move_uploaded_file($tmpName, $newFilePath);
+        $newFilePath="images/".$newFileName;
+        // $newFilePath = trim($newFilePath,".");
     	echo $newFilePath;
     }
 
