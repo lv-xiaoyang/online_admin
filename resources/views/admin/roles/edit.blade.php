@@ -23,7 +23,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <label class="login2 pull-right pull-right-pro">角色名称：</label>
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="col-lg-3 col-md-9 col-sm-9 col-xs-12">
                                                             <input type="text" id="ro_name" value="{{$info->ro_name}}" placeholder="请输入角色名称。" class="form-control" />
                                                             <span class="ro" id="span_ro_name"></span>
                                                         </div>
@@ -34,7 +34,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <label class="login2 pull-right pull-right-pro">角色描述：</label>
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="col-lg-3 col-md-9 col-sm-9 col-xs-12">
                                                             <input type="text" id="ro_desc" value="{{$info->ro_desc}}" placeholder="请输入角色描述。" class="form-control" />
                                                         </div>
                                                     </div>
