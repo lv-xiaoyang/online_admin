@@ -190,6 +190,7 @@ Route::prefix("/question")->group(function(){
     Route::get("/coursecreate","Admin\QuestionController@coursecreate");
     Route::post("/duoupdate","Admin\QuestionController@duoupdate");
     Route::get("/search","Admin\QuestionController@search");
+    Route::get("/dancount","Admin\QuestionController@dancount");//单选题ajax判断唯一性
 });
  
 
