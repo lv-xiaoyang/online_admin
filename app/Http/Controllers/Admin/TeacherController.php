@@ -27,7 +27,7 @@ class TeacherController extends Controller
         ];
         $typedata = TeacherModel::where($where2)->get();
         // dd($typedata);
-        return view("teacher.index",['data'=>$data]);
+        return view("teacher.index",['data'=>$data,'lereg_name'=>$lereg_name]);
     }
     //删除 
     public function del($id){
@@ -71,4 +71,19 @@ class TeacherController extends Controller
             return redirect("/teacher");
         }
     }
+
+    // 讲师审核展示
+    public function indexis(){
+        $lereg_name = request()->lereg_name;
+        $where = [];
+        if($lereg_name){
+            $where[] = ['lereg_name','like',"%$lereg_name%"];
+        }
+
+        $data = TeacherModel::paginate(3);
+        // dd($data);
+        return view('/teacher/indexis',['data'=>$data,'lereg_name'=>$lereg_name]);
+    }
+
+
 }
