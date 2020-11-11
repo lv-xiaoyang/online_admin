@@ -5,42 +5,37 @@
 <center>
     <h2>课时添加</h2>
 </center>
-
-    <table>
-        <tr>
-            <td>课时名称</td>
-            <td><input type="text" name="class_name" id="class_name"></td>
-        </tr>
-        <tr>
-            <td>所属课程</td>
-            <td><select name="course_id" id="course_id">
-                <option value="">--请选择--</option>
-                @foreach($courese_data as $v)
-                <option value="{{$v->course_id}}">{{$v->course_name}}</option>
-                @endforeach
-            </select></td>
-        </tr>
-        <tr>
-            <td>所属章程</td>
-            <td><select name="chapter_id" id="chapter_id">
-                <option value="">--请选择--</option>
-                <option value=""></option>
-            </select></td>
-        </tr>
-        <tr>
-            <td>所属节</td>
-            <td><select name="section_id" id="section_id">
-                <option value="">--请选择--</option>
-                <option value=""></option>
-            </select></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="button" style="width:1200px;" id="button" class="btn btn-primary" value="添加节"></td>
-        </tr>
-    </table>
-
-
+    <div class="form-group">
+        <label for="name">课时名称</label>
+        <input type="text" class="form-control" name="class_name" id="class_name" 
+            placeholder="请输入课时名称">
+    </div>
+    <div class="form-group">
+        <label for="name">所属课程</label>
+        <select name="course_id" id="course_id">
+            <option value="">--请选择--</option>
+            @foreach($courese_data as $v)
+            <option value="{{$v->course_id}}">{{$v->course_name}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">所属章程</label>
+        <select name="chapter_id" id="chapter_id">
+            <option value="">--请选择--</option>
+            <option value=""></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">所属节</label>
+        <select name="section_id" id="section_id">
+            <option value="">--请选择--</option>
+            <option value=""></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="button" style="width:1200px;" id="button" class="btn btn-primary" value="添加节">
+    </div>
 @endsection
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -60,11 +55,17 @@
             data:{course_id:course_id,chapter_id:chapter_id,section_id:section_id,class_name:class_name},
             success:function(res){
                 if(res.code==0001){
-                    if(window.confirm('添加成功，是否跳转到列表页')){
-                        location.href='/course/index';
-                    }
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
+                    //按钮的字
+                    $('#jump').text('去展示')
                 }else{
-                    alert(res.msg);
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
                 }
             }
         })
@@ -86,7 +87,10 @@
                     })
                     $('select[name="chapter_id"]').html(jj);
                 }else{
-                    alert(res.msg);
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
                 }
             }
         })
@@ -108,9 +112,19 @@
                     })
                     $('select[name="section_id"]').html(jj);
                 }else{
-                    alert(res.msg);
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
                 }
             }
         })
+    });
+    /**
+    * 跳转
+    */
+    $(document).on('click','#jump',function(){
+        //跳转地址
+        location.href='/course/index';
     })
 </script>

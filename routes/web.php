@@ -99,6 +99,18 @@ Route::prefix('admin_role')->group(function(){
     Route::get('/','Admin\AdminRolesController@index');
     //管理员角色添加页面
     Route::get('create','Admin\AdminRolesController@create');
+    //管理员角色 验证管理员唯一
+    Route::post('admin_unique','Admin\AdminRolesController@admin_unique');
+    //执行添加
+    Route::post('store','Admin\AdminRolesController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\AdminRolesController@edit');
+    //修改 验证管理员唯一
+    Route::post('admin_unique_update/{id}','Admin\AdminRolesController@admin_unique_update');
+    //修改
+    Route::post('update/{id}','Admin\AdminRolesController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\AdminRolesController@destroy');
 });
 
 /**
@@ -123,6 +135,7 @@ Route::prefix("/course")->group(function(){
         Route::get("/index","Course\CourseTypeController@index");//课程分类展示
     });
     Route::get("/create","Course\CourseController@create");//课程添加
+    Route::get("/addimg","Course\CourseController@addimg");//图片上传处理
     Route::post("/add","Course\CourseController@add");//课程确认添加
     Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
     Route::post("/section","Course\CourseController@section");//获取节数据
@@ -156,7 +169,7 @@ Route::prefix("/course")->group(function(){
 
 //题库
 Route::prefix("/question")->group(function(){
-	Route::get("/index","Admin\QuestionController@index");
+	Route::get("/index","Admin\QuestionController@index")->name("question");
 	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
 	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
     Route::post("/jianaddo","Admin\QuestionController@jianaddo");//简答题执行添加
@@ -170,8 +183,17 @@ Route::prefix("/question")->group(function(){
     Route::get("/del/{id}","Admin\QuestionController@del");//删除
     Route::get("/upd/{id}","Admin\QuestionController@upd");//修改
     Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
+    Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
+    Route::get("/huifudel/{id}","Admin\QuestionCont roller@huifudel");//执行恢复
+    Route::get("/course/{id}","Admin\QuestionController@course");
+    Route::get("/courses","Admin\QuestionController@courses");
+    Route::get("/sectionn","Admin\QuestionController@sectionn");
+    Route::get("/coursec","Admin\QuestionController@coursec");
+    Route::get("/coursecreate","Admin\QuestionController@coursecreate");
+    Route::post("/duoupdate","Admin\QuestionController@duoupdate");
+    Route::get("/search","Admin\QuestionController@search");
 });
-
+ 
 
 //讲师模块
 Route::prefix("/teacher")->group(function(){
