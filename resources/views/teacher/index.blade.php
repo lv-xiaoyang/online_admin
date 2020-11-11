@@ -4,6 +4,11 @@
 
 
 <table class="table table-condensed">
+  <form action="">
+      <input type="text" name="lereg_name">
+      <input type="submit" value="昵称搜索">
+  </form>
+
   <caption>讲师展示</caption>
   <thead>
     <tr>
@@ -13,6 +18,7 @@
       <th>讲师学历</th>
       <th>讲师毕业学校</th>
       <th>讲师专业</th>
+      <th>讲师资格证</th>
       <th>从业时长</th>
       <th>是否审核通过</th>
       <!-- <th>选项D内容</th> -->
@@ -29,8 +35,10 @@
       <td>{{$v->lereg_edu}}</td>
       <td>{{$v->lereg_school}}</td>
       <td>{{$v->lereg_magor}}</td>
+      <td>{{$v->lereg_qual}}</td>
       <td>{{$v->lereg_time}}</td>
       <td>
+        
         @if($v->lereg_is==0)审核中 @endif
         @if($v->lereg_id==1)是 @endif
         @if($v->lereg_id==2)审核未通过 @endif
@@ -41,6 +49,9 @@
       </td>
   </tr>
    @endforeach
+   <td>
+      <td colspan="10">{{$data->links()}}</td>
+   </td>
   </tbody>
 </table>
 

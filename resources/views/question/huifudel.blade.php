@@ -33,7 +33,7 @@
       <td>{{$v->cor_c}}</td>
       <td>{{$v->cor_d}}</td>
       <td><!-- <a href="{{url('/question/del/'.$v->question_id)}}"></a> -->
-      	<button type="submit"  class="btn btn-default"><a href="{{url('/question/huifudel/'.$v->question_id)}}">恢复</a></button>	
+      	<button type="submit" value="{{$v->question_id}}"  class="huifu" class="btn  btn-default">恢复</button>	
       </td>
   </tr>
 
@@ -42,6 +42,26 @@
    </td>
   </tbody>
 </table>
+<script>
+  $(document).ready(function(){
+    $(".huifu").click(function(){
+        var id = $(this).val();
+        // alert(id);
+         //提示语
+          $('#success').trigger('click')
+                //提示语
+          
+          $('#prompt').html('<h1>确认恢复这条数据吗？</h1>')
+                //按钮的字
+          $('#jump').text('确认')
 
+                //跳转
+          $(document).on('click','#jump',function(){
+                    //跳转地址
+            location.href="/question/huifudel/"+id;
+          })
+    })
+  })
+</script>
 
 @endsection
