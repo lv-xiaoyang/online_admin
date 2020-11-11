@@ -9,7 +9,7 @@ use App\Model\CourseModel;
 use App\Model\CourseClassModel;
 use App\Model\CourseChapterModel;
 use App\Model\CourseSectionModel;
-
+use App\Model\LectModel;
 
 class CourseController extends Controller
 {
@@ -20,6 +20,7 @@ class CourseController extends Controller
         //查询课程分类信息
         $type_data=CourseTypeModel::select('type_id','type_name')->get();
         //查询讲师信息
+        // $lect_data=
         return view('course.create',compact('type_data'));
     }
     /**
@@ -55,15 +56,6 @@ class CourseController extends Controller
             ['course_del','=',0]
         ];
         $course_data=CourseModel::leftjoin('course_type','course.course_type','=','course_type.type_id')->leftjoin('lect','course.lect_id','=','lect.lect_id')->where($course_where)->get();
-        // $array=[];
-        // foreach($course_data as $v){
-        //     $v->pid=0;
-        //     //查询章程
-        //     $chapter_data=CourseChapterModel::where('course_id',$v->course_id)->get();
-        //     $chapter_data['pid']=$v->course_id;
-
-        // }
-        // dd($array);
         return view('course.list',compact('course_data'));
     }
     //图片上传处理
@@ -139,7 +131,16 @@ class CourseController extends Controller
             return ['code'=>0002,'msg'=>'删除失败'];
         }
     }
-
-
+    public function addimg(Request $request){
+        $arr = $_FILES["Filedata"];
+        dd($arr);
+    	$tmpName = $arr['tmp_name'];
+    	$ext  = explode(".",$arr['name'])[1];
+    	$newFileName = md5(time()).".".$ext;
+    	$newFilePath = storage_path("add/images/".$newFileName);
+    	move_uploaded_file($tmpName, $newFilePath);
+    	$newFilePath = trim($newFilePath,".");
+    	echo $newFilePath;
+    }
 
 }

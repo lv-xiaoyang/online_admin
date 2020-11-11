@@ -1,7 +1,10 @@
 @extends('admin.index')
 @section('title','课程添加')
-<meta name="csrf-token" content="{{ csrf_token() }}">
+
 @section('content')
+
+<link rel="stylesheet" href="/static/css/uploadify.css">
+<script src="/static/js/jquery.uploadify.js"></script>
 <div class="product-status mg-tb-15">
             <div class="container-fluid">
                 <div class="row">
@@ -26,7 +29,8 @@
                                         <td>课程图片</td>
                                         <td>
                                             <!-- <input type="text" placeholder="" class="form-control col-md-6" aria-describedby="helpBlock" name="img" hidden> -->
-                                            <input type="file" name="course_img" id="course_img">
+                                            <input type="file"  id="course_img">
+                                            <input type="hidden" name="course_img">
                                         </td>
                                     </tr>
                                     <tr>
@@ -153,13 +157,23 @@
         </div>
     </div>
  -->
+ <script>
+    $(document).ready(function(){
+		$("#course_img").uploadify({
+            
+            //后台处理的页面
+			uploader: "/course/addimg",
+			swf: "/static/js/uploadify.swf",
+			onUploadSuccess:function(res,data,msg){
+                console.log(res,data,msg);
+				// var imgPath  = data;
+				// var imgstr = "<img src='"+imgPath+"'>";
+				// $("input[name='img_path']").val(imgPath);
+			}
+		});
+	});
 
 
-
-@endsection
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
     $(document).on('click','#submit',function(a){
         $(function () { $("[data-toggle='popover']").popover(); });
         a.preventDefault();
@@ -187,3 +201,8 @@
         location.href='/course/index';
     })
 </script>
+
+
+@endsection
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->

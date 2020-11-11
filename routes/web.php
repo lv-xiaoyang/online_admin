@@ -129,6 +129,7 @@ Route::prefix("/course")->group(function(){
     Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
     Route::get("/index","Course\CourseController@list");//课程展示
     Route::get("/del","Course\CourseController@del");//课程添加
+    Route::post("/addimg","Course\CourseController@addimg");//图片上传处理
 
 
 
