@@ -195,7 +195,7 @@ Route::prefix("/question")->group(function(){
 
 //讲师模块
 Route::prefix("/teacher")->group(function(){
-    Route::get("/","Admin\TeacherController@index");
+    Route::get("/","Admin\TeacherController@index")->name("teacher");
     Route::get("/del/{id}","Admin\TeacherController@del");
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
