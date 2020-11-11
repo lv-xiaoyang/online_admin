@@ -135,6 +135,7 @@ Route::prefix("/course")->group(function(){
         Route::get("/index","Course\CourseTypeController@index");//课程分类展示
     });
     Route::get("/create","Course\CourseController@create");//课程添加
+    Route::get("/addimg","Course\CourseController@addimg");//图片上传处理
     Route::post("/add","Course\CourseController@add");//课程确认添加
     Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
     Route::post("/section","Course\CourseController@section");//获取节数据

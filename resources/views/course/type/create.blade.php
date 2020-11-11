@@ -3,19 +3,17 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('content')
 <center>
-    <h2 style="color:white;">课程分类添加</h2>
+    <h2>课程分类添加</h2>
 </center>
 
-    <table>
-        <tr>
-            <td>课程分类名称</td>
-            <td><input type="text" name="chapter_name" id=""></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="button" style="width:1200px;" class="btn btn-primary" id="submit" value="课程分类名称"></td>
-        </tr>
-    </table>
+    <div class="form-group">
+        <label for="name">课程分类名称</label>
+            <input type="text" class="form-control"  name="chapter_name" id="chapter_name" 
+                placeholder="请输入课程分类名称">
+    </div>
+    <div class="form-group">
+        <input type="button" style="width:1200px;" class="btn btn-primary" id="submit" value="课程分类名称">
+    </div>
 
     
 @endsection
@@ -33,13 +31,26 @@
             data:{chapter_name:chapter_name},
             success:function(res){
                 if(res.code==0001){
-                    if(window.confirm('添加成功，是否跳转到课程添加')){
-                        location.href="/course/create";
-                    }
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
+                    // //按钮的字
+                    $('#jump').text('去展示')
                 }else{
-                    alert(res.msg);
+                    //触发提示框
+                    $('#success').trigger('click')
+                    //提示语
+                    $('#prompt').html("<h1>"+res.msg+"</h1>")
                 }
             }
         });
     });
+    /**
+    * 跳转
+    */
+    $(document).on('click','#jump',function(){
+        //跳转地址
+        location.href='/course/index';
+    })
 </script>
