@@ -182,7 +182,7 @@ Route::prefix("/question")->group(function(){
     Route::get("/upd/{id}","Admin\QuestionController@upd");//修改
     Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
     Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
-    Route::get("/huifudel/{id}","Admin\QuestionController@huifudel");//执行恢复
+    Route::get("/huifudel/{id}","Admin\QuestionCont roller@huifudel");//执行恢复
     Route::get("/course/{id}","Admin\QuestionController@course");
     Route::get("/courses","Admin\QuestionController@courses");
     Route::get("/sectionn","Admin\QuestionController@sectionn");
