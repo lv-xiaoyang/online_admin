@@ -18,6 +18,7 @@
       <th>讲师学历</th>
       <th>讲师毕业学校</th>
       <th>讲师专业</th>
+      <th>讲师资格证</th>
       <th>从业时长</th>
       <th>是否审核通过</th>
       <!-- <th>选项D内容</th> -->
@@ -34,6 +35,7 @@
       <td>{{$v->lereg_edu}}</td>
       <td>{{$v->lereg_school}}</td>
       <td>{{$v->lereg_magor}}</td>
+      <td>{{$v->lereg_qual}}</td>
       <td>{{$v->lereg_time}}</td>
       <td>
         

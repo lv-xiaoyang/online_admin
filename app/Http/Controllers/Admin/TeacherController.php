@@ -20,7 +20,7 @@ class TeacherController extends Controller
         //     'is_del'=>0,
             
         // ];
-        $data = TeacherModel::where($where)->orderBy("lereg_name","desc")->paginate(3);
+        $data = TeacherModel::where($where)->orderBy("lereg_id","desc")->paginate(3);
         // dd($data);
         $where2 = [
             'lereg_is'=>0,
