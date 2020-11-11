@@ -121,6 +121,18 @@ Route::prefix('role_power')->group(function(){
     Route::get('/','Admin\RolePowerController@index');
     //角色权限添加页面
     Route::get('create','Admin\RolePowerController@create');
+    //角色 验证唯一
+    Route::post('unique','Admin\RolePowerController@unique');
+    //执行添加
+    Route::post('store','Admin\RolePowerController@store');
+    //编辑页面
+    Route::get('edit/{id}','Admin\RolePowerController@edit');
+    //修改 验证角色唯一
+    Route::post('unique_update/{id}','Admin\RolePowerController@unique_update');
+    //修改
+    Route::post('update/{id}','Admin\RolePowerController@update');
+    //删除
+    Route::get('destroy/{id}','Admin\RolePowerController@destroy');
 });
 
 
@@ -135,12 +147,14 @@ Route::prefix("/course")->group(function(){
         Route::get("/index","Course\CourseTypeController@index");//课程分类展示
     });
     Route::get("/create","Course\CourseController@create");//课程添加
+    Route::get("/addimg","Course\CourseController@addimg");//图片上传处理
     Route::post("/add","Course\CourseController@add");//课程确认添加
     Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
     Route::post("/section","Course\CourseController@section");//获取节数据
     Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
     Route::get("/index","Course\CourseController@list");//课程展示
     Route::get("/del","Course\CourseController@del");//课程添加
+    Route::post("/addimg","Course\CourseController@addimg");//图片上传处理
 
 
 
@@ -190,6 +204,7 @@ Route::prefix("/question")->group(function(){
     Route::get("/coursecreate","Admin\QuestionController@coursecreate");
     Route::post("/duoupdate","Admin\QuestionController@duoupdate");
     Route::get("/search","Admin\QuestionController@search");
+    Route::get("/dancount","Admin\QuestionController@dancount");//单选题ajax判断唯一性
 });
  
 

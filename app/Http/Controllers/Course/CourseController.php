@@ -9,7 +9,7 @@ use App\Model\CourseModel;
 use App\Model\CourseClassModel;
 use App\Model\CourseChapterModel;
 use App\Model\CourseSectionModel;
-
+use App\Model\LectModel;
 
 class CourseController extends Controller
 {
@@ -20,26 +20,22 @@ class CourseController extends Controller
         //查询课程分类信息
         $type_data=CourseTypeModel::select('type_id','type_name')->get();
         //查询讲师信息
-        return view('course.create',compact('type_data'));
+        $lect_data=LectModel::select('lect_id','lect_name')->get();
+        return view('course.create',compact('type_data','lect_data'));
     }
     /**
      * 课程确认添加
      */
     public function add(){
         $data=request()->except('_token');
+        // dd($data);
         //唯一验证
         $name_data=CourseModel::where('course_name',$data['course_name'])->first();
         if(!empty($name_data)){
             return ['code'=>0003,'msg'=>'课程名称已存在'];die;
         }
         $file = request()->file('course_img');
-        //文件上传验证
-        if(empty($file)){
-            return ['code'=>0002,'msg'=>'请上传文件'];die;
-        }
-        $fileImg=$this->fileImg($file);
         $data['course_add_time']=time();
-        $data['course_img']=$fileImg;
         $res=CourseModel::insert($data);
         if($res){
             return ['code'=>0001,'msg'=>'添加成功'];
@@ -55,24 +51,15 @@ class CourseController extends Controller
             ['course_del','=',0]
         ];
         $course_data=CourseModel::leftjoin('course_type','course.course_type','=','course_type.type_id')->leftjoin('lect','course.lect_id','=','lect.lect_id')->where($course_where)->get();
-        // $array=[];
-        // foreach($course_data as $v){
-        //     $v->pid=0;
-        //     //查询章程
-        //     $chapter_data=CourseChapterModel::where('course_id',$v->course_id)->get();
-        //     $chapter_data['pid']=$v->course_id;
-
-        // }
-        // dd($array);
         return view('course.list',compact('course_data'));
     }
-    //图片上传处理
-    public function fileImg($file){
-        if ($file->isValid()){
-            $path = $file->store('images');
-        }
-        return $path;
-    }
+    // //图片上传处理
+    // public function fileImg($file){
+    //     if ($file->isValid()){
+    //         $path = $file->store('images');
+    //     }
+    //     return $path;
+    // }
     /**
      * 获取章程数据
      */
@@ -138,6 +125,18 @@ class CourseController extends Controller
         }else{
             return ['code'=>0002,'msg'=>'删除失败'];
         }
+    }
+
+    public function addimg(){
+        $arr = $_FILES["Filedata"];
+    	$tmpName = $arr['tmp_name'];
+    	$ext  = explode(".",$arr['name'])[1];
+    	$newFileName = md5(time()).".".$ext;
+        $newFilePath = storage_path("app/images/".$newFileName);
+        move_uploaded_file($tmpName, $newFilePath);
+        $newFilePath="images/".$newFileName;
+        // $newFilePath = trim($newFilePath,".");
+    	echo $newFilePath;
     }
 
 

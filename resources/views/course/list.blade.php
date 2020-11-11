@@ -154,13 +154,20 @@
     $(document).on('click','.del',function(){
         //获取courseid
         var course_id=$(this).attr('course_id');
+        var _this=$(this);
         $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
         $.ajax({
             url:'/course/del',
             type:'get',
             data:{course_id:course_id},
             success:function(res){
-                alert(res.msg);
+                //触发提示框
+                $('#success').trigger('click')
+                //提示语
+                $('#prompt').html("<h1>"+res.msg+"</h1>")
+                // //按钮的字
+                // $('#jump').text('去展示')
+                _this.parents('tr').hide();
             }
         })
         

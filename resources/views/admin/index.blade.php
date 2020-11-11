@@ -8,7 +8,8 @@
     <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script> -->
     <script src="https://cdn.bootcss.com/bootbox.js/4.4.0/bootbox.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- favicon
@@ -21,6 +22,7 @@
 <script src="/static/js/icheck/icheck-active.js"></script>
 <!-- 表单的js结束 -->
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+    
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
@@ -88,10 +90,11 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
-
+    
     <!-- jquery
         ============================================ -->
-    <script src="/static/js/jquery.min.js"></script>
+    <!-- <script src="/static/js/jquery.min.js"></script> -->
+    
 </head>
 
 <body>
@@ -1148,7 +1151,7 @@
 </html>
  <!-- jquery
         ============================================ -->
-    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- <script src="/static/js/vendor/jquery-1.11.3.min.js"></script> -->
     <!-- bootstrap JS
         ============================================ -->
     <script src="/static/js/bootstrap.min.js"></script>
@@ -1180,9 +1183,9 @@
     <script src="/static/js/metisMenu/metisMenu-active.js"></script>
     <!-- morrisjs JS
         ============================================ -->
-    <script src="/static/js/morrisjs/raphael-min.js"></script>
+    <!-- <script src="/static/js/morrisjs/raphael-min.js"></script>
     <script src="/static/js/morrisjs/morris.js"></script>
-    <script src="/static/js/morrisjs/morris-active.js"></script>
+    <script src="/static/js/morrisjs/morris-active.js"></script> -->
     <!-- morrisjs JS
         ============================================ -->
     <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
