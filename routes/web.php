@@ -152,8 +152,9 @@ Route::prefix("/course")->group(function(){
     Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
     Route::post("/section","Course\CourseController@section");//获取节数据
     Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
-    Route::get("/index","Course\CourseController@list");//课程展示
+    Route::get("/index","Course\CourseController@list")->name("course");//课程展示
     Route::get("/del","Course\CourseController@del");//课程添加
+    Route::post("/addimg","Course\CourseController@addimg");//图片上传处理
 
 
 
@@ -209,8 +210,21 @@ Route::prefix("/question")->group(function(){
 
 //讲师模块
 Route::prefix("/teacher")->group(function(){
-    Route::get("/","Admin\TeacherController@index");
+    Route::get("/","Admin\TeacherController@index")->name("teacher");
     Route::get("/del/{id}","Admin\TeacherController@del");
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
+
+    Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
 });
+
+
+//讲师模块
+Route::prefix("/teacher")->group(function(){
+    Route::get("/","Admin\TeacherController@index")->name("teacher");
+    Route::get("/del/{id}","Admin\TeacherController@del");
+    Route::get("/upd/{id}","Admin\TeacherController@upd");
+    Route::post("/update/{id}","Admin\TeacherController@update");
+    Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");
+});
+
