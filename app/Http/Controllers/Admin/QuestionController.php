@@ -22,6 +22,11 @@ class QuestionController extends Controller
 
     // }
     //题库zhanshi
+    public function dancount(){
+        $question_name = request()->get("question_name");
+        $res = QuestionModel::where("question_name",$question_name)->count();
+        echo $res;
+    }
     public function index(){
 
         // 搜索
@@ -92,6 +97,10 @@ class QuestionController extends Controller
         $cor_c = $request->post("cor_c");
         // 选项D内容
         $cor_d = $request->post("cor_d");
+
+
+
+
 
         if(!$question_name){
             echo json_encode(['code'=>1,"msg"=>"题干不可为空"]);die;
@@ -491,4 +500,10 @@ class QuestionController extends Controller
         }
 
     }
+
+
+
+    
+
+    
 }

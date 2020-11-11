@@ -23,7 +23,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <label class="login2 pull-right pull-right-pro">权限名称：</label>
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="col-lg-3 col-md-9 col-sm-9 col-xs-12">
                                                             <input type="text" id="pow_name" placeholder="请输入权限名称。" class="form-control" />
                                                             <span class="pow" id="span_pow_name"></span>
                                                         </div>
@@ -34,7 +34,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <label class="login2 pull-right pull-right-pro">权限：</label>
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="col-lg-3 col-md-9 col-sm-9 col-xs-12">
                                                             <input type="text" id="pow_url" placeholder="请输入权限。" class="form-control" />
                                                             <span class="pow" id="span_pow_url"></span>
                                                         </div>
@@ -45,7 +45,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <label class="login2 pull-right pull-right-pro">权限描述：</label>
                                                         </div>
-                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                                        <div class="col-lg-3 col-md-9 col-sm-9 col-xs-12">
                                                             <input type="text" id="pow_desc" placeholder="请输入权限描述。" class="form-control" />
                                                         </div>
                                                     </div>
