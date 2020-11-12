@@ -31,17 +31,13 @@
       <!-- <input type="submit" class="btn btn-warning" value="搜索"> -->
   <!-- </form> --> 
 
-  <caption>讲师展示</caption>
+  <caption>讲师审核展示</caption>
   <thead>
     <tr>
       <th>id</th>
       <th>讲师名称</th>
-      <th>讲师履历</th>
-      <th>讲师学历</th>
       <th>讲师毕业学校</th>
-      <th>讲师专业</th>
       <th>讲师资格证</th>
-      <th>从业时长</th>
       <th>是否审核通过</th>
       <!-- <th>选项D内容</th> -->
       <th>操作</th>
@@ -53,12 +49,8 @@
       <!-- <td>1</td> -->
       <td>{{$v->lereg_id}}</td>
       <td>{{$v->lereg_name}}</td>
-      <td>{{$v->lereg_res}}</td>
-      <td>{{$v->lereg_edu}}</td>
       <td>{{$v->lereg_school}}</td>
-      <td>{{$v->lereg_magor}}</td>
       <td>{{$v->lereg_qual}}</td>
-      <td>{{$v->lereg_time}}</td>
       <td>
         
         @if($v->lereg_is==0)审核中 @endif

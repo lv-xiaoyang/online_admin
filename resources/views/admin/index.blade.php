@@ -8,7 +8,8 @@
     <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script> -->
     <script src="https://cdn.bootcss.com/bootbox.js/4.4.0/bootbox.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- favicon
@@ -126,7 +127,7 @@
                             <a class="has-arrow" href="/teacher" aria-expanded="false"><i class="fa big-icon fa-envelope icon-wrap"></i> <span class="mini-click-non">讲师审核模块</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Inbox" href="/teacher"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师注册展示</span></a></li>
-                                <li><a title="Inbox" href="#"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师审核展示</span></a></li>
+                                <li><a title="Inbox" href="/teacher/indexis"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师审核展示</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -138,6 +139,7 @@
                                 <li><a title="Data Maps" href="/course/section/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">章程添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/knob/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">节添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/hour/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课时添加</span></a></li>
+                                <li><a title="Data Maps" href="/course/video/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">视频添加</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -169,17 +171,7 @@
                                 <li><a title="Data Table" href="data-table.html"><i class="fa fa-th sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Data Table</span></a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">讲师模块</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Basic Form Elements" href="basic-form-element.html"><i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师添加</span></a></li>
-                                <li><a title="Advance Form Elements" href="advance-form-element.html"><i class="fa fa-lightbulb-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">讲师展示</span></a></li>
-                                <li><a title="Password Meter" href="password-meter.html"><i class="fa fa-hourglass sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Password Meter</span></a></li>
-                                <li><a title="Multi Upload" href="multi-upload.html"><i class="fa fa-hdd-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Multi Upload</span></a></li>
-                                <li><a title="Text Editor" href="tinymc.html"><i class="fa fa-globe sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Text Editor</span></a></li>
-                                <li><a title="Dual List Box" href="dual-list-box.html"><i class="fa fa-hand-paper-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Dual List Box</span></a></li>
-                            </ul>
-                        </li>
+                        
                         <li class="active">
                             <a class="has-arrow" href="javascript:;" aria-expanded="false">
                                 <i class="fa big-icon fa-desktop icon-wrap"></i>
@@ -1049,6 +1041,11 @@
                     </div>
                 </div>
             @elseif($url_name=="question")
+
+            @elseif($url_name=='teacher')
+
+            @elseif($url_name=='indexis')
+
            
             @else
                 <div class="breadcome-area">
@@ -1203,9 +1200,9 @@
     <script src="/static/js/metisMenu/metisMenu-active.js"></script>
     <!-- morrisjs JS
         ============================================ -->
-    <script src="/static/js/morrisjs/raphael-min.js"></script>
+    <!-- <script src="/static/js/morrisjs/raphael-min.js"></script>
     <script src="/static/js/morrisjs/morris.js"></script>
-    <script src="/static/js/morrisjs/morris-active.js"></script>
+    <script src="/static/js/morrisjs/morris-active.js"></script> -->
     <!-- morrisjs JS
         ============================================ -->
     <script src="/static/js/sparkline/jquery.sparkline.min.js"></script>
