@@ -29,6 +29,9 @@ class TeacherController extends Controller
         // dd($typedata);
         return view("teacher.index",['data'=>$data,'lereg_name'=>$lereg_name]);
     }
+    
+
+    
     //删除 
     public function del($id){
         $res = TeacherModel::where("lereg_id",$id)->update(['is_del'=>1]);
@@ -38,11 +41,13 @@ class TeacherController extends Controller
             return redirect("/teacher");
         }
     }
+
     // 修改
     public function upd($id){
         $data = TeacherModel::where('lereg_id',$id)->first();
         return view("teacher.upd",['data'=>$data]);
     }
+
     // 执行修改
     public function update($id){
         // 接收ajax传来的值
