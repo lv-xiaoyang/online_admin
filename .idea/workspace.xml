@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bd00037-c39e-4934-8033-5d1d680be80c" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/session.php" afterPath="$PROJECT_DIR$/config/session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <ignored path="online_admin.iws" />
@@ -37,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.533333">
-              <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
+            <state vertical-scroll-proportion="3.7919075">
+              <caret line="234" column="68" selection-start-line="234" selection-start-column="68" selection-end-line="234" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -69,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckAuthority.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CheckAuthority.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckAuthority.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25376594">
+            <state vertical-scroll-proportion="-6.84375">
               <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
               <folding>
                 <element signature="e#39#51#0#PHP" expanded="true" />
@@ -84,8 +78,8 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.04">
-              <caret line="1166" column="48" selection-start-line="1166" selection-start-column="48" selection-end-line="1166" selection-end-column="48" />
+            <state vertical-scroll-proportion="-18.4">
+              <caret line="1163" column="48" selection-start-line="1163" selection-start-column="48" selection-end-line="1163" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -160,9 +154,9 @@
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/CheckLogin.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/CheckAuthority.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -435,7 +429,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15618336" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -800,14 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.533333">
-          <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.75">
@@ -840,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.04">
-          <caret line="1166" column="48" selection-start-line="1166" selection-start-column="48" selection-end-line="1166" selection-end-column="48" />
+        <state vertical-scroll-proportion="-18.4">
+          <caret line="1163" column="48" selection-start-line="1163" selection-start-column="48" selection-end-line="1163" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -856,11 +842,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckAuthority.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25376594">
+        <state vertical-scroll-proportion="-6.84375">
           <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
           <folding>
             <element signature="e#39#51#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.7919075">
+          <caret line="234" column="68" selection-start-line="234" selection-start-column="68" selection-end-line="234" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>
