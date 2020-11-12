@@ -208,7 +208,7 @@ Route::prefix("/question")->group(function(){
     Route::get("/coursecreate","Admin\QuestionController@coursecreate");
     Route::post("/duoupdate","Admin\QuestionController@duoupdate");
     Route::get("/search","Admin\QuestionController@search");
-    Route::get("/dancount","Admin\QuestionController@dancount");//单选题ajax判断唯一性
+    Route::get("/dancount","Admin\QuestionController@dancount");//多选题\简答题\单选题 ajax 验证题干唯一性
 });
  
 
@@ -218,6 +218,7 @@ Route::prefix("/teacher")->group(function(){
     Route::get("/del/{id}","Admin\TeacherController@del");
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
+
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
 });
 
