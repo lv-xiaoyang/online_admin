@@ -1151,7 +1151,7 @@
 </html>
  <!-- jquery
         ============================================ -->
-    <!-- <script src="/static/js/vendor/jquery-1.11.3.min.js"></script> -->
+    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
     <!-- bootstrap JS
         ============================================ -->
     <script src="/static/js/bootstrap.min.js"></script>

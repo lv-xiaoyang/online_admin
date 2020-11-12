@@ -152,7 +152,7 @@ Route::prefix("/course")->group(function(){
     Route::post("/chapter","Course\CourseController@chapter");//获取章程数据
     Route::post("/section","Course\CourseController@section");//获取节数据
     Route::post("/courseclass","Course\CourseController@courseclass");//获取课时数据
-    Route::get("/index","Course\CourseController@list");//课程展示
+    Route::get("/index","Course\CourseController@list")->name("course");//课程展示
     Route::get("/del","Course\CourseController@del");//课程添加
     Route::post("/addimg","Course\CourseController@addimg");//图片上传处理
 
@@ -204,7 +204,7 @@ Route::prefix("/question")->group(function(){
     Route::get("/coursecreate","Admin\QuestionController@coursecreate");
     Route::post("/duoupdate","Admin\QuestionController@duoupdate");
     Route::get("/search","Admin\QuestionController@search");
-    Route::get("/dancount","Admin\QuestionController@dancount");//单选题ajax判断唯一性
+    Route::get("/dancount","Admin\QuestionController@dancount");//多选题\简答题\单选题 ajax 验证题干唯一性
 });
  
 
@@ -214,6 +214,7 @@ Route::prefix("/teacher")->group(function(){
     Route::get("/del/{id}","Admin\TeacherController@del");
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
+
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
 });
 

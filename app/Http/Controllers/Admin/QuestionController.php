@@ -22,17 +22,21 @@ class QuestionController extends Controller
 
     // }
     //题库zhanshi
+    
     public function dancount(){
         $question_name = request()->get("question_name");
         $res = QuestionModel::where("question_name",$question_name)->count();
         echo $res;
     }
+
     public function index(){
 
         // 搜索
         $question_name = request()->get('question_name');
+    
         // dd($question_name);
         $wheres = [];
+    
         if($question_name){
             $wheres[] = ['question_name',"like","%$question_name%"];
         }
@@ -42,6 +46,7 @@ class QuestionController extends Controller
             'is_del'=>0,
             
         ];
+    
         $data = QuestionModel::leftjoin("course","question.course_id","=","course.course_id")
                             ->leftjoin("course_section","question.section_id","=","course_section.section_id")
                             ->leftjoin("course_class","question.class_id","=","course_class.class_id")
@@ -68,6 +73,8 @@ class QuestionController extends Controller
         //     }
         // }
 
+        $question_cor  = $data;
+        // dd($data);
         
         return view("question.index",['data'=>$data,'question_name'=>$question_name]);
     }
@@ -75,10 +82,12 @@ class QuestionController extends Controller
     // 	//单选题展示
     // 	return view("question.danindex");
     // }
+    
     public function danadd(){
     	//单选题添加
     	return view("question.danadd");
     }
+    
     public function danadddo(Request $request){
         //接值
         //题目类型
@@ -145,10 +154,13 @@ class QuestionController extends Controller
             echo json_encode(['code'=>1,"msg"=>"添加失败"]);die;
         }
     }
+    
     // public function duoindex(){
     	// // 多选题展示
         // return view("question.duoindex");
+    
     // }
+    
     public function duoadd(){
         // 多选题添加
 
@@ -492,10 +504,14 @@ class QuestionController extends Controller
             'cor_c'=>$cor_c,
             'cor_d'=>$cor_d
         ];
+
         $res = QuestionModel::where($where)->update($data);
+
         if($res!==false){
             echo json_encode(['code'=>0,"msg"=>"修改成功"]);
+
         }else{
+
             echo json_encode(['code'=>1,'msg'=>"修改失败"]);
         }
 
@@ -503,7 +519,4 @@ class QuestionController extends Controller
 
 
 
-    
-
-    
 }
