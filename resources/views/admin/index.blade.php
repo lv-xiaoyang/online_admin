@@ -1153,6 +1153,22 @@
 </body>
 
 </html>
+
+<script>
+    $(function(){
+        var _with="{{session('msg')}}"
+        //判断
+        if(_with!=''){
+            //触发alert弹框
+            $('#success').trigger('click')
+            //删除标签
+            $('.modal-basic-inner ').find('form').remove()
+            //提示语
+            $('.modal-basic-inner ').append('<h3>'+_with+'</h3>')
+        }
+    })
+</script>
+
  <!-- jquery
         ============================================ -->
     <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>

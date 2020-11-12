@@ -15,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin.indexs');
-})->name('indexs');
+})->middleware('checkLogin','checkAuthority')->name('indexs');
 
+/**
+ * 后台登录页面
+ */
+Route::view('login','admin/login');
+/**
+ * 执行登录
+ */
+Route::post('loginDo','Admin\LoginController@loginDo');
 
 /**
  * 后台 RBAC 模块
@@ -24,7 +32,7 @@ Route::get('/', function () {
 /**
  * 管理员管理 路由组
  */
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('checkLogin','checkAuthority')->group(function(){
     //管理员展示页面
     Route::get('/','Admin\AdminController@index');
     //管理员添加页面
