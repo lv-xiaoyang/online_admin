@@ -32,7 +32,9 @@
       </td>
   </tr>
 	@endforeach
-	
+	<td>
+    <td colspan="10">{{$data->links()}}</td> 
+  </td>
   </tbody>
 </table>
 

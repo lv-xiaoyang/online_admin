@@ -240,6 +240,8 @@ Route::prefix("/question")->group(function(){
     Route::get("/examdel/{id}","Admin\ExamController@examdel");//停用
     //启用 
     Route::get("/examdel2/{id}","Admin\ExamController@examdel2");
+    //验证名称唯一性
+    Route::get("/exam_name","Admin\ExamController@exam_name");
     
  }); 
 

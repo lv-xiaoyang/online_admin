@@ -46,6 +46,21 @@
 </form>
 <script>
 	$(document).ready(function(){
+		$("#exam_name").blur(function(){
+
+			var exam_name = $(this).val();
+			$.get("{{url('/exam/exam_name')}}",{exam_name:exam_name},function(res){
+				if(res==1){
+					//触发提示框
+                $('#success').trigger('click')
+                //提示语
+                $('#prompt').html('<h1>该名称已存在</h1>')
+                //按钮的字
+                $('#jump').text('确定')
+				}
+			})
+
+		})
 		$("#button").click(function(){
 			var exam_name = $("#exam_name").val();
 			var start_time = $("#start_time").val();
