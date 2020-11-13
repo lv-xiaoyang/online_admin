@@ -182,7 +182,7 @@ class AdminController extends Controller
     }
 
     /**
-     * 权限删除
+     * 删除
      */
     public function destroy($id){
         //删除

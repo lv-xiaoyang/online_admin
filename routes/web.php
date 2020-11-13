@@ -25,6 +25,10 @@ Route::view('login','admin/login');
  * 执行登录
  */
 Route::post('loginDo','Admin\LoginController@loginDo');
+/**
+ * 退出登录
+ */
+Route::get('loginOut','Admin\LoginController@loginOut');
 
 /**
  * 后台 RBAC 模块
