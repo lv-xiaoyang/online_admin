@@ -51,29 +51,36 @@ class TeacherController extends Controller
     // 执行修改
     public function update($id){
         // 接收ajax传来的值
-        $lereg_name = request()->post('lereg_name');
-        // var_dump($lereg_name);
-        $lereg_res = request()->lereg_res;
-        
-        $lereg_edu = request()->lereg_edu;
-        $lereg_school = Request()->lereg_school;
-        $lereg_magor = request()->lereg_magor;
-        $lereg_time = request()->lereg_time;
-        // 转化为数组
-        $data = [
-            'lereg_name'=>$lereg_name,
-            'lereg_res'=>$lereg_res,
-            'lereg_edu'=>$lereg_edu,
-            'lereg_school'=>$lereg_school,
-            'lereg_magor'=>$lereg_magor,
-            // 'lereg_qual'=>$lereg_qual,
-            'lereg_time'=>$lereg_time,
-        ];
+        $data=request()->post();
+        // $lereg_name = request()->post('lereg_name');
+        // // var_dump($lereg_name);
+        // $lereg_res = request()->lereg_res;
+        // $lereg_id = request()->lereg_id;
+        // $lereg_edu = request()->lereg_edu;
+        // $lereg_school = Request()->lereg_school;
+        // $lereg_magor = request()->lereg_magor;
+        // $lereg_time = request()->lereg_time;
+        // $lereg_qual = request()->lereg_qual;
+        // $lereg_style = request()->lereg_style;
+        // // 转化为数组
+        // $data = [
+        //     'lereg_name'=>$lereg_name,
+        //     'lereg_res'=>$lereg_res,
+        //     'lereg_edu'=>$lereg_edu,
+        //     'lereg_school'=>$lereg_school,
+        //     'lereg_magor'=>$lereg_magor,
+        //     'lereg_qual'=>$lereg_qual,
+        //     'lereg_time'=>$lereg_time,
+        //     'lereg_id'=>$lereg_id,
+        //     'lereg_style'=>$lereg_style
+        // ];
+        // dd($data);
         $res = TeacherModel::where("lereg_id",$id)->update($data);
-        if($res!==false){
-            return redirect("/teacher");
+        // dd($res);
+        if($res){
+            echo json_encode(['code'=>0001]);
         }else{
-            return redirect("/teacher");
+            echo json_encode(['code'=>0002]);
         }
     }
 
