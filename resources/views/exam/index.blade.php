@@ -6,7 +6,7 @@
 <table class="table table-condensed">
 
   <caption>题库展示</caption>
-  <button type="submit"  style="float:right" class="btn btn-default"><a href="{{url('/question/huifuindex')}}">恢复已删除</a></button>  
+  <!-- <button type="submit"  style="float:right" class="btn btn-default"><a href="{{url('/question/huifuindex')}}">恢复已删除</a></button>   -->
   <thead>
     <tr>
       <th>id</th>
@@ -34,7 +34,6 @@
       	@endif
       </td>
       <td>
-      	
       	<button class="btn btn-info" value="{{$v->exam_id}}"><a href="{{url('/exam/danadd/'.$v->exam_id)}}">添加单选题</a></button>
       	<button class="btn btn-info" value="{{$v->exam_id}}"><a href="{{url('/exam/duoadd/'.$v->exam_id)}}">添加多选题</a></button>
       	<button class="btn btn-info" value="{{$v->exam_id}}"><a href="{{url('/exam/jianadd/'.$v->exam_id)}}">添加简答题</a></button>
@@ -44,7 +43,6 @@
       	@elseif($v->is_del==1)
 			<button class="btn btn-info" value="{{$v->exam_id}}"><a href="{{url('/exam/examdel2/'.$v->exam_id)}}">启用</a></button>
       	@endif
-      	
       </td>
   </tr>
 	@endforeach

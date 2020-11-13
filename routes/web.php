@@ -209,13 +209,13 @@ Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(fun
     Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
     Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
     Route::get("/huifudel/{id}","Admin\QuestionCont roller@huifudel");//执行恢复
-    Route::get("/course/{id}","Admin\QuestionController@course");
-    Route::get("/courses","Admin\QuestionController@courses");
-    Route::get("/sectionn","Admin\QuestionController@sectionn");
-    Route::get("/coursec","Admin\QuestionController@coursec");
-    Route::get("/coursecreate","Admin\QuestionController@coursecreate");
-    Route::post("/duoupdate","Admin\QuestionController@duoupdate");
-    Route::get("/search","Admin\QuestionController@search");
+    Route::get("/course/{id}","Admin\QuestionController@course");//关联课程
+    Route::get("/courses","Admin\QuestionController@courses");//四级联动查询章信息
+    Route::get("/sectionn","Admin\QuestionController@sectionn");//四级联动查询节数据
+    Route::get("/coursec","Admin\QuestionController@coursec");//四级联动查询课时数据
+    Route::get("/coursecreate","Admin\QuestionController@coursecreate");//关联课程执行添加
+    Route::post("/duoupdate","Admin\QuestionController@duoupdate");//多选题修改
+    Route::get("/search","Admin\QuestionController@search");//
     Route::get("/dancount","Admin\QuestionController@dancount");//多选题\简答题\单选题 ajax 验证题干唯一性
 });
  //考试模块
@@ -233,13 +233,14 @@ Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(fun
     Route::get("/jianadd/{id}","Admin\ExamController@jianadd");
     //执行添加单选题
     Route::get("/danadddo","Admin\ExamController@danadddo");
-    Route::get("/duoadddo","Admin\ExamController@duoadddo");
-    Route::get("/jianadddo","Admin\ExamController@jianadddo");
+    Route::get("/duoadddo","Admin\ExamController@duoadddo");//添加多选题
+    Route::get("/jianadddo","Admin\ExamController@jianadddo");//添加简答题
     Route::get("/looks/{id}","Admin\ExamController@looks");//查看考题
     Route::get("/delete/{id}","Admin\ExamController@delete");//查看考题删除
     Route::get("/examdel/{id}","Admin\ExamController@examdel");//停用
-    //启用
+    //启用 
     Route::get("/examdel2/{id}","Admin\ExamController@examdel2");
+    
  }); 
 
 
