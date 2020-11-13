@@ -248,6 +248,17 @@ Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(fun
 
 
 
+// 资讯模块
+Route::prefix('/article')->group(function(){
+    Route::get('/',"Admin\articleController@index")->name("atiIndexs");
+    Route::get('/create',"Admin\articleController@create");
+    Route::post('/story',"Admin\articleController@story");
+    Route::get('/update/{id}',"Admin\articleController@update");
+    Route::get('/del/{id}',"Admin\articleController@del");
+    Route::post('/update2/{id}',"Admin\articleController@update2");
+
+
+
 //讲师模块
 Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(function(){
     Route::get("/","Admin\TeacherController@index")->name("teacher");
@@ -255,10 +266,11 @@ Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(func
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
-
-
-
     Route::get("/tongguoshenhe","Admin\TeacherController@tongguoshenhe");//通过讲师审核
     Route::get("/weitongguo","Admin\TeacherController@weitongguo");//未通过审核
+});
+
+
+
 });
 
