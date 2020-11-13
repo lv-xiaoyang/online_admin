@@ -15,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin.indexs');
-})->name('indexs');
+})->middleware('checkLogin','checkAuthority')->name('indexs');
 
+/**
+ * 后台登录页面
+ */
+Route::view('login','admin/login');
+/**
+ * 执行登录
+ */
+Route::post('loginDo','Admin\LoginController@loginDo');
 
 /**
  * 后台 RBAC 模块
@@ -24,7 +32,7 @@ Route::get('/', function () {
 /**
  * 管理员管理 路由组
  */
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('checkLogin','checkAuthority')->group(function(){
     //管理员展示页面
     Route::get('/','Admin\AdminController@index');
     //管理员添加页面
@@ -46,7 +54,7 @@ Route::prefix('admin')->group(function(){
 /**
  * 角色管理 路由组
  */
-Route::prefix('roles')->group(function(){
+Route::prefix('roles')->middleware('checkLogin','checkAuthority')->group(function(){
     //角色展示页面
     Route::get('/','Admin\RolesController@index');
     //角色添加页面
@@ -68,7 +76,7 @@ Route::prefix('roles')->group(function(){
 /**
  * 权限管理 路由组
  */
-Route::prefix('power')->group(function(){
+Route::prefix('power')->middleware('checkLogin','checkAuthority')->group(function(){
     //权限展示页面
     Route::get('/','Admin\PowerController@index');
     //权限添加页面
@@ -94,7 +102,7 @@ Route::prefix('power')->group(function(){
 /**
  * 管理员角色管理 路由组
  */
-Route::prefix('admin_role')->group(function(){
+Route::prefix('admin_role')->middleware('checkLogin','checkAuthority')->group(function(){
     //管理员角色展示页面
     Route::get('/','Admin\AdminRolesController@index');
     //管理员角色添加页面
@@ -116,7 +124,7 @@ Route::prefix('admin_role')->group(function(){
 /**
  * 角色权限管理 路由组
  */
-Route::prefix('role_power')->group(function(){
+Route::prefix('role_power')->middleware('checkLogin','checkAuthority')->group(function(){
     //角色权限展示页面
     Route::get('/','Admin\RolePowerController@index');
     //角色权限添加页面
@@ -140,12 +148,7 @@ Route::prefix('role_power')->group(function(){
 
 
 //课程
-Route::prefix("/course")->group(function(){
-    Route::prefix('/type')->group(function(){
-        Route::get("/create","Course\CourseTypeController@create");//课程分类添加
-        Route::post("/add","Course\CourseTypeController@add");//课程分类确认添加
-        Route::get("/index","Course\CourseTypeController@index");//课程分类展示
-    });
+Route::prefix("/course")->middleware('checkLogin','checkAuthority')->group(function(){
     Route::get("/create","Course\CourseController@create");//课程添加
     Route::get("/addimg","Course\CourseController@addimg");//图片上传处理
     Route::post("/add","Course\CourseController@add");//课程确认添加
@@ -155,9 +158,14 @@ Route::prefix("/course")->group(function(){
     Route::get("/index","Course\CourseController@list")->name("course");//课程展示
     Route::get("/del","Course\CourseController@del");//课程添加
     Route::post("/addimg","Course\CourseController@addimg");//图片上传处理
+    Route::post("/upload","Course\CourseController@upload");//视频上传处理
 
 
-
+    Route::prefix('/type')->group(function(){
+        Route::get("/create","Course\CourseTypeController@create");//课程分类添加
+        Route::post("/add","Course\CourseTypeController@add");//课程分类确认添加
+        Route::get("/index","Course\CourseTypeController@index");//课程分类展示
+    });
     Route::prefix('section')->group(function(){
         Route::get("/create","Course\SectionController@create");//章程添加
         Route::post("/add","Course\SectionController@add");//章程确认添加
@@ -174,13 +182,17 @@ Route::prefix("/course")->group(function(){
         Route::post("/section","Course\HourController@section");//获取节数据
         
     });
+    Route::prefix('/video')->group(function(){
+        Route::get("/create","Course\VideoController@create");//视频添加
+        Route::post("/add","Course\VideoController@add");//视频确认添加
+    });
 });
 
 
 
 
 //题库
-Route::prefix("/question")->group(function(){
+Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(function(){
 	Route::get("/index","Admin\QuestionController@index")->name("question");
 	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
 	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
@@ -233,8 +245,10 @@ Route::prefix("/question")->group(function(){
 
 
 
+
+
 //讲师模块
-Route::prefix("/teacher")->group(function(){
+Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(function(){
     Route::get("/","Admin\TeacherController@index")->name("teacher");
     Route::get("/del/{id}","Admin\TeacherController@del");
     Route::get("/upd/{id}","Admin\TeacherController@upd");

@@ -139,6 +139,7 @@
                                 <li><a title="Data Maps" href="/course/section/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">章程添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/knob/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">节添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/hour/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课时添加</span></a></li>
+                                <li><a title="Data Maps" href="/course/video/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">视频添加</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -146,7 +147,6 @@
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="File Manager" href="{{url('/exam/add')}}"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">添加考题</span></a></li>
                                 <li><a title="Blog" href="{{url('/exam/index')}}"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">考试展示</span></a></li>
-                                
                             </ul>
                         </li>
                         <li>
@@ -1147,6 +1147,22 @@
 </body>
 
 </html>
+
+<script>
+    $(function(){
+        var _with="{{session('msg')}}"
+        //判断
+        if(_with!=''){
+            //触发alert弹框
+            $('#success').trigger('click')
+            //删除标签
+            $('.modal-basic-inner ').find('form').remove()
+            //提示语
+            $('.modal-basic-inner ').append('<h3>'+_with+'</h3>')
+        }
+    })
+</script>
+
  <!-- jquery
         ============================================ -->
     <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
