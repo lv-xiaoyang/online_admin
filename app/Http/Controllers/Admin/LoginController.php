@@ -34,7 +34,7 @@ class LoginController extends Controller
                 //存session
                 session(['admin_info'=>$admin_info]);
                 //返回
-                return json_encode(['status'=>'ok','msg'=>'登录成功。']);
+                return json_encode(['status'=>'ok','msg'=>'登录成功']);
             }else{
                 //登录失败
                 return json_encode(['status'=>'no','msg'=>'用户名或密码错误，请重新填写。']);
@@ -43,5 +43,15 @@ class LoginController extends Controller
             //不存在
             return json_encode(['status'=>'no','msg'=>'用户名或密码错误，请重新填写。']);
         }
+    }
+
+    /**
+     * 退出登录
+     */
+    public function loginOut(){
+        //清除session
+        request()->session()->forget('admin_info');
+        //跳转登录页面
+        return redirect('login');
     }
 }

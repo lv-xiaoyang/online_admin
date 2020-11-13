@@ -35,7 +35,7 @@
                                                             <label class="login2 pull-right pull-right-pro">管理员密码：</label>
                                                         </div>
                                                         <div class="col-lg-3 col-md-9 col-sm-9 col-xs-12">
-                                                            <input type="password" id="admin_pwd" value="{{decrypt($info->admin_pwd)}}" placeholder="请输入管理员密码。" class="form-control" />
+                                                            <input type="password" id="admin_pwd" value="" placeholder="请输入管理员密码。" class="form-control" />
                                                             <span class="admin" id="span_admin_pwd"></span>
                                                         </div>
                                                     </div>
@@ -46,7 +46,7 @@
                                                             <label class="login2 pull-right pull-right-pro">确认密码：</label>
                                                         </div>
                                                         <div class="col-lg-3 col-md-9 col-sm-9 col-xs-12">
-                                                            <input type="password" id="admin_pwds" value="{{decrypt($info->admin_pwd)}}" placeholder="请输入确认密码，两次密码保持一次。" class="form-control" />
+                                                            <input type="password" id="admin_pwds" value="" placeholder="请输入确认密码，两次密码保持一次。" class="form-control" />
                                                             <span class="admin" id="span_admin_pwds"></span>
                                                         </div>
                                                     </div>

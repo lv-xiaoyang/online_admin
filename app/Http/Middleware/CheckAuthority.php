@@ -30,7 +30,7 @@ class CheckAuthority
         //取出session 中的 管理员 id
         $admin_id=$admin->admin_id;
         //获取访问的路由
-        $url=$request->path();
+        $url=$request->route()->uri;
         //判断路由
         if($url!='/'){
             $url='/'.$url;
