@@ -214,17 +214,21 @@ Route::prefix("/teacher")->group(function(){
     Route::get("/del/{id}","Admin\TeacherController@del");
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
-
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
 });
 
 
-//讲师模块
-Route::prefix("/teacher")->group(function(){
-    Route::get("/","Admin\TeacherController@index")->name("teacher");
-    Route::get("/del/{id}","Admin\TeacherController@del");
-    Route::get("/upd/{id}","Admin\TeacherController@upd");
-    Route::post("/update/{id}","Admin\TeacherController@update");
-    Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");
+// 资讯模块
+Route::prefix('/article')->group(function(){
+    Route::get('/',"Admin\articleController@index")->name("atiIndexs");
+    Route::get('/create',"Admin\articleController@create");
+    Route::post('/story',"Admin\articleController@story");
+    Route::get('/update/{id}',"Admin\articleController@update");
+    Route::get('/del/{id}',"Admin\articleController@del");
+    Route::post('/update2/{id}',"Admin\articleController@update2");
 });
+
+
+
+
 
