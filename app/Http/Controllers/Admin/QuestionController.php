@@ -515,6 +515,4 @@ class QuestionController extends Controller
 
     }
 
-
-
 }

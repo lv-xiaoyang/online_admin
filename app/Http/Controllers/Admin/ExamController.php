@@ -141,7 +141,7 @@ class ExamController extends Controller
 		$data = ExamQuestionModel::where($where)
 								->leftjoin("exam","exam_question.exam_id","=","exam.exam_id")
 								->leftjoin("question","exam_question.question_id","=","question.question_id")
-								->get();
+								->paginate(5);
 		return view("exam.questionindex",['data'=>$data]);
 
 	}
@@ -177,5 +177,10 @@ class ExamController extends Controller
 		}else{
 			return redirect("/exam/index");
 		}
+	}
+	public function exam_name(){
+		$exam_name=request()->get("exam_name");
+		$res = ExamModel::where("exam_name",$exam_name)->count();
+		echo $res;
 	}
 }

@@ -40,7 +40,7 @@
                             <td>{{date('Y-m-d H:i:s',$v->course_add_time)}}</td>
                             <td>
                                 <button class="btn btn-danger del" course_id="{{$v->course_id}}">删除</button>
-                                <button class="btn btn-primary upd" course_id="{{$v->course_id}}">修改</button>
+                                <!-- <button class="btn btn-primary upd" course_id="{{$v->course_id}}">修改</button> -->
                             </td>
                         </tr>
                     @endforeach
