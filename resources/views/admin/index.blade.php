@@ -148,11 +148,19 @@
                                 <li><a title="Data Maps" href="/course/video/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">视频添加</span></a></li>
                             </ul>
                         </li>
+                        
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-pie-chart icon-wrap"></i> <span class="mini-click-non">考试</span></a>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-bar-chart-o icon-wrap"></i> <span class="mini-click-non">资讯</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="File Manager" href="{{url('/exam/add')}}"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">添加考题</span></a></li>
-                                <li><a title="Blog" href="{{url('/exam/index')}}"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">考试展示</span></a></li>
+                                <li><a title="File Manager" href="/article/create"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">资讯添加</span></a></li>
+                                <li><a title="Blog" href="/article"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">资讯展示</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">考试</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Peity Charts" href="{{url('/exam/add')}}"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">考试添加</span></a></li>
+                                <li><a title="Data Table" href="{{url('/exam/index')}}"><i class="fa fa-th sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">考试展示</span></a></li>
                             </ul>
                         </li>
                         
@@ -513,7 +521,8 @@
 
             @elseif($url_name=='indexis')
 
-           
+            @elseif($url_name=='atiIndexs')
+
             @else
                 <div class="breadcome-area">
                     <div class="container-fluid">

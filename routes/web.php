@@ -196,8 +196,8 @@ Route::prefix("/course")->middleware('checkLogin','checkAuthority')->group(funct
 
 
 //题库
-Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(function(){
-	Route::get("/index","Admin\QuestionController@index")->name("question");
+Route::prefix("/question")->group(function(){
+	Route::get("/index","Admin\QuestionController@index")->name("question");//题库展示
 	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
 	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
     Route::post("/jianaddo","Admin\QuestionController@jianaddo");//简答题执行添加
@@ -213,13 +213,13 @@ Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(fun
     Route::post("/jianupdate","Admin\QuestionController@update");//执行修改
     Route::get("/huifuindex","Admin\QuestionController@huifuindex");//恢复删除页面
     Route::get("/huifudel/{id}","Admin\QuestionCont roller@huifudel");//执行恢复
-    Route::get("/course/{id}","Admin\QuestionController@course");
-    Route::get("/courses","Admin\QuestionController@courses");
-    Route::get("/sectionn","Admin\QuestionController@sectionn");
-    Route::get("/coursec","Admin\QuestionController@coursec");
-    Route::get("/coursecreate","Admin\QuestionController@coursecreate");
-    Route::post("/duoupdate","Admin\QuestionController@duoupdate");
-    Route::get("/search","Admin\QuestionController@search");
+    Route::get("/course/{id}","Admin\QuestionController@course");//关联课程
+    Route::get("/courses","Admin\QuestionController@courses");//四级联动查询章信息
+    Route::get("/sectionn","Admin\QuestionController@sectionn");//四级联动查询节数据
+    Route::get("/coursec","Admin\QuestionController@coursec");//四级联动查询课时数据
+    Route::get("/coursecreate","Admin\QuestionController@coursecreate");//关联课程执行添加
+    Route::post("/duoupdate","Admin\QuestionController@duoupdate");//多选题修改
+    Route::get("/search","Admin\QuestionController@search");//
     Route::get("/dancount","Admin\QuestionController@dancount");//多选题\简答题\单选题 ajax 验证题干唯一性
 });
  //考试模块
@@ -237,19 +237,28 @@ Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(fun
     Route::get("/jianadd/{id}","Admin\ExamController@jianadd");
     //执行添加单选题
     Route::get("/danadddo","Admin\ExamController@danadddo");
-    Route::get("/duoadddo","Admin\ExamController@duoadddo");
-    Route::get("/jianadddo","Admin\ExamController@jianadddo");
+    Route::get("/duoadddo","Admin\ExamController@duoadddo");//添加多选题
+    Route::get("/jianadddo","Admin\ExamController@jianadddo");//添加简答题
     Route::get("/looks/{id}","Admin\ExamController@looks");//查看考题
     Route::get("/delete/{id}","Admin\ExamController@delete");//查看考题删除
     Route::get("/examdel/{id}","Admin\ExamController@examdel");//停用
-    //启用
+    //启用 
     Route::get("/examdel2/{id}","Admin\ExamController@examdel2");
+    
  }); 
 
 
+// 资讯模块
+Route::prefix('/article')->group(function(){
+    Route::get('/',"Admin\articleController@index")->name("atiIndexs");
+    Route::get('/create',"Admin\articleController@create");
+    Route::post('/story',"Admin\articleController@story");
+    Route::get('/update/{id}',"Admin\articleController@update");
+    Route::get('/del/{id}',"Admin\articleController@del");
+    Route::post('/update2/{id}',"Admin\articleController@update2");
 
 
-
+});
 
 //讲师模块
 Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(function(){
@@ -258,9 +267,6 @@ Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(func
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
-
-
-
     Route::get("/tongguoshenhe","Admin\TeacherController@tongguoshenhe");//通过讲师审核
     Route::get("/weitongguo","Admin\TeacherController@weitongguo");//未通过审核
 });
