@@ -192,8 +192,8 @@ Route::prefix("/course")->middleware('checkLogin','checkAuthority')->group(funct
 
 
 //题库
-Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(function(){
-	Route::get("/index","Admin\QuestionController@index")->name("question");
+Route::prefix("/question")->group(function(){
+	Route::get("/index","Admin\QuestionController@index")->name("question");//题库展示
 	Route::get("/jianindex","Admin\QuestionController@jianindex");//简答题展示
 	Route::get("/jianadd","Admin\QuestionController@jianadd");//简答题添加
     Route::post("/jianaddo","Admin\QuestionController@jianaddo");//简答题执行添加
@@ -242,10 +242,6 @@ Route::prefix("/question")->middleware('checkLogin','checkAuthority')->group(fun
     Route::get("/examdel2/{id}","Admin\ExamController@examdel2");
     
  }); 
-
-
-
-
 
 
 // 资讯模块

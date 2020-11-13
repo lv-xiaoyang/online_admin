@@ -6,7 +6,6 @@
 <table class="table table-condensed">
 
   <caption>题库展示</caption>
-  <!-- <button type="submit"  style="float:right" class="btn btn-default"><a href="{{url('/question/huifuindex')}}">恢复已删除</a></button>   -->
   <thead>
     <tr>
       <th>id</th>
