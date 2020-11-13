@@ -80,7 +80,7 @@ class AdminController extends Controller
         }
         //处理密码
         unset($data['admin_pwds']);
-        $data['admin_pwd']=encrypt($data['admin_pwd']);
+        $data['admin_pwd']=password_hash($data['admin_pwd'], PASSWORD_BCRYPT);
         //添加时间
         $data['admin_time']=time();
         //添加
@@ -168,7 +168,7 @@ class AdminController extends Controller
         }
         //处理密码
         unset($data['admin_pwds']);
-        $data['admin_pwd']=encrypt($data['admin_pwd']);
+        $data['admin_pwd']=password_hash($data['admin_pwd'], PASSWORD_BCRYPT);
         //添加时间
         $data['admin_time']=time();
         //添加
@@ -182,7 +182,7 @@ class AdminController extends Controller
     }
 
     /**
-     * 权限删除
+     * 删除
      */
     public function destroy($id){
         //删除

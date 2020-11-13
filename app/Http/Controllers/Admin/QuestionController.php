@@ -163,8 +163,6 @@ class QuestionController extends Controller
     
     public function duoadd(){
         // 多选题添加
-
-
         return view("question.duoadd");
     }
     public function duoadddo(Request $request){
@@ -516,7 +514,5 @@ class QuestionController extends Controller
         }
 
     }
-
-
 
 }

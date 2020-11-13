@@ -44,29 +44,109 @@
   </tr>
   </thead>
   <tbody>
-  @foreach($data as $k=>$v)
-    <tr>
-      <!-- <td>1</td> -->
-      <td>{{$v->lereg_id}}</td>
-      <td>{{$v->lereg_name}}</td>
-      <td>{{$v->lereg_school}}</td>
-      <td>{{$v->lereg_qual}}</td>
-      <td>
+    @foreach($data as $k=>$v)
+      @if($v->lereg_is==0)
+        <tr lereg_id="{{$v->lereg_id}}">
+          <!-- <td>1</td> -->
+          <td class="lereg_id">{{$v->lereg_id}}</td>
+          <td>{{$v->lereg_name}}</td>
+          <td>{{$v->lereg_school}}</td>
+          <td>{{$v->lereg_qual}}</td>
+          <td>
+            @if($v->lereg_is==0)审核中 @endif
+            @if($v->lereg_is==1)是 @endif
+            @if($v->lereg_is==2)审核未通过 @endif
+          </td>
+          <td>
+            <a class="btn btn-danger" href="{{url('/teacher/del/'.$v->lereg_id)}}">删除</a> |   
+            <a class="btn btn-info" href="{{url('/teacher/upd/'.$v->lereg_id)}}">修改</a>  |
+            <button class="btn btn-info tongguo" value="{{$v->lereg_id}}">通过审核</button> |
+            <button class="btn btn-info weitong" value="{{$v->lereg_id}}">审核未通过</button>
+          </td>
+      </tr>
+      @elseif($v->lereg_is==1)
+        <tr lereg_id="{{$v->lereg_id}}">
+          <!-- <td>1</td> -->
+          <td class="lereg_id">{{$v->lereg_id}}</td>
+          <td>{{$v->lereg_name}}</td>
+          <td>{{$v->lereg_school}}</td>
+          <td>{{$v->lereg_qual}}</td>
+          <td>
+            @if($v->lereg_is==0)审核中 @endif
+            @if($v->lereg_is==1)是 @endif
+            @if($v->lereg_is==2)审核未通过 @endif
+          </td>
+          <td>
+            <a class="btn btn-danger" href="{{url('/teacher/del/'.$v->lereg_id)}}">删除</a> |   
+            <a class="btn btn-info" href="{{url('/teacher/upd/'.$v->lereg_id)}}">修改</a>  |
+          </td>
+      </tr>
+      @elseif($v->lereg_is==2)
+        <tr lereg_id="{{$v->lereg_id}}">
+            <!-- <td>1</td> -->
+            <td class="lereg_id">{{$v->lereg_id}}</td>
+            <td>{{$v->lereg_name}}</td>
+            <td>{{$v->lereg_school}}</td>
+            <td>{{$v->lereg_qual}}</td>
+            <td>
+              @if($v->lereg_is==0)审核中 @endif
+              @if($v->lereg_is==1)是 @endif
+              @if($v->lereg_is==2)审核未通过 @endif
+            </td>
+            <td>
+              <a class="btn btn-danger" href="{{url('/teacher/del/'.$v->lereg_id)}}">删除</a> |   
+              <a class="btn btn-info" href="{{url('/teacher/upd/'.$v->lereg_id)}}">修改</a>  |
+            </td>
+        </tr>
+      @endif
         
-        @if($v->lereg_is==0)审核中 @endif
-        @if($v->lereg_id==1)是 @endif
-        @if($v->lereg_id==2)审核未通过 @endif
-      </td>
-      <td>
-      	<a class="btn btn-danger" href="{{url('/teacher/del/'.$v->lereg_id)}}">删除</a> | 	
-      	<a class="btn btn-info" href="{{url('/teacher/upd/'.$v->lereg_id)}}">修改</a>
-      </td>
-  </tr>
    @endforeach
    <td>
       <td colspan="10">{{$data->appends(['lereg_name'=>$lereg_name])->links()}}</td>
    </td>
   </tbody>
 </table>
+<script>
+  $(document).ready(function(){
+      $(".tongguo").click(function(){
+         var lereg_id = $(this).val();
+         // alert(lereg_id)
+         // return false;
+         $.get("{{url('/teacher/tongguoshenhe')}}",{lereg_id:lereg_id},function(res){
+             $('#success').trigger('click')
+                //提示语
+              $('#prompt').html('<h1>确认审核通过吗？</h1>')
+                    //按钮的字
+              $('#jump').text('确认')
 
+                    //跳转
+              $(document).on('click','#jump',function(){
+                        //跳转地址
+                location.href="/teacher/indexis";
+              })
+         },'json');
+      })
+      $(".weitong").click(function(){
+        var lereg_id = $(this).val();
+         
+         $.get("{{url('/teacher/weitongguo')}}",{lereg_id:lereg_id},function(res){
+            if(res.code==0){
+              $('#success').trigger('click')
+                //提示语
+              $('#prompt').html('<h1>确认审核未通过吗？</h1>')
+                    //按钮的字
+              $('#jump').text('确认')
+
+                    //跳转
+              $(document).on('click','#jump',function(){
+                        //跳转地址
+                location.href="/teacher/indexis";
+              })
+            }else{
+
+            }
+         },'json');
+      })
+  })
+</script>
 @endsection

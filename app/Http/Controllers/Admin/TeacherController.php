@@ -22,13 +22,16 @@ class TeacherController extends Controller
         // ];
         $data = TeacherModel::where($where)->orderBy("lereg_id","desc")->paginate(3);
         // dd($data);
-        $where2 = [
-            'lereg_is'=>0,
-        ];
-        $typedata = TeacherModel::where($where2)->get();
+        // $where2 = [
+            // 'lereg_is'=>0,
+        // ];
+        $typedata = TeacherModel::get();
         // dd($typedata);
         return view("teacher.index",['data'=>$data,'lereg_name'=>$lereg_name]);
     }
+    
+
+    
     //删除 
     public function del($id){
         $res = TeacherModel::where("lereg_id",$id)->update(['is_del'=>1]);
@@ -38,11 +41,13 @@ class TeacherController extends Controller
             return redirect("/teacher");
         }
     }
+
     // 修改
     public function upd($id){
         $data = TeacherModel::where('lereg_id',$id)->first();
         return view("teacher.upd",['data'=>$data]);
     }
+
     // 执行修改
     public function update($id){
         // 接收ajax传来的值
@@ -84,6 +89,33 @@ class TeacherController extends Controller
         // dd($data);
         return view('/teacher/indexis',['data'=>$data,'lereg_name'=>$lereg_name]);
     }
+    // 通过讲师审核
+    public function tongguoshenhe(){
+        $lereg_id = request()->get("lereg_id");
+        $where = [
+            'lereg_id'=>$lereg_id
+        ];
+        $res = TeacherModel::where($where)->update(['lereg_is'=>1]);
+        if($res){
+            echo json_encode(['code'=>0]);
+        }else{
+            echo json_encode(['code'=>1]);
+        }
+    }
+    //审核未通过
+    public function weitongguo(){
+        $lereg_id = request()->get("lereg_id");
+        $where = [
+            'lereg_id'=>$lereg_id
+        ];
+        $res = TeacherModel::where($where)->update(['lereg_is'=>2]);
+        if($res){
+            echo json_encode(['code'=>0]);
+        }else{
+            echo json_encode(['code'=>1]);
+        }
+    }
+
 
 
 }
