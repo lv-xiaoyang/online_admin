@@ -108,12 +108,18 @@
                 <a href="/"><img class="main-logo" src="/static/img/logo/logo.png" alt="" /></a>
                 <strong><img src="static/img/logo/logosn.png" alt="" /></strong>
             </div>
-            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <div class="left-custom-menu-adp-wrap comment-scrollbar" style="height: 100%">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li>
+                            <a href="/">
+                                <i class="fa big-icon fa-home icon-wrap"></i>
+                                <span class="mini-click-non">首页</span>
+                            </a>
+                        </li>
+                        <li>
                             <a class="has-arrow" href="index.html">
-								   <i class="fa"></i>
+                                <i class="fa big-icon fa-files-o icon-wrap"></i>
 								   <span class="mini-click-non">题库</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -139,16 +145,10 @@
                                 <li><a title="Data Maps" href="/course/section/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">章程添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/knob/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">节添加</span></a></li>
                                 <li><a title="Data Maps" href="/course/hour/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">课时添加</span></a></li>
+                                <li><a title="Data Maps" href="/course/video/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">视频添加</span></a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-pie-chart icon-wrap"></i> <span class="mini-click-non">资讯模块</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="File Manager" href="/article/create"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">资讯添加</span></a></li>
-                                <li><a title="Blog" href="/article"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">资讯展示</span></a></li>
-                                <li><a title="500 Page" href="500.html"><i class="fa fa-tree sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">500 Page</span></a></li>
-                            </ul>
-                        </li>
+                        
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-bar-chart-o icon-wrap"></i> <span class="mini-click-non">资讯</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -164,7 +164,7 @@
                             </ul>
                         </li>
                         
-                        <li class="active">
+                        <li>
                             <a class="has-arrow" href="javascript:;" aria-expanded="false">
                                 <i class="fa big-icon fa-desktop icon-wrap"></i>
                                 <span class="mini-click-non">管理员模块</span>
@@ -271,16 +271,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <li id="removable">
-                            <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-files-o icon-wrap"></i> <span class="mini-click-non">题库</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Login" href="login.html"><i class="fa fa-hand-rock-o sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Login</span></a></li>
-                                <li><a title="Register" href="register.html"><i class="fa fa-plane sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Register</span></a></li>
-                                <li><a title="Lock" href="lock.html"><i class="fa fa-file sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Lock</span></a></li>
-                                <li><a title="Password Recovery" href="password-recovery.html"><i class="fa fa-wheelchair sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Password Recovery</span></a></li>
-                            </ul>
-                        </li>
-                        <li><a title="Landing Page" href="#" aria-expanded="false"><i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i> <span class="mini-click-non">Landing Page</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -1143,6 +1133,22 @@
 </body>
 
 </html>
+
+<script>
+    $(function(){
+        var _with="{{session('msg')}}"
+        //判断
+        if(_with!=''){
+            //触发alert弹框
+            $('#success').trigger('click')
+            //删除标签
+            $('.modal-basic-inner ').find('form').remove()
+            //提示语
+            $('.modal-basic-inner ').append('<h3>'+_with+'</h3>')
+        }
+    })
+</script>
+
  <!-- jquery
         ============================================ -->
     <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>

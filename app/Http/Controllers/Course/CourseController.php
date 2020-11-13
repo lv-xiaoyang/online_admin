@@ -131,6 +131,70 @@ class CourseController extends Controller
             return ['code'=>0002,'msg'=>'删除失败'];
         }
     }
+    /**
+     * 视频上传处理
+     */
+    public function upload(){
+        $filePath = "./imgs";
+        $baseFileName = $_REQUEST['filename'];
+        $ext = explode(".",$baseFileName)[1];
+        $fileName=explode(".",$baseFileName)[0];
+        $arr = $_FILES['page'];
+        $tmpName = $arr['tmp_name'];
+        $content = file_get_contents($tmpName);
+        $fileName = $filePath."/{$fileName}.{$ext}";
+        $path=trim($fileName,'.');
+        // dd($path);
+        // dd($fileName);
+        file_put_contents($fileName,$content,FILE_APPEND);
+        $arr = array(
+            'error'=>0,
+            'path'=>$path,
+            'type'=>$ext
+		);
+	    echo json_encode($arr);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function post($url, $params = false, $header = array()){ 
+    //     $ch = curl_init(); 
+    //     $cookieFile = 'sdadsd_cookiejar.txt'; 
+         
+    //     curl_setopt($ch, CURLOPT_POST, 1); 
+    //     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60); 
+    //     curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile); 
+    //     curl_setopt($ch, CURLOPT_COOKIEFILE,$cookieFile); 
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+    //     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); 
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,FALSE); 
+    //     curl_setopt($ch, CURLOPT_HTTPGET, true); 
+    //     curl_setopt($ch, CURLOPT_TIMEOUT, 30); 
+    //     if($params !== false){ curl_setopt($ch, CURLOPT_POSTFIELDS , $params);} 
+    //     curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 5.1; rv:21.0) Gecko/20100101 Firefox/21.0'); 
+    //     curl_setopt($ch, CURLOPT_URL,$url); 
+    //     curl_setopt($ch, CURLOPT_HTTPHEADER, $header); 
+    //     $result = curl_exec($ch); 
+    //     curl_close($ch); 
+         
+    //     return $result; 
+    //     } 
+    
 
     // public function addimg(){
     //     $arr = $_FILES["Filedata"];
