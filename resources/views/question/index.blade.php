@@ -104,7 +104,7 @@
       var _this=$(this);
       var id = _this.val();
 
-       $('#success').trigger('click')
+          $('#success').trigger('click')
                 //提示语
           $('#prompt').html('<h1>确认删除吗？</h1>')
                 //按钮的字

@@ -148,6 +148,13 @@
                                 <li><a title="Data Maps" href="/course/video/create"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">视频添加</span></a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-pie-chart icon-wrap"></i> <span class="mini-click-non">考试</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="File Manager" href="{{url('/exam/add')}}"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">添加考题</span></a></li>
+                                <li><a title="Blog" href="{{url('/exam/index')}}"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">考试展示</span></a></li>
+                            </ul>
+                        </li>
                         
                         <li>
                             <a class="has-arrow" href="javascript:;" aria-expanded="false">
