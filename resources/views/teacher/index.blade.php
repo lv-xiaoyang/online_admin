@@ -41,9 +41,8 @@
       <th>讲师毕业学校</th>
       <th>讲师专业</th>
       <th>讲师资格证</th>
+      <th>讲师授课风格</th>
       <th>从业时长</th>
-      <th>是否审核通过</th>
-      <!-- <th>选项D内容</th> -->
       <th>操作</th>
   </tr>
   </thead>
@@ -57,14 +56,9 @@
       <td>{{$v->lereg_edu}}</td>
       <td>{{$v->lereg_school}}</td>
       <td>{{$v->lereg_magor}}</td>
-      <td>{{$v->lereg_qual}}</td>
+      <td><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" width="30px" height="30px" alt=""></td>
+      <td>{{$v->lereg_style}}</td>
       <td>{{$v->lereg_time}}</td>
-      <td>
-        
-        @if($v->lereg_is==0)审核中 @endif
-        @if($v->lereg_id==1)是 @endif
-        @if($v->lereg_id==2)审核未通过 @endif
-      </td>
       <td>
       	<a class="btn btn-danger" href="{{url('/teacher/del/'.$v->lereg_id)}}">删除</a> | 	
       	<a class="btn btn-info" href="{{url('/teacher/upd/'.$v->lereg_id)}}">修改</a>
