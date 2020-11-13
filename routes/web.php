@@ -250,11 +250,17 @@ Route::prefix("/question")->group(function(){
 
 // 资讯模块
 Route::prefix('/article')->group(function(){
+    //资讯展示
     Route::get('/',"Admin\articleController@index")->name("atiIndexs");
+    //资讯添加页面
     Route::get('/create',"Admin\articleController@create");
+    //资讯执行添加
     Route::post('/story',"Admin\articleController@story");
+    //资讯 修改页面
     Route::get('/update/{id}',"Admin\articleController@update");
+    //资讯 删除
     Route::get('/del/{id}',"Admin\articleController@del");
+    //资讯 修改
     Route::post('/update2/{id}',"Admin\articleController@update2");
 
 
@@ -262,9 +268,13 @@ Route::prefix('/article')->group(function(){
 
 //讲师模块
 Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(function(){
+    //讲师 展示
     Route::get("/","Admin\TeacherController@index")->name("teacher");
+    //讲师 删除
     Route::get("/del/{id}","Admin\TeacherController@del");
+    //讲师 修改页面
     Route::get("/upd/{id}","Admin\TeacherController@upd");
+    //讲师 执行修改
     Route::post("/update/{id}","Admin\TeacherController@update");
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
     Route::get("/tongguoshenhe","Admin\TeacherController@tongguoshenhe");//通过讲师审核
