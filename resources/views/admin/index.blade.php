@@ -142,13 +142,11 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-pie-chart icon-wrap"></i> <span class="mini-click-non">Miscellaneous</span></a>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa big-icon fa-pie-chart icon-wrap"></i> <span class="mini-click-non">考试</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="File Manager" href="file-manager.html"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">File Manager</span></a></li>
-                                <li><a title="Blog" href="blog.html"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog</span></a></li>
-                                <li><a title="Blog Details" href="blog-details.html"><i class="fa fa-tags sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog Details</span></a></li>
-                                <li><a title="404 Page" href="404.html"><i class="fa fa-tint sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">404 Page</span></a></li>
-                                <li><a title="500 Page" href="500.html"><i class="fa fa-tree sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">500 Page</span></a></li>
+                                <li><a title="File Manager" href="{{url('/exam/add')}}"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">添加考题</span></a></li>
+                                <li><a title="Blog" href="{{url('/exam/index')}}"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">考试展示</span></a></li>
+                                
                             </ul>
                         </li>
                         <li>

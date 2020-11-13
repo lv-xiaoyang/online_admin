@@ -206,7 +206,32 @@ Route::prefix("/question")->group(function(){
     Route::get("/search","Admin\QuestionController@search");
     Route::get("/dancount","Admin\QuestionController@dancount");//多选题\简答题\单选题 ajax 验证题干唯一性
 });
- 
+ //考试模块
+ Route::prefix("exam")->group(function(){
+    Route::get("/add","Admin\ExamController@add");//添加考题
+    //考试展示
+    Route::get("/index","Admin\ExamController@index");
+    //执行添加
+    Route::post("/adddo","Admin\ExamController@adddo");
+    // 添加单选题  
+    Route::get("/danadd/{id}","Admin\ExamController@danadd");
+    // 添加多选题
+    Route::get("/duoadd/{id}","Admin\ExamController@duoadd");
+    // 添加简答题
+    Route::get("/jianadd/{id}","Admin\ExamController@jianadd");
+    //执行添加单选题
+    Route::get("/danadddo","Admin\ExamController@danadddo");
+    Route::get("/duoadddo","Admin\ExamController@duoadddo");
+    Route::get("/jianadddo","Admin\ExamController@jianadddo");
+    Route::get("/looks/{id}","Admin\ExamController@looks");//查看考题
+    Route::get("/delete/{id}","Admin\ExamController@delete");//查看考题删除
+    Route::get("/examdel/{id}","Admin\ExamController@examdel");//停用
+    //启用
+    Route::get("/examdel2/{id}","Admin\ExamController@examdel2");
+ }); 
+
+
+
 
 //讲师模块
 Route::prefix("/teacher")->group(function(){
@@ -214,17 +239,11 @@ Route::prefix("/teacher")->group(function(){
     Route::get("/del/{id}","Admin\TeacherController@del");
     Route::get("/upd/{id}","Admin\TeacherController@upd");
     Route::post("/update/{id}","Admin\TeacherController@update");
-
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
-});
 
 
-//讲师模块
-Route::prefix("/teacher")->group(function(){
-    Route::get("/","Admin\TeacherController@index")->name("teacher");
-    Route::get("/del/{id}","Admin\TeacherController@del");
-    Route::get("/upd/{id}","Admin\TeacherController@upd");
-    Route::post("/update/{id}","Admin\TeacherController@update");
-    Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");
+
+    Route::get("/tongguoshenhe","Admin\TeacherController@tongguoshenhe");//通过讲师审核
+    Route::get("/weitongguo","Admin\TeacherController@weitongguo");//未通过审核
 });
 
