@@ -2,9 +2,9 @@
 @section('title','讲师修改')
 @section('content')
 
-<form method="post" class="form-horizontal" role="form"   enctype="multipart/form-data">
-   @csrf  
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<form method="post" class="form-horizontal" role="form" id="banner-upload" enctype="multipart/form-data">
+  
    <div class="form-group">
         <label for="firstname" class="col-sm-2 control-label">讲师昵称</label>
           <div class="col-sm-10" lereg_id="{{$data->lereg_id}}">
@@ -15,7 +15,7 @@
     <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label">讲师简历</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="lereg_res" rows="3" >{{$data->lereg_res}}</textarea>
+          <textarea class="form-control" id="lereg_res" name="lereg_res" rows="3" >{{$data->lereg_res}}</textarea>
       </div>
     </div>
 
@@ -44,13 +44,13 @@
     <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label">讲师授课风格</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="lereg_style" rows="3" >{{$data->lereg_style}}</textarea>
+          <textarea class="form-control" name="lereg_style" id="lereg_style" rows="3" >{{$data->lereg_style}}</textarea>
       </div>
     </div>
     <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label">所学专业</label>
         <div class="col-sm-10">
-          <input class="form-control" id="lereg_magor" rows="3" value="{{$data->lereg_magor}}">
+          <input class="form-control" id="lereg_magor" name="lereg_magor" rows="3" value="{{$data->lereg_magor}}">
       </div>
     </div>
     <div class="form-group">
@@ -85,44 +85,69 @@
   $(document).ready(function(){
     //   alert(2345);
     $("#button").click(function(){
-        var lereg_name = $('#lereg_name').val();
-        var lereg_res = $("#lereg_res").val();
-        var lereg_edu = $("#lereg_edu").val();
-        var lereg_school = $("#lereg_school").val();
-        var lereg_style = $("#lereg_style").val();
-        var lereg_magor = $("#lereg_magor").val();
-        var lereg_qual =$("#lereg_qual").val();
-        var lereg_time = $("#lereg_time").val();
+        // var lereg_name = $('#lereg_name').val();
+        // var lereg_res = $("#lereg_res").val();
+        // var lereg_edu = $("#lereg_edu").val();
+        // var lereg_school = $("#lereg_school").val();
+        // var lereg_style = $("#lereg_style").val();
+        // var lereg_magor = $("#lereg_magor").val();
+        // var lereg_qual =$("#lereg_qual").val();
+        // var lereg_time = $("#lereg_time").val();
         var lereg_id = {{$data->lereg_id}};
 
+
         // console.log(lereg_id);
-        // return false;
-         $.ajax({
-          type:"post",
-          url:"/teacher/update/"+lereg_id,
-          dataType:"json",
-          headers:{'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
-          data:{lereg_name:lereg_name,lereg_res:lereg_res,lereg_edu:lereg_edu,lereg_school:lereg_school,lereg_style:lereg_style,lereg_magor:lereg_magor,lereg_qual:lereg_qual,lereg_time:lereg_time,lereg_id:lereg_id},
-          success:function(res){
-           if(res.code==0002){
-            // alert(res.msg);
-            //触发提示框
-                $('#success').trigger('click')
-                //提示语
-                $('#prompt').html('<h1>修改失败</h1>')
+        // // return false;
+        //  $.ajax({
+        //   type:"post",
+        //   url:"/teacher/update/"+lereg_id,
+        //   dataType:"json",
+        //   headers:{'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
+        //   data:{lereg_name:lereg_name,lereg_res:lereg_res,lereg_edu:lereg_edu,lereg_school:lereg_school,lereg_style:lereg_style,lereg_magor:lereg_magor,lereg_qual:lereg_qual,lereg_time:lereg_time,lereg_id:lereg_id},
+        //   success:function(res){
+          //  if(res.code==0002){
+          //   // alert(res.msg);
+          //   //触发提示框
+          //       $('#success').trigger('click')
+          //       //提示语
+          //       $('#prompt').html('<h1>修改失败</h1>')
                
-          } 
-          if(res.code==0001){
-            //触发提示框
-                $('#success').trigger('click')
-                //提示语
-                $('#prompt').html('<h1>修改成功</h1>')
-                //按钮的字
-                $('#jump').text('去展示')
+          // } 
+          // if(res.code==0001){
+          //   //触发提示框
+          //       $('#success').trigger('click')
+          //       //提示语
+          //       $('#prompt').html('<h1>修改成功</h1>')
+          //       //按钮的字
+          //       $('#jump').text('去展示')
                 
-            }
-          }
-        })  
+        //   //   }
+        //   }
+        // })  
+
+        $(document).on('click','#button',function(){
+            
+            var formData = new FormData(document.getElementById('banner-upload'));
+            $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+            $.ajax({
+                url:'/teacher/update/'+lereg_id,
+                type:'post',
+                data:formData,
+                contentType: false,
+                processData: false,
+                success:function(res){
+                    if(res.code==0001){
+                        if(window.confirm('修改成功，是否前往列表页')){
+                            location.href="/teacher";
+                        }
+                    }else{
+                        alert(res.msg);
+                    }
+                }
+            });
+        });
+            
+
     })
   })
   //跳转

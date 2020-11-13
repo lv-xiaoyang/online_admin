@@ -52,6 +52,7 @@ class TeacherController extends Controller
     public function update($id){
         // 接收ajax传来的值
         $data=request()->post();
+        // dd($data);
         // $lereg_name = request()->post('lereg_name');
         // // var_dump($lereg_name);
         // $lereg_res = request()->lereg_res;
@@ -74,14 +75,29 @@ class TeacherController extends Controller
         //     'lereg_id'=>$lereg_id,
         //     'lereg_style'=>$lereg_style
         // ];
-        // dd($data);
+        $lereg_qual=request()->lereg_qual;
+        //件上传验证
+        if(empty($lereg_qual)){
+            return ['code'=>0002,'msg'=>'请上传文件'];die;
+        }
+        $lereg_qual=$this->fileImg($lereg_qual);
+        $data['lereg_qual']=$lereg_qual;
         $res = TeacherModel::where("lereg_id",$id)->update($data);
         // dd($res);
         if($res){
-            echo json_encode(['code'=>0001]);
+            return ['code'=>0001];
         }else{
-            echo json_encode(['code'=>0002]);
+            return ['code'=>0002];
         }
+    }
+
+
+     //图片上传处理
+     public function fileImg($lereg_qual){
+        if ($lereg_qual->isValid()){
+            $path = $lereg_qual->store('images');
+        }
+        return $path;
     }
 
     // 讲师审核展示
