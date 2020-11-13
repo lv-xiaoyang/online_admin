@@ -258,6 +258,7 @@ Route::prefix('/article')->group(function(){
     Route::post('/update2/{id}',"Admin\articleController@update2");
 
 
+});
 
 //讲师模块
 Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(function(){
@@ -268,9 +269,5 @@ Route::prefix("/teacher")->middleware('checkLogin','checkAuthority')->group(func
     Route::get("/indexis","Admin\TeacherController@indexis")->name("indexis");//讲师审核展示
     Route::get("/tongguoshenhe","Admin\TeacherController@tongguoshenhe");//通过讲师审核
     Route::get("/weitongguo","Admin\TeacherController@weitongguo");//未通过审核
-});
-
-
-
 });
 
