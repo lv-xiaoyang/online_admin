@@ -29,7 +29,7 @@ class LoginController extends Controller
         //判断
         if(!empty($admin_info)){
             //存在 验证密码
-            if($data['admin_pwd']==decrypt($admin_info->admin_pwd)){
+            if(password_verify($data['admin_pwd'],$admin_info->admin_pwd)){
                 //登录成功
                 //存session
                 session(['admin_info'=>$admin_info]);
