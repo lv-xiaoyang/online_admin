@@ -51,30 +51,53 @@ class TeacherController extends Controller
     // 执行修改
     public function update($id){
         // 接收ajax传来的值
-        $lereg_name = request()->post('lereg_name');
-        // var_dump($lereg_name);
-        $lereg_res = request()->lereg_res;
-        
-        $lereg_edu = request()->lereg_edu;
-        $lereg_school = Request()->lereg_school;
-        $lereg_magor = request()->lereg_magor;
-        $lereg_time = request()->lereg_time;
-        // 转化为数组
-        $data = [
-            'lereg_name'=>$lereg_name,
-            'lereg_res'=>$lereg_res,
-            'lereg_edu'=>$lereg_edu,
-            'lereg_school'=>$lereg_school,
-            'lereg_magor'=>$lereg_magor,
-            // 'lereg_qual'=>$lereg_qual,
-            'lereg_time'=>$lereg_time,
-        ];
-        $res = TeacherModel::where("lereg_id",$id)->update($data);
-        if($res!==false){
-            return redirect("/teacher");
-        }else{
-            return redirect("/teacher");
+        $data=request()->post();
+        // dd($data);
+        // $lereg_name = request()->post('lereg_name');
+        // // var_dump($lereg_name);
+        // $lereg_res = request()->lereg_res;
+        // $lereg_id = request()->lereg_id;
+        // $lereg_edu = request()->lereg_edu;
+        // $lereg_school = Request()->lereg_school;
+        // $lereg_magor = request()->lereg_magor;
+        // $lereg_time = request()->lereg_time;
+        // $lereg_qual = request()->lereg_qual;
+        // $lereg_style = request()->lereg_style;
+        // // 转化为数组
+        // $data = [
+        //     'lereg_name'=>$lereg_name,
+        //     'lereg_res'=>$lereg_res,
+        //     'lereg_edu'=>$lereg_edu,
+        //     'lereg_school'=>$lereg_school,
+        //     'lereg_magor'=>$lereg_magor,
+        //     'lereg_qual'=>$lereg_qual,
+        //     'lereg_time'=>$lereg_time,
+        //     'lereg_id'=>$lereg_id,
+        //     'lereg_style'=>$lereg_style
+        // ];
+        $lereg_qual=request()->lereg_qual;
+        //件上传验证
+        if(empty($lereg_qual)){
+            return ['code'=>0002,'msg'=>'请上传文件'];die;
         }
+        $lereg_qual=$this->fileImg($lereg_qual);
+        $data['lereg_qual']=$lereg_qual;
+        $res = TeacherModel::where("lereg_id",$id)->update($data);
+        // dd($res);
+        if($res){
+            return ['code'=>0001];
+        }else{
+            return ['code'=>0002];
+        }
+    }
+
+
+     //图片上传处理
+     public function fileImg($lereg_qual){
+        if ($lereg_qual->isValid()){
+            $path = $lereg_qual->store('images');
+        }
+        return $path;
     }
 
     // 讲师审核展示
