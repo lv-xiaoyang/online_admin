@@ -51,7 +51,7 @@
           <td class="lereg_id">{{$v->lereg_id}}</td>
           <td>{{$v->lereg_name}}</td>
           <td>{{$v->lereg_school}}</td>
-          <td>{{$v->lereg_qual}}</td>
+          <td><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" width="50px" height="50px" alt=""></td>
           <td>
             @if($v->lereg_is==0)审核中 @endif
             @if($v->lereg_is==1)是 @endif
@@ -70,7 +70,7 @@
           <td class="lereg_id">{{$v->lereg_id}}</td>
           <td>{{$v->lereg_name}}</td>
           <td>{{$v->lereg_school}}</td>
-          <td>{{$v->lereg_qual}}</td>
+          <td><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" width="50px" height="50px" alt=""></td>
           <td>
             @if($v->lereg_is==0)审核中 @endif
             @if($v->lereg_is==1)是 @endif
@@ -87,7 +87,7 @@
             <td class="lereg_id">{{$v->lereg_id}}</td>
             <td>{{$v->lereg_name}}</td>
             <td>{{$v->lereg_school}}</td>
-            <td>{{$v->lereg_qual}}</td>
+            <td><img src="{{env('IMG_URL')}}{{$v->lereg_qual}}" width="50px" height="50px" alt=""></td>
             <td>
               @if($v->lereg_is==0)审核中 @endif
               @if($v->lereg_is==1)是 @endif
