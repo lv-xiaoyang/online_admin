@@ -21,7 +21,6 @@ class VideoController extends Controller
         //获取课程数据
         $course_where=[
             ['course_del','=',0],
-            ['course_status','=',2]
         ];
         $courese_data=CourseModel::select('course_id','course_name')->where($course_where)->get();
         return view('course.video.create',compact('courese_data'));

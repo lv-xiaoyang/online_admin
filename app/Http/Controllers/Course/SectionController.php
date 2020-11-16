@@ -17,7 +17,6 @@ class SectionController extends Controller
     public function create(){
         //获取所有课程
         $course_where=[
-            ['course_status','=',2],
             ['course_del','=',0]
         ];
         $course_data=CourseModel::select('course_id','course_name')->where($course_where)->get();
