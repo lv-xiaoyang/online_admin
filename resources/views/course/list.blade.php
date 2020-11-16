@@ -32,7 +32,7 @@
                                 <div class="zhang"></div>
                             </td>
                             <td>{{$v->type_name}}</td>
-                            <td><img src="{{env('IMG_URL')}}{{$v->course_img}}" width="30px" height="30px" alt=""></td>
+                            <td><img src="/{{$v->course_img}}" width="30px" height="30px" alt=""></td>
                             <td>{{$v->lect_name}}</td>
                             <td>{{$v->course_desc}}</td>
                             <td>{{$v->course_status==1?'更新中':'已完结'}}</td>
